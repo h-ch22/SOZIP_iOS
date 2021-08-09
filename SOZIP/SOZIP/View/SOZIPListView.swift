@@ -8,10 +8,39 @@
 import SwiftUI
 
 struct SOZIPListView: View {
+    @EnvironmentObject var userManagement : UserManagement
+    @State private var greet : String = ""
+    @State private var showATTPermissionView = false
+    @State private var showBETAModal = false
     @ObservedObject var helper : SOZIPHelper
     @State private var showModal = false
     @State private var showAlert = false
     @State private var searchText = ""
+    let data : [SOZIPDataModel]
+    
+    func calculate_Time(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        
+        let current_string = formatter.string(from: Date())
+        let current_hour = Int(current_string) ?? 0
+        
+        if current_hour >= 6 && current_hour <= 11{
+            greet = "좋은 아침이예요,"
+        }
+        
+        else if current_hour >= 12 && current_hour <= 17{
+            greet = "좋은 오후예요,"
+        }
+        
+        else if current_hour >= 18{
+            greet = "좋은 밤이예요,"
+        }
+        
+        else if current_hour >= 0 && current_hour <= 5{
+            greet = "좋은 밤이예요,"
+        }
+    }
     
     var body: some View {
         NavigationView{
@@ -24,17 +53,25 @@ struct SOZIPListView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination : navigateToSOZIPMap(data : helper.SOZIPList)
-                                        .navigationBarTitle(Text("소집 맵"), displayMode: .inline)
-                                        ){
-                            Image(systemName : "map.fill")
+                        NavigationLink(destination : NotificationCenter().environmentObject(UserManagement())){
+                            Image(systemName: "bell.fill")
+                                .resizable()
+                                .frame(width : 20, height : 20)
                                 .foregroundColor(.txt_color)
                         }
                     }
                     
+                    Spacer().frame(height : 15)
+                    
+                    HStack {
+                        Text("\(greet)\n\(userManagement.name)님!")
+                        
+                        Spacer()
+                    }
+                    
                     SearchBar(text: $searchText, placeholder: "원하는 소집을 검색해보세요!")
                     
-                    if helper.SOZIPList.isEmpty{
+                    if data.isEmpty{
                         
                         Spacer()
                         
@@ -56,11 +93,10 @@ struct SOZIPListView: View {
                     else{
                         ScrollView{
                             LazyVStack(alignment : .center){
-                                ForEach(helper.SOZIPList.filter{
-                                    self.searchText.isEmpty ? true : $0.SOZIPName.lowercased().contains(searchText.lowercased()) ||
-                                    $0.store.lowercased().contains(searchText.lowercased())
+                                ForEach(data.filter{
+                                    self.searchText.isEmpty ? true : $0.SOZIPName.lowercased().contains(searchText.lowercased()) 
                                 }, id : \.self){  index in
-                                    if index.status != "closed" && index.status != "paused"{
+                                    if index.status != "closed" && index.status != "paused" && index.status != "end"{
                                         NavigationLink(destination : SOZIPDetailView(sozip: index, helper: SOZIPHelper())){
                                             SOZIPListModel(data: index)
                                         }
@@ -75,17 +111,24 @@ struct SOZIPListView: View {
                 }.padding(20)
                     .navigationBarHidden(true)
                     .onAppear(perform: {
-                        helper.getSOZIP(){(result) in
-                            guard let result = result else{return}
-                            
-                            if !result{
-                                showAlert = true
-                            }
+                        calculate_Time()
+                        
+                        if !UserDefaults.standard.bool(forKey: "launchedBefore"){
+                            self.showATTPermissionView = true
+                            self.showBETAModal = true
                         }
                     })
                 
-                    .alert(isPresented: $showAlert, content: {
-                        return Alert(title: Text("오류"),
+                .fullScreenCover(isPresented: $showATTPermissionView){
+                    requestATTPermission()
+                }
+                
+                .sheet(isPresented: $showBETAModal, content: {
+                    IntroduceFeedbackHub()
+                })
+                
+                .alert(isPresented: $showAlert, content: {
+                    return Alert(title: Text("오류"),
                                      message: Text("소집 목록을 받아오는 중 문제가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하세요."),
                                      dismissButton: .default(Text("확인")))
                 })

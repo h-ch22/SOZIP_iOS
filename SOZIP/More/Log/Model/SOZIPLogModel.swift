@@ -12,40 +12,16 @@ struct SOZIPLogModel: View {
 
     var body: some View {
         VStack{
-            Rectangle()
-                .fill(data.SOZIP_Color)
-                .frame(height : 3)
-                .edgesIgnoringSafeArea(.horizontal)
-            
             HStack{
                 Text(data.SOZIPName)
                     .fontWeight(.semibold)
                     .foregroundColor(.txt_color)
                 
                 Spacer()
-                
-                NavigationLink(destination: EmptyView()){
-                    Image(systemName: "exclamationmark.bubble.fill")
-                        .foregroundColor(.red)
-                }
-                    
             }
             
             HStack{
-                Image("ic_store")
-                    .resizable()
-                    .frame(width : 20, height : 20)
-                    .foregroundColor(.txt_color)
-                
-                Text(data.store)
-                    .font(.caption)
-                    .foregroundColor(.txt_color)
-
-                Spacer()
-            }
-            
-            HStack{
-                Image(systemName: "location.fill.viewfinder")
+                Image(systemName: "location.fill")
                     .resizable()
                     .frame(width : 20, height : 20)
                     .foregroundColor(.txt_color)
@@ -55,7 +31,6 @@ struct SOZIPLogModel: View {
                     .foregroundColor(.txt_color)
                 
                 Spacer()
-
             }
             
 
@@ -71,7 +46,6 @@ struct SOZIPLogModel: View {
                 
                 Spacer()
             }
-        }.padding(20)
-        .background(RoundedRectangle(cornerRadius: 15.0).shadow(radius: 5).foregroundColor(.btn_color))
+        }
     }
 }

@@ -12,66 +12,71 @@ struct ChatPreviewListModel: View {
 
     var body: some View {
         VStack{
-            
-            if data.currentPeople > 0 {
-                Rectangle()
-                    .fill(data.color)
-                    .frame(height : 3)
-                    .edgesIgnoringSafeArea(.horizontal)
-                
+            VStack{
                 HStack{
-                    Text(data.name)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.txt_color)
+                    if data.name.contains("치킨") || data.name.contains("BHC") || data.name.contains("BBQ") || data.name.contains("네네") || data.name.contains("황금올리브") || data.name.contains("허니콤보") || data.name.contains("뿌링클"){
+                        Image("ic_chicken")
+                            .resizable()
+                            .frame(width : 50, height : 50)
+                    }
                     
-                    Spacer().frame(width : 10)
+                    else if data.name.contains("피자"){
+                        Image("ic_pizza")
+                            .resizable()
+                            .frame(width : 50, height : 50)
+                    }
                     
-                    Text(String(data.currentPeople))
-                        .foregroundColor(.gray)
-                        .font(.caption)
+                    else if data.name.contains("버거") || data.name.contains("맥도날드") || data.name.contains("버거킹") || data.name.contains("롯데리아") || data.name.contains("맘스터치"){
+                        Image("profile_burger")
+                            .resizable()
+                            .frame(width : 50, height : 50)
+                    }
                     
-                    Spacer()
+                    else{
+                        Image("appstore")
+                            .resizable()
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .frame(width : 50, height : 50)
+                    }
+                    
+                    VStack{
+                        HStack{
+                            Text(data.name)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.txt_color)
+                            
+                            Spacer().frame(width : 10)
+                            
+                            Text(String(data.currentPeople))
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                            
+                            Spacer()
+                        }
+                        
+                        Spacer().frame(height : 10)
+                        
+                        HStack{
+                            Text(data.last_msg)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            
+                            Spacer()
+                            
+                            Text(String(data.last_msg_time))
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                    }
                 }
                 
-                Spacer().frame(height : 10)
-
-                HStack{
-                    Text(data.last_msg)
-                        .font(.caption)
-                        .foregroundColor(.gray)
-
-                    Spacer()
-                    
-                    Text(String(data.last_msg_time))
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
+                
             }
             
-            else{
-                HStack{
-                    Text(data.name)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    
-                    Spacer()
-
-                }
-                
-                Spacer().frame(height : 10)
-
-                HStack{
-                    Text("종료된 소집입니다.")
-                        .font(.caption)
-                        .foregroundColor(.white)
-
-                    Spacer()
-                }
-            }
             
-
-        }.padding(20)
-            .background(RoundedRectangle(cornerRadius: 15.0).shadow(radius: 5).foregroundColor(data.currentPeople > 0 ? .btn_color : .black.opacity(0.6)))
+            
+            
+        }
         
     }
 }

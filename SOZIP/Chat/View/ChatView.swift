@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ChatView: View {
     @State private var searchText = ""
     @ObservedObject var helper : ChatHelper
+
     
     var body: some View {
         NavigationView{
@@ -39,42 +41,62 @@ struct ChatView: View {
                     
                     else{
                         Spacer().frame(height : 20)
-
-                        ScrollView{
-                            LazyVStack(alignment : .center){
+                        
+                        List{
+                            Section(header : Text("진행 중인 소집")){
                                 ForEach(helper.chatPreviewList.filter{
-                                    self.searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased()) ||
-                                    $0.last_msg.lowercased().contains(searchText.lowercased())}, id : \.self){  index in
-                                        NavigationLink(destination : ChatDetailView(helper: ChatHelper(), rootDocId: index.docId, color: index.color, name : index.name)){
+                                            self.searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased()) ||
+                                                $0.last_msg.lowercased().contains(searchText.lowercased())}, id : \.self){  index in
+                                    if index.currentPeople > 0 && index.status != "closed"{
+                                        NavigationLink(destination : ChatDetailView(helper: ChatHelper(), rootDocId: index.docId, name : index.name)){
                                             ChatPreviewListModel(data : index)
                                         }
-                                    
-                                    Spacer().frame(height : 20)
+                                                                                
+                                        Divider().background(Color.txt_color)
+                                    }
                                 }
                             }
-                        }
+                            
+                            Section(header : Text("종료된 소집")){
+                                ForEach(helper.chatPreviewList.filter{
+                                            self.searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased()) ||
+                                                $0.last_msg.lowercased().contains(searchText.lowercased())}, id : \.self){  index in
+                                    if index.currentPeople <= 0 || index.status == "closed"{
+                                        NavigationLink(destination : ChatDetailView(helper: ChatHelper(), rootDocId: index.docId, name : index.name)){
+                                            ChatPreviewListModel(data : index)
+                                        }
+
+                                                                                
+                                        Divider().background(Color.txt_color)
+                                    }
+                                }
+
+                            }
+                            
+                        }.listStyle(SidebarListStyle())
+                        
                     }
                     
                 }.padding([.horizontal], 20)
                 .onAppear(perform: {
                     helper.getChatList(){result in
                         guard let result = result else{return}
-                            
+                        
                         if result == "error"{
-                                
-                        }
                             
+                        }
+                        
                         else if result == "noUser"{
-                                
+                            
                         }
                     }
                 })
-
+                
                 .navigationBarHidden(true)
-
+                
             }
         }
-
+        
     }
     
 }

@@ -15,41 +15,18 @@ class SOZIPHelper : ObservableObject{
     private let nickName = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "nickName") ?? "")
     @Published var SOZIPList : [SOZIPDataModel] = []
     
-    func addSOZIP(name : String, storeName : String, receiver : SOZIPLocationReceiver, dateTime : Date, Color : Color, tags : [String], completion : @escaping(_ result : Bool?) -> Void){
+    func addSOZIP(name : String, receiver : SOZIPLocationReceiver, dateTime : Date, tags : [String], completion : @escaping(_ result : Bool?) -> Void){
         let docRef = db.collection("SOZIP").document()
-        var colorName = ""
-        
-        switch Color{
-        case .sozip_bg_1 :
-            colorName = "bg_1"
-            
-        case .sozip_bg_2 :
-            colorName = "bg_2"
-            
-        case .sozip_bg_3:
-            colorName = "bg_3"
-            
-        case .sozip_bg_4:
-            colorName = "bg_4"
-            
-        case .sozip_bg_5:
-            colorName = "bg_5"
-            
-        default:
-            colorName = "bg_1"
-        }
         
         let currentTime = Date()
         
         let data : [String : Any] = [
             "name" : AES256Util.encrypt(string: name),
-            "storeName" : AES256Util.encrypt(string:storeName),
             "location" : AES256Util.encrypt(string:receiver.location),
             "address" : AES256Util.encrypt(string: receiver.address),
             "description" : AES256Util.encrypt(string:receiver.description),
             "dateTime" : dateTime,
             "tags" : tags,
-            "Color" : colorName,
             "Manager" :Auth.auth().currentUser?.uid as! String,
             "participants" : [Auth.auth().currentUser?.uid as! String : nickName],
             "payMethod" : [Auth.auth().currentUser?.uid as! String : ""],
@@ -101,16 +78,13 @@ class SOZIPHelper : ObservableObject{
             else{
                 querySnapshot?.documentChanges.forEach{ diff in
                     if(diff.type == .added){
-                        let Color = diff.document.get("Color") as? String ?? "bg_1"
                         let address = diff.document.get("address") as? String ?? ""
-                        let dateTime = diff.document.get("dateTime") as? Date ?? Date()
+                        let date = diff.document.get("dateTime") as! Timestamp
                         let description = diff.document.get("description") as? String ?? ""
                         let location = diff.document.get("location") as? String ?? ""
                         let name = diff.document.get("name") as? String ?? ""
-                        let storeName = diff.document.get("storeName") as? String ?? ""
                         let tags = diff.document.get("tags") as? [String] ?? []
                         let currentPeople = diff.document.get("currentPeople") as? Int ?? 1
-                        var color : Color = .sozip_bg_1
                         let docId = diff.document.documentID
                         let participants = diff.document.get("participants") as? [String : String] ?? [:]
                         let Manager = diff.document.get("Manager") as? String ?? ""
@@ -118,26 +92,12 @@ class SOZIPHelper : ObservableObject{
                         let payMethod = diff.document.get("payMethod") as? [String : String] ?? [:]
                         let transactionMethod = diff.document.get("transactionMethod") as? [String : String] ?? [:]
                         
-                        switch(Color){
-                        case "bg_1":
-                            color = .sozip_bg_1
-                            
-                        case "bg_2":
-                            color = .sozip_bg_2
-                            
-                        case "bg_3":
-                            color = .sozip_bg_3
-                            
-                        case "bg_4":
-                            color = .sozip_bg_4
-                            
-                        case "bg_5":
-                            color = .sozip_bg_5
-                            
-                        default:
-                            color = .sozip_bg_1
-                        }
+                        let dateTime = date.dateValue()
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy. MM. dd kk:mm:ss"
                         
+                        let date_string = formatter.string(from: dateTime)
+                                                
                         if !self.SOZIPList.contains(where : {($0.docId == docId)}){
                             self.SOZIPList.append(
                                                     SOZIPDataModel(
@@ -146,9 +106,7 @@ class SOZIPHelper : ObservableObject{
                                                         SOZIPName: AES256Util.decrypt(encoded: name),
                                                         currentPeople: currentPeople,
                                                         location_description: AES256Util.decrypt(encoded: description),
-                                                        SOZIP_Color: color,
-                                                        store: AES256Util.decrypt(encoded: storeName),
-                                                        time: dateTime,
+                                                        time: formatter.date(from: date_string)!,
                                                         Manager : Manager,
                                                         participants : participants,
                                                         location: AES256Util.decrypt(encoded:location),
@@ -163,14 +121,12 @@ class SOZIPHelper : ObservableObject{
                     else if (diff.type == .modified){
                         let Color = diff.document.get("Color") as? String ?? "bg_1"
                         let address = diff.document.get("address") as? String ?? ""
-                        let dateTime = diff.document.get("dateTime") as? Date ?? Date()
+                        let date = diff.document.get("dateTime") as! Timestamp
                         let description = diff.document.get("description") as? String ?? ""
                         let location = diff.document.get("location") as? String ?? ""
                         let name = diff.document.get("name") as? String ?? ""
-                        let storeName = diff.document.get("storeName") as? String ?? ""
                         let tags = diff.document.get("tags") as? [String] ?? []
                         let currentPeople = diff.document.get("currentPeople") as? Int ?? 1
-                        var color : Color = .sozip_bg_1
                         let docId = diff.document.documentID
                         let participants = diff.document.get("participants") as? [String : String] ?? [:]
                         let Manager = diff.document.get("Manager") as? String ?? ""
@@ -178,35 +134,19 @@ class SOZIPHelper : ObservableObject{
                         let payMethod = diff.document.get("payMethod") as? [String : String] ?? [:]
                         let transactionMethod = diff.document.get("transactionMethod") as? [String : String] ?? [:]
                         
-                        switch(Color){
-                        case "bg_1":
-                            color = .sozip_bg_1
-                            
-                        case "bg_2":
-                            color = .sozip_bg_2
-                            
-                        case "bg_3":
-                            color = .sozip_bg_3
-                            
-                        case "bg_4":
-                            color = .sozip_bg_4
-                            
-                        case "bg_5":
-                            color = .sozip_bg_5
-                            
-                        default:
-                            color = .sozip_bg_1
-                        }
+                        let dateTime = date.dateValue()
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy. MM. dd kk:mm:ss"
                         
+                        let date_string = formatter.string(from: dateTime)
+
                         let data = SOZIPDataModel(
                             docId : docId,
                             tags: tags,
                             SOZIPName: AES256Util.decrypt(encoded: name),
                             currentPeople: currentPeople,
                             location_description: AES256Util.decrypt(encoded: description),
-                            SOZIP_Color: color,
-                            store: AES256Util.decrypt(encoded: storeName),
-                            time: dateTime,
+                            time: formatter.date(from: date_string)!,
                             Manager: Manager,
                             participants: participants,
                             location: AES256Util.decrypt(encoded:location),
@@ -238,98 +178,76 @@ class SOZIPHelper : ObservableObject{
                 }
                 
                 self.SOZIPList.sort{
-                    $0.time > $1.time
+                    $0.time < $1.time
                 }
             }
         }
         
-        collectionRef.getDocuments(){(querySnapshot, error) in
-            if let error = error{
-                print(error)
-                
-                completion(false)
-            }
-            
-            else{
-                for document in querySnapshot!.documents{
-                    let SOZIPRef = self.db.collection("SOZIP").document(document.documentID)
-                    
-                    SOZIPRef.getDocument(){(document, error) in
-                        if let error = error{
-                            print(error)
-                            
-                            completion(false)
-                        }
-                        
-                        else{
-                            let Color = document!.get("Color") as? String ?? "bg_1"
-                            let address = document!.get("address") as? String ?? ""
-                            let dateTime = document!.get("dateTime") as? Date ?? Date()
-                            let description = document!.get("description") as? String ?? ""
-                            let location = document!.get("location") as? String ?? ""
-                            let name = document!.get("name") as? String ?? ""
-                            let storeName = document!.get("storeName") as? String ?? ""
-                            let tags = document!.get("tags") as? [String] ?? []
-                            let currentPeople = document!.get("currentPeople") as? Int ?? 1
-                            var color : Color = .sozip_bg_1
-                            let docId = document?.documentID
-                            let participants = document!.get("participants") as? [String : String] ?? [:]
-                            let Manager = document!.get("Manager") as? String ?? ""
-                            let status = document!.get("status") as? String ?? ""
-                            let payMethod = document!.get("payMethod") as? [String : String] ?? [:]
-                            let transactionMethod = document!.get("transactionMethod") as? [String : String] ?? [:]
-                            
-                            switch(Color){
-                            case "bg_1":
-                                color = .sozip_bg_1
-                                
-                            case "bg_2":
-                                color = .sozip_bg_2
-                                
-                            case "bg_3":
-                                color = .sozip_bg_3
-                                
-                            case "bg_4":
-                                color = .sozip_bg_4
-                                
-                            case "bg_5":
-                                color = .sozip_bg_5
-                                
-                            default:
-                                color = .sozip_bg_1
-                            }
-                            
-                            if !self.SOZIPList.contains(where : {($0.docId == docId)}){
-                                self.SOZIPList.append(
-                                                        SOZIPDataModel(
-                                                            docId : docId!,
-                                                            tags: tags,
-                                                            SOZIPName: AES256Util.decrypt(encoded: name),
-                                                            currentPeople: currentPeople,
-                                                            location_description: AES256Util.decrypt(encoded: description),
-                                                            SOZIP_Color: color,
-                                                            store: AES256Util.decrypt(encoded: storeName),
-                                                            time: dateTime,
-                                                            Manager: Manager,
-                                                            participants: participants,
-                                                            location: AES256Util.decrypt(encoded:location),
-                                                            address: AES256Util.decrypt(encoded:address),
-                                                            status : status,
-                                                            payMethod: payMethod,
-                                                            transactionMethod: transactionMethod)
-                                )
-                            }
-                            
-
-                        }
-                    }
-                }
-                
-                self.SOZIPList.sort{
-                    $0.time > $1.time
-                }
-            }
-        }
+//        collectionRef.getDocuments(){(querySnapshot, error) in
+//            if let error = error{
+//                print(error)
+//                
+//                completion(false)
+//            }
+//            
+//            else{
+//                for document in querySnapshot!.documents{
+//                    let SOZIPRef = self.db.collection("SOZIP").document(document.documentID)
+//                    
+//                    SOZIPRef.getDocument(){(document, error) in
+//                        if let error = error{
+//                            print(error)
+//                            
+//                            completion(false)
+//                        }
+//                        
+//                        else{
+//                            let Color = document!.get("Color") as? String ?? "bg_1"
+//                            let address = document!.get("address") as? String ?? ""
+//                            let dateTime = document!.get("dateTime") as? Date ?? Date()
+//                            let description = document!.get("description") as? String ?? ""
+//                            let location = document!.get("location") as? String ?? ""
+//                            let name = document!.get("name") as? String ?? ""
+//                            let storeName = document!.get("storeName") as? String ?? ""
+//                            let tags = document!.get("tags") as? [String] ?? []
+//                            let currentPeople = document!.get("currentPeople") as? Int ?? 1
+//                            let docId = document?.documentID
+//                            let participants = document!.get("participants") as? [String : String] ?? [:]
+//                            let Manager = document!.get("Manager") as? String ?? ""
+//                            let status = document!.get("status") as? String ?? ""
+//                            let payMethod = document!.get("payMethod") as? [String : String] ?? [:]
+//                            let transactionMethod = document!.get("transactionMethod") as? [String : String] ?? [:]
+//                            
+//                            if !self.SOZIPList.contains(where : {($0.docId == docId)}){
+//                                self.SOZIPList.append(
+//                                                        SOZIPDataModel(
+//                                                            docId : docId!,
+//                                                            tags: tags,
+//                                                            SOZIPName: AES256Util.decrypt(encoded: name),
+//                                                            currentPeople: currentPeople,
+//                                                            location_description: AES256Util.decrypt(encoded: description),
+//                                                            store: AES256Util.decrypt(encoded: storeName),
+//                                                            time: dateTime,
+//                                                            Manager: Manager,
+//                                                            participants: participants,
+//                                                            location: AES256Util.decrypt(encoded:location),
+//                                                            address: AES256Util.decrypt(encoded:address),
+//                                                            status : status,
+//                                                            payMethod: payMethod,
+//                                                            transactionMethod: transactionMethod)
+//                                )
+//                            }
+//                            
+//
+//                        }
+//                    }
+//                }
+//                
+//                self.SOZIPList.sort{
+//                    $0.time > $1.time
+//                }
+//            }
+//        }
     }
     
     func participate_SOZIP(method : String, docId : String, position : String, payMethod : String, transactionMethod : String, completion : @escaping(_ result : String?) -> Void){
@@ -511,6 +429,23 @@ class SOZIPHelper : ObservableObject{
         let SOZIPRef = db.collection("SOZIP").document(docId)
         
         SOZIPRef.updateData(["status" : ""]){error in
+            if let error = error{
+                print(error)
+                completion("error")
+                
+                return
+            }
+            
+            else{
+                completion("success")
+            }
+        }
+    }
+    
+    func stopSOZIP(docId : String, completion : @escaping(_ result : String?) -> Void){
+        let SOZIPRef = db.collection("SOZIP").document(docId)
+        
+        SOZIPRef.updateData(["status" : "end"]){error in
             if let error = error{
                 print(error)
                 completion("error")

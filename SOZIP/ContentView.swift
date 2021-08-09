@@ -53,7 +53,7 @@ struct ContentView: View {
         .fullScreenCover(item: $model){item in
             switch (item){
             case .success:
-                TabManager()
+                TabManager(helper : SOZIPHelper())
                 
             case .fail:
                 SignInView(helper : UserManagement())

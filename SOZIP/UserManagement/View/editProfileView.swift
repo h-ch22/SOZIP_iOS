@@ -6,20 +6,51 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct editProfileView: View {
+    @EnvironmentObject var helper : UserManagement
+    let model : [ProfileListModel] = [ProfileListModel(name: "닉네임, 전화번호, 비밀번호 변경"),
+                                      ProfileListModel(name : "이용 기록")]
+    
     var body: some View {
         ZStack {
             Color.backgroundColor.edgesIgnoringSafeArea(.all)
             
-            ScrollView{
-                VStack {
-                    HStack{
-                        
+            VStack {
+                Image("appstore")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width : 100, height : 100)
+                    .shadow(color: .gray, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                
+                Spacer().frame(height : 10)
+                
+                Text(helper.name)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.txt_color)
+                
+                Spacer().frame(height : 5)
+                
+                Text(Auth.auth().currentUser?.email ?? "")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Spacer().frame(height : 40)
+                
+                List{
+                    NavigationLink(destination : EmptyView()){
+                        Text("프로필 정보 변경")
                     }
-                }.padding(20)
-                    .navigationBarTitle(Text("프로필 변경"), displayMode: .inline)
-            }
+                    
+                    NavigationLink(destination : LogView(helper: SOZIPHelper())){
+                        Text("이용 기록 보기")
+                    }
+                    
+                }.listStyle(InsetGroupedListStyle())
+                
+            }.padding(20)
+            .navigationBarTitle(Text("프로필 보기"), displayMode: .inline)
         }
         
     }
@@ -27,6 +58,6 @@ struct editProfileView: View {
 
 struct editProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        editProfileView()
+        editProfileView().environmentObject(UserManagement())
     }
 }

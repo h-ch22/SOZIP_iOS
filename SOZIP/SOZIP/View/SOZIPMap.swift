@@ -28,6 +28,8 @@ class SOZIPMap : UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/1.2)
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -71,17 +73,15 @@ class SOZIPMap : UIViewController, CLLocationManagerDelegate{
                 let marker = NMFMarker(position: NMGLatLng(lat: Double(position_split[0])!, lng: Double(position_split[1])!))
                             
                 marker.captionText = models[index].SOZIPName
-                marker.captionColor = UIColor(models[index].SOZIP_Color)
+                marker.captionColor = UIColor(red: 250, green: 185, blue: 51)
                 
                 marker.subCaptionText = models[index].location_description
                 marker.subCaptionColor = .black
                 
                 marker.iconImage = NMF_MARKER_IMAGE_BLACK
-                marker.iconTintColor = UIColor(models[index].SOZIP_Color)
+                marker.iconTintColor = UIColor(red: 250, green: 185, blue: 51)
                 markers.append(marker)
             }
-            
-            
         }
         
         DispatchQueue.main.async{

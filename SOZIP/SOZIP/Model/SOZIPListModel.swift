@@ -9,14 +9,49 @@ import SwiftUI
 
 struct SOZIPListModel: View {
     let data : SOZIPDataModel
+    var helper = SOZIPHelper()
+    @State private var calendar = Calendar.current
+    @State private var date : Date? = nil
+    @State private var timeRemaining : String = ""
+    @State private var minute : Int = 0
+    @State private var seconds : Int = 0
+    @State private var remain = ""
+    @State private var isImminent = false
+    
+    let timer = Timer.publish(every: 1, on : .main, in: .common).autoconnect()
+    
+    private func calcTime(){
+        let dateFormatter = DateFormatter()
 
+        dateFormatter.dateFormat = "yyyy. MM. dd. kk:mm:ss"
+
+        let endDate_tmp = dateFormatter.string(from: data.time)
+        let startDate_tmp = dateFormatter.string(from: Date())
+
+        let endDate = dateFormatter.date(from: endDate_tmp)
+        let startDate = dateFormatter.date(from: startDate_tmp)
+        
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .short
+        
+        remain = formatter.string(from : startDate!, to : endDate!)!
+        
+        let remainTime = Int((endDate?.timeIntervalSince(startDate!))!) / 60
+        
+        if remainTime <= 15{
+            isImminent = true
+        }
+        
+        if Int((endDate?.timeIntervalSince(startDate!))!) < 0{
+            helper.stopSOZIP(docId: data.docId){result in
+                guard let result = result else{return}
+            }
+        }
+    }
+    
     var body: some View {
         VStack{
-            Rectangle()
-                .fill(data.SOZIP_Color)
-                .frame(height : 3)
-                .edgesIgnoringSafeArea(.horizontal)
-            
             HStack{
                 Text(data.SOZIPName)
                     .fontWeight(.semibold)
@@ -33,23 +68,7 @@ struct SOZIPListModel: View {
             }
             
             HStack{
-                Image("ic_store")
-                    .resizable()
-                    .frame(width : 20, height : 20)
-                    .foregroundColor(.txt_color)
-                
-                Text(data.store)
-                    .font(.caption)
-                    .foregroundColor(.txt_color)
-
-                Spacer()
-
-                Image(systemName: "clock.fill")
-                    .foregroundColor(.txt_color)
-            }
-            
-            HStack{
-                Image(systemName: "location.fill.viewfinder")
+                Image(systemName: "location.fill")
                     .resizable()
                     .frame(width : 20, height : 20)
                     .foregroundColor(.txt_color)
@@ -60,9 +79,12 @@ struct SOZIPListModel: View {
                 
                 Spacer()
 
+                Text(remain)
+                    .foregroundColor(isImminent ? .white : .accent)
+                    .onReceive(timer){time in
+                        calcTime()
+                    }
             }
-            
-
             
             HStack{
                 ForEach(0..<data.tags.count){index in
@@ -76,8 +98,7 @@ struct SOZIPListModel: View {
                 Spacer()
             }
         }.padding(20)
-        .background(RoundedRectangle(cornerRadius: 15.0).shadow(radius: 5).foregroundColor(.btn_color))
-        
+        .background(RoundedRectangle(cornerRadius: 15.0).shadow(radius: 5).foregroundColor(isImminent ? .accent : .btn_color))
     }
 }
 

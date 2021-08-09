@@ -10,6 +10,7 @@ import MobileCoreServices
 
 struct ChatDetailView: View {
     @ObservedObject var helper : ChatHelper
+    @ObservedObject var mediaItems = ChatPickedMediaItems()
     @State private var typingMessage = ""
     @State private var tap = false
     @State private var scrolled = false
@@ -22,11 +23,10 @@ struct ChatDetailView: View {
     @State private var mediaType : MediaType? = nil
     @State private var imgURL : [String?] = []
     @State private var docId = ""
-    @ObservedObject var mediaItems = ChatPickedMediaItems()
     @State private var showImgView = false
+    @State private var docIndex = 0
     
     let rootDocId : String
-    let color : Color
     let name : String
     
     private func chatActionSheet() -> ActionSheet{
@@ -40,13 +40,6 @@ struct ChatDetailView: View {
             ActionSheet.Button.default(Text("사진앱에서 사진 선택하기")){
                 self.showActionSheet = false
                 self.mediaType = .photo
-                self.modalType = .photoLibrary
-                self.showModal = true
-            },
-            
-            ActionSheet.Button.default(Text("동영상 선택하기")){
-                self.showActionSheet = false
-                self.mediaType = .video
                 self.modalType = .photoLibrary
                 self.showModal = true
             },
@@ -70,7 +63,7 @@ struct ChatDetailView: View {
                     ScrollViewReader{ reader in
                         LazyVStack{
                             ForEach(helper.chatList, id : \.self){item in
-                                messageView(items: item, color: color)
+                                messageView(items: item)
                                 
                                     .onTapGesture(perform: {
                                         if item.type == "image"{
@@ -143,7 +136,7 @@ struct ChatDetailView: View {
                             .resizable().frame(width : 20, height : 20)
                             .padding(5)
                             .foregroundColor(.white)
-                            .background(Circle().foregroundColor(self.typingMessage.isEmpty ? Color.gray : color))
+                            .background(Circle().foregroundColor(self.typingMessage.isEmpty ? Color.gray : .accent))
                             .rotationEffect(Angle(degrees: tap ? 360.0 : 0.0))
                             .animation(tap ? Animation.linear(duration: 0.25) : nil)
                             
@@ -175,7 +168,6 @@ struct ChatDetailView: View {
             helper.getChatContents(rootDocId: self.rootDocId){(result) in
                 guard let result = result else{return}
             }
-            
     })
     
         .sheet(isPresented : $showModal){
@@ -204,6 +196,8 @@ struct ChatDetailView: View {
                 }
             }
         }
+        
+        
     
         .actionSheet(isPresented: $showActionSheet, content: chatActionSheet)
     

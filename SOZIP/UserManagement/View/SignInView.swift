@@ -208,7 +208,7 @@ struct SignInView: View {
                 }
             
             .fullScreenCover(isPresented: $showHome, content: {
-                TabManager()
+                TabManager(helper : SOZIPHelper())
             })
             
             .overlay(

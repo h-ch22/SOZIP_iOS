@@ -130,8 +130,12 @@
 		F6D0766526AC2E2A00F98891 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0766426AC2E2A00F98891 /* CheckBox.swift */; };
 		F6D0766726AC396600F98891 /* Process_Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D0766626AC396600F98891 /* Process_Validate.swift */; };
 		F6D0766B26AC3BFE00F98891 /* ic_register_process_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D0766926AC3BFE00F98891 /* ic_register_process_bg.png */; };
+		F6D18FDB26C0F1250003F69F /* ProfileListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D18FDA26C0F1250003F69F /* ProfileListModel.swift */; };
+		F6D18FDD26C0F1480003F69F /* ProfileListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D18FDC26C0F1480003F69F /* ProfileListRow.swift */; };
+		F6D18FE026C0F3FB0003F69F /* ic_pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D18FDE26C0F3FB0003F69F /* ic_pizza.png */; };
+		F6D18FE126C0F3FB0003F69F /* ic_chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D18FDF26C0F3FB0003F69F /* ic_chicken.png */; };
+		F6D18FE426C106970003F69F /* chatBubbleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D18FE326C106970003F69F /* chatBubbleBackground.swift */; };
 		F6D5EB3B26A6B8F00086640A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6D5EB3A26A6B8F00086640A /* GoogleService-Info.plist */; };
-		F6D5EB3F26A6BA0E0086640A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5EB3E26A6BA0E0086640A /* HomeView.swift */; };
 		F6D5EB4526A6BA540086640A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5EB4426A6BA540086640A /* SignInView.swift */; };
 		F6DA439826BBD7B000D34CFD /* ChatPreviewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DA439726BBD7B000D34CFD /* ChatPreviewDataModel.swift */; };
 		F6EFD28C26B93DDB00342970 /* ic_sojungPay.png in Resources */ = {isa = PBXBuildFile; fileRef = F6EFD28A26B93DDB00342970 /* ic_sojungPay.png */; };
@@ -299,8 +303,12 @@
 		F6D0766426AC2E2A00F98891 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		F6D0766626AC396600F98891 /* Process_Validate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process_Validate.swift; sourceTree = "<group>"; };
 		F6D0766926AC3BFE00F98891 /* ic_register_process_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_register_process_bg.png; sourceTree = "<group>"; };
+		F6D18FDA26C0F1250003F69F /* ProfileListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListModel.swift; sourceTree = "<group>"; };
+		F6D18FDC26C0F1480003F69F /* ProfileListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListRow.swift; sourceTree = "<group>"; };
+		F6D18FDE26C0F3FB0003F69F /* ic_pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pizza.png; sourceTree = "<group>"; };
+		F6D18FDF26C0F3FB0003F69F /* ic_chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_chicken.png; sourceTree = "<group>"; };
+		F6D18FE326C106970003F69F /* chatBubbleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatBubbleBackground.swift; sourceTree = "<group>"; };
 		F6D5EB3A26A6B8F00086640A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F6D5EB3E26A6BA0E0086640A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F6D5EB4426A6BA540086640A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F6DA439726BBD7B000D34CFD /* ChatPreviewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPreviewDataModel.swift; sourceTree = "<group>"; };
 		F6EFD28A26B93DDB00342970 /* ic_sojungPay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sojungPay.png; sourceTree = "<group>"; };
@@ -362,6 +370,7 @@
 		F6071FD426BA8BD90005828A /* Log */ = {
 			isa = PBXGroup;
 			children = (
+				F6D18FE226C105C20003F69F /* Model */,
 				F6071FD526BA8BDF0005828A /* View */,
 			);
 			path = Log;
@@ -447,7 +456,6 @@
 				F6BAAB0526B7B96200EB439B /* addSOZIPResultModel.swift */,
 				F627A53D26B800CB008140F6 /* SOZIPTradingMethodModel.swift */,
 				F627A54526B8130B008140F6 /* participateSOZIPResultModel.swift */,
-				F6071FD826BA92770005828A /* SOZIPLogModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -623,6 +631,7 @@
 				F68C225626BD1CB9005569EE /* ChatPickedMediaItems.swift */,
 				F68C225826BD1D3D005569EE /* MediaType.swift */,
 				F68C225A26BD25F1005569EE /* VideoPickerModel.swift */,
+				F6D18FE326C106970003F69F /* chatBubbleBackground.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -693,6 +702,8 @@
 				F664085726B23F66004CE651 /* validateResultModel.swift */,
 				F621946C26B3D730004BDE7B /* signInResultModel.swift */,
 				F6597E2626B7CF4600F25775 /* TutorialScreenViewModel.swift */,
+				F6D18FDA26C0F1250003F69F /* ProfileListModel.swift */,
+				F6D18FDC26C0F1480003F69F /* ProfileListRow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -751,6 +762,8 @@
 				F6EFD28A26B93DDB00342970 /* ic_sojungPay.png */,
 				F627A53926B800A0008140F6 /* ic_meet.png */,
 				F627A53A26B800A0008140F6 /* ic_noMeet.png */,
+				F6D18FDF26C0F3FB0003F69F /* ic_chicken.png */,
+				F6D18FDE26C0F3FB0003F69F /* ic_pizza.png */,
 				F6922D1226B1243A00A2BF43 /* ic_checkmark.png */,
 				F6922D2626B14DD300A2BF43 /* ic_feedbackHub.png */,
 				F621944D26B3AF58004BDE7B /* ic_ad.png */,
@@ -776,6 +789,14 @@
 			path = ic;
 			sourceTree = "<group>";
 		};
+		F6D18FE226C105C20003F69F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6071FD826BA92770005828A /* SOZIPLogModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F6D5EB3C26A6B9FB0086640A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,7 +808,6 @@
 		F6D5EB3D26A6BA040086640A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F6D5EB3E26A6BA0E0086640A /* HomeView.swift */,
 				F6922D1F26B148D500A2BF43 /* NotificationCenter.swift */,
 			);
 			path = View;
@@ -950,12 +970,14 @@
 				F621945526B3AF59004BDE7B /* ic_community.png in Resources */,
 				F6922D2C26B14DD400A2BF43 /* ic_signOut.png in Resources */,
 				F68673F226B007CF00F5CFEC /* ic_error.png in Resources */,
+				F6D18FE026C0F3FB0003F69F /* ic_pizza.png in Resources */,
 				F6D0766B26AC3BFE00F98891 /* ic_register_process_bg.png in Resources */,
 				F621947326B3D898004BDE7B /* bg_feedbackHub.png in Resources */,
 				F665FAC726ABAE5A00E847D5 /* tmp.storyboard in Resources */,
 				F6EFD28C26B93DDB00342970 /* ic_sojungPay.png in Resources */,
 				F621945626B3AF59004BDE7B /* ic_privacy.png in Resources */,
 				F6D5EB3B26A6B8F00086640A /* GoogleService-Info.plist in Resources */,
+				F6D18FE126C0F3FB0003F69F /* ic_chicken.png in Resources */,
 				F6922D2D26B14DD400A2BF43 /* ic_info.png in Resources */,
 				F63AD8E026B25FC10083FFDD /* ic_roomName.png in Resources */,
 				F621945B26B3B051004BDE7B /* ic_eula.png in Resources */,
@@ -1143,6 +1165,7 @@
 				F648996D26B931CC00FBAAA0 /* ChatView.swift in Sources */,
 				F621948026B3EA5C004BDE7B /* FeedbackHubListModel.swift in Sources */,
 				F664085626B2361C004CE651 /* signUpResultModel.swift in Sources */,
+				F6D18FE426C106970003F69F /* chatBubbleBackground.swift in Sources */,
 				F664085826B23F66004CE651 /* validateResultModel.swift in Sources */,
 				F627A54626B8130B008140F6 /* participateSOZIPResultModel.swift in Sources */,
 				F6922D1826B1286B00A2BF43 /* AppDelegate.swift in Sources */,
@@ -1150,7 +1173,6 @@
 				F6531C7526BABFB9000D17AE /* ChatDataModel.swift in Sources */,
 				F634BFA326BC31E60006A5F0 /* reportUserView.swift in Sources */,
 				F6597E2526B7CC7700F25775 /* Tutorial_Main.swift in Sources */,
-				F6D5EB3F26A6BA0E0086640A /* HomeView.swift in Sources */,
 				F621946926B3D501004BDE7B /* ContentView.swift in Sources */,
 				F623C33C26ABE2DB00E1C642 /* SignUpView.swift in Sources */,
 				F6BA657826B79B41001BC7B1 /* SOZIPLocationReceiver.swift in Sources */,
@@ -1190,6 +1212,7 @@
 				F648996726B9272B00FBAAA0 /* requestATTPermission.swift in Sources */,
 				F610B20826BFA390006BAC4A /* IntroduceFeedbackHub.swift in Sources */,
 				F68673EA26AFDF4500F5CFEC /* ImagePicker.swift in Sources */,
+				F6D18FDB26C0F1250003F69F /* ProfileListModel.swift in Sources */,
 				F6597E2726B7CF4600F25775 /* TutorialScreenViewModel.swift in Sources */,
 				F621947C26B3E4CF004BDE7B /* FeedbackHubErrorModel.swift in Sources */,
 				F68673E126AFD7C700F5CFEC /* validateIDCard.swift in Sources */,
@@ -1226,6 +1249,7 @@
 				F6071FCF26BA7A8D0005828A /* addBankAccount.swift in Sources */,
 				F6922D0626B1168300A2BF43 /* UserManagement.swift in Sources */,
 				F6A01FBF26BE40E8001B7C61 /* ImageDetailView.swift in Sources */,
+				F6D18FDD26C0F1480003F69F /* ProfileListRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

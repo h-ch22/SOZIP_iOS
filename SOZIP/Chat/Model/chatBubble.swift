@@ -12,7 +12,6 @@ import SDWebImageSwiftUI
 struct chatBubble: View {
     let message : String
     let sender : String
-    let color : Color
     let type : String
     let participants : [String : String]
     let index : Int?
@@ -26,7 +25,7 @@ struct chatBubble: View {
                     .padding(10)
                     .foregroundColor(.white)
                     .background(Color.gray)
-                    .cornerRadius(10)
+                    .clipShape(chatBubbleBackground(myMsg : true))
             }
             
             else{
@@ -49,8 +48,9 @@ struct chatBubble: View {
                         Text(message)
                             .padding(10)
                             .foregroundColor(.white)
-                            .background(color)
-                            .cornerRadius(10)
+                            
+                            .background(Color.accent)
+                            .clipShape(chatBubbleBackground(myMsg : false))
                         
                         Spacer()
                     }
@@ -72,7 +72,7 @@ struct chatBubble: View {
                 }.padding(10)
                 .foregroundColor(.white)
                 .background(Color.gray)
-                .cornerRadius(10)
+                .clipShape(chatBubbleBackground(myMsg : true))
             }
             
             else{
@@ -101,9 +101,9 @@ struct chatBubble: View {
                                 .frame(width : 40, height : 40)
                         }.padding(10)
                         .foregroundColor(.white)
-                        .background(color)
-                        .cornerRadius(10)
-                        
+                        .background(Color.accent)
+                        .clipShape(chatBubbleBackground(myMsg : false))
+
                         Spacer()
                     }
                     
@@ -122,7 +122,7 @@ struct chatBubble: View {
                     }.padding(10)
                         .foregroundColor(.white)
                         .background(Color.gray)
-                        .cornerRadius(10)
+                    .clipShape(chatBubbleBackground(myMsg : true))
                 }
                 
                 
@@ -138,7 +138,7 @@ struct chatBubble: View {
                     }.padding(10)
                         .foregroundColor(.white)
                         .background(Color.gray)
-                        .cornerRadius(10)
+                    .clipShape(chatBubbleBackground(myMsg : true))
                 }
 
                 else if index! >= 3 && index! <= 6 && index != nil{
@@ -165,7 +165,7 @@ struct chatBubble: View {
                     }.padding(10)
                         .foregroundColor(.white)
                         .background(Color.gray)
-                        .cornerRadius(10)
+                    .clipShape(chatBubbleBackground(myMsg : true))
                 }
 
                 else if index! > 7 && index! <= 10 && index != nil{
@@ -202,7 +202,7 @@ struct chatBubble: View {
                     }.padding(10)
                         .foregroundColor(.white)
                         .background(Color.gray)
-                        .cornerRadius(10)
+                    .clipShape(chatBubbleBackground(myMsg : true))
                 }
             }
             
@@ -231,8 +231,8 @@ struct chatBubble: View {
                                     .frame(width : 200, height : 200)
                             }.padding(10)
                                 .foregroundColor(.white)
-                                .background(color)
-                                .cornerRadius(10)
+                            .background(Color.accent)
+                            .clipShape(chatBubbleBackground(myMsg : false))
                         }
                         
                         else if index! == 2 && index != nil{
@@ -246,8 +246,8 @@ struct chatBubble: View {
                                 }
                             }.padding(10)
                                 .foregroundColor(.white)
-                                .background(color)
-                                .cornerRadius(10)
+                            .background(Color.accent)
+                            .clipShape(chatBubbleBackground(myMsg : false))
                         }
 
                         else if index! >= 3 && index! <= 6 && index != nil{
@@ -273,8 +273,8 @@ struct chatBubble: View {
                                 }
                             }.padding(10)
                                 .foregroundColor(.white)
-                                .background(color)
-                                .cornerRadius(10)
+                            .background(Color.accent)
+                            .clipShape(chatBubbleBackground(myMsg : false))
                         }
 
                         else if index! > 7 && index! <= 10 && index != nil{
@@ -310,8 +310,8 @@ struct chatBubble: View {
                                 }
                             }.padding(10)
                                 .foregroundColor(.white)
-                                .background(color)
-                                .cornerRadius(10)
+                            .background(Color.accent)
+                            .clipShape(chatBubbleBackground(myMsg : false))
                         }
                         
                         Spacer()

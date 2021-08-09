@@ -76,6 +76,39 @@ exports.cancel_SOZIP = functions.firestore
                 })
             }
 
+            else if(new_status == "end"){
+                const participants = data.participants;
+                const participantArray = Object.keys(participants);
+
+                var target = ""
+                for(let i in participantArray){
+                    target = participantArray[i]
+
+                    return admin.firestore().collection("Users").doc(target).get().then((value) => {
+                        targetToken = value.data().token;
+                        
+                        const payload = {
+                            notification : {
+                                title : "소집이 마감되었어요!",
+                                body : "소집 멤버들과 메뉴 선정 및 정산을 완료해주세요!"
+                            },
+                        };
+        
+                        return Promise.all([targetToken, data]).then(result => {
+                            admin.messaging().sendToDevice(targetToken, payload).then((response) => {
+                                response.results.forEach((result, index) => {
+                                    const error = result.error
+        
+                                    if(error){
+                                        console.error("FCM Failed : ", error.code);
+                                    }
+                                })
+                            })
+                        })
+                    })
+                }
+            }
+
             else if(new_status == ""){
                 const Manager = data.Manager;
 

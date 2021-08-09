@@ -31,8 +31,9 @@ struct MoreView: View {
                     HStack{
                         NavigationLink(destination : editProfileView()){
                             HStack {
-                                Image("profile_burger")
+                                Image("appstore")
                                     .resizable()
+                                    .clipShape(Circle())
                                     .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 
                                 Text(helper.nickName)
@@ -70,28 +71,7 @@ struct MoreView: View {
                                         
                                         Spacer()
                                     }.padding(20)
-                                    .padding([.vertical], 10)
                                     .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
-                                }
-                                
-                                Spacer().frame(height : 20)
-
-                                NavigationLink(destination : LogView(helper : SOZIPHelper())){
-                                    HStack{
-                                        Image("ic_log")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                        
-                                        Text("이용 기록")
-                                            .foregroundColor(.txt_color)
-                                            .fontWeight(.semibold)
-                                        
-                                        Spacer()
-                                    }.padding(20)
-                                    .padding([.vertical], 10)
-                                    .background(RoundedRectangle(cornerRadius: 15)
-                                                    .foregroundColor(.btn_color)
-                                                    .shadow(radius: 2, x:0, y:2))
                                 }
                                 
                                 Spacer().frame(height : 20)
@@ -108,52 +88,11 @@ struct MoreView: View {
                                         
                                         Spacer()
                                     }.padding(20)
-                                    .padding([.vertical], 10)
                                     .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
                                 }
                             }
                             
                             Group{
-                                Spacer().frame(height : 20)
-
-                                Button(action: {
-                                    self.alertModel = .signOut
-                                }){
-                                    HStack{
-                                        Image("ic_signOut")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                        
-                                        Text("로그아웃")
-                                            .foregroundColor(.txt_color)
-                                            .fontWeight(.semibold)
-                                        
-                                        Spacer()
-                                    }.padding(20)
-                                    .padding([.vertical], 10)
-                                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
-                                }
-                                
-                                Spacer().frame(height : 20)
-
-                                Button(action: {
-                                    self.alertModel = .secession
-                                }){
-                                    HStack{
-                                        Image("ic_secession")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                        
-                                        Text("회원 탈퇴")
-                                            .foregroundColor(.txt_color)
-                                            .fontWeight(.semibold)
-                                        
-                                        Spacer()
-                                    }.padding(20)
-                                    .padding([.vertical], 10)
-                                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
-                                }
-                                
                                 Spacer().frame(height : 20)
 
                                 NavigationLink(destination: InfoView(helper : VersionManager())){
@@ -169,7 +108,6 @@ struct MoreView: View {
                                         
                                         Spacer()
                                     }.padding(20)
-                                    .padding([.vertical], 10)
                                     .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
                                 }
                             }

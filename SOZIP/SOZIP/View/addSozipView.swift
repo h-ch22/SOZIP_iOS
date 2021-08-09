@@ -10,7 +10,6 @@ import NMapsMap
 
 struct addSozipView: View {
     @State private var roomName = ""
-    @State private var store = ""
     @State private var location = ""
     @State private var latLng : NMGLatLng? = nil
     @State private var hash : [String] = []
@@ -56,51 +55,35 @@ struct addSozipView: View {
                             Spacer().frame(height : 40)
                             
                             HStack {
-                                Image("ic_roomName")
-                                    .resizable()
-                                    .frame(width : 20, height : 20)
-                                
-                                TextField("소집 이름", text:$roomName, onEditingChanged: {(editing) in
-                                    if editing{
-                                        isRoomNameEditing = true
-                                    }
+                                HStack {
+                                    Image("ic_roomName")
+                                        .resizable()
+                                        .frame(width : 20, height : 20)
                                     
-                                    else{
-                                        isRoomNameEditing = false
-                                    }
-                                })
-                            }
-                            .foregroundColor(isRoomNameEditing ? Color.accent : Color.txt_color)
-                            .padding(20)
-                            .padding([.horizontal], 30)
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                            .foregroundColor(.btn_color)
-                                            .shadow(radius: 5)
-                                            .padding([.horizontal],20))
-                            
-                            Spacer().frame(height : 20)
-
-                            HStack {
-                                Image("ic_store")
-                                    .resizable()
-                                    .frame(width : 20, height : 20)
-                                
-                                TextField("업체명", text:$store, onEditingChanged: {(editing) in
-                                    if editing{
-                                        isStoreEditing = true
-                                    }
+                                    TextField("메뉴명", text:$roomName, onEditingChanged: {(editing) in
+                                        if editing{
+                                            isRoomNameEditing = true
+                                        }
+                                        
+                                        else{
+                                            isRoomNameEditing = false
+                                        }
+                                    })
                                     
-                                    else{
-                                        isStoreEditing = false
-                                    }
-                                })
+                                    
+                                }
+                                .foregroundColor(isRoomNameEditing ? Color.accent : Color.txt_color)
+                                .padding(20)
+                                .padding([.horizontal], 50)
+                                .background(RoundedRectangle(cornerRadius: 10)
+                                                .foregroundColor(.btn_color)
+                                                .shadow(radius: 5)
+                                                .padding([.horizontal],30))
+                                
+                                Text("드실 분!")
+                                    .foregroundColor(.txt_color)
                             }
-                            .foregroundColor(isStoreEditing ? Color.accent : Color.txt_color)
-                            .padding(20)
-                            .padding([.horizontal], 30)
-                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.btn_color).shadow(radius: 5)
-                                        .padding([.horizontal],20))
-                            
+                                                        
                             Spacer().frame(height : 20)
                         }
                         
@@ -188,118 +171,8 @@ struct addSozipView: View {
                         
                         Spacer().frame(height : 40)
                         
-                        HStack{
-                            Text("소집 색상")
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                        }
-                        
-                        Spacer().frame(height : 10)
-
-                        HStack {
-                            Text("목록에 선택한 색상으로 표시됩니다.")
-                                .foregroundColor(.gray)
-                                .font(.caption)
-                            
-                            Spacer()
-                        }
-                        
-                        Spacer().frame(height : 40)
-
-                        Group{
-                            HStack{
-                                Button(action : {
-                                    self.colorCode = .sozip_bg_1
-                                }){
-                                    Circle()
-                                        .frame(width : 40, height : 40)
-                                        .foregroundColor(.sozip_bg_1)
-                                        .shadow(radius: 5)
-                                        .overlay(
-                                            Image(systemName : "checkmark")
-                                                .foregroundColor(.white)
-                                                .frame(width : 20, height : 20)
-                                                .isHidden(self.colorCode == .sozip_bg_1 ? false : true)
-                                        )
-                                }
-                                
-                                Spacer().frame(height : 10)
-
-                                Button(action : {
-                                    self.colorCode = .sozip_bg_2
-                                }){
-                                    Circle()
-                                        .frame(width : 40, height : 40)
-                                        .foregroundColor(.sozip_bg_2)
-                                        .shadow(radius: 5)
-                                        .overlay(
-                                            Image(systemName : "checkmark")
-                                                .foregroundColor(.white)
-                                                .frame(width : 20, height : 20)
-                                                .isHidden(self.colorCode == .sozip_bg_2 ? false : true)
-                                        )
-                                }
-                                
-                                Spacer().frame(height : 10)
-
-                                Button(action : {
-                                    self.colorCode = .sozip_bg_3
-                                }){
-                                    Circle()
-                                        .frame(width : 40, height : 40)
-                                        .foregroundColor(.sozip_bg_3)
-                                        .shadow(radius: 5)
-                                        .overlay(
-                                            Image(systemName : "checkmark")
-                                                .foregroundColor(.white)
-                                                .frame(width : 20, height : 20)
-                                                .isHidden(self.colorCode == .sozip_bg_3 ? false : true)
-                                        )
-                                }
-                                
-                                Spacer().frame(height : 10)
-
-                                Button(action : {
-                                    self.colorCode = .sozip_bg_4
-                                }){
-                                    Circle()
-                                        .frame(width : 40, height : 40)
-                                        .foregroundColor(.sozip_bg_4)
-                                        .shadow(radius: 5)
-                                        .overlay(
-                                            Image(systemName : "checkmark")
-                                                .foregroundColor(.white)
-                                                .frame(width : 20, height : 20)
-                                                .isHidden(self.colorCode == .sozip_bg_4 ? false : true)
-                                        )
-                                }
-                                
-                                Spacer().frame(height : 10)
-
-                                Button(action : {
-                                    self.colorCode = .sozip_bg_5
-                                }){
-                                    Circle()
-                                        .frame(width : 40, height : 40)
-                                        .foregroundColor(.sozip_bg_5)
-                                        .shadow(radius: 5)
-                                        .overlay(
-                                            Image(systemName : "checkmark")
-                                                .foregroundColor(.white)
-                                                .frame(width : 20, height : 20)
-                                                .isHidden(self.colorCode == .sozip_bg_5 ? false : true)
-                                        )
-                                }
-                            }
-                            
-                            Spacer().frame(height : 40)
-
-                            
-                        }
-                        
                         Button(action: {
-                            if self.roomName.isEmpty || self.store.isEmpty || receiver.location.isEmpty || self.selectedDate == nil{
+                            if self.roomName.isEmpty || receiver.location.isEmpty || self.selectedDate == nil{
                                 alertModel = .emptyField
                                 showAlert = true
                             }
@@ -307,11 +180,9 @@ struct addSozipView: View {
                             else{
                                 isProcessing = true
 
-                                helper.addSOZIP(name: self.roomName,
-                                                storeName: self.store,
+                                helper.addSOZIP(name: self.roomName + " 드실 분!",
                                                 receiver: self.receiver,
                                                 dateTime: self.selectedDate,
-                                                Color: self.colorCode,
                                                 tags: self.hash){result in
                                     
                                     guard let result = result else{return}
@@ -338,7 +209,7 @@ struct addSozipView: View {
                             }.padding(20)
                             .padding([.horizontal], 60)
                             .background(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).shadow(radius: 5))
-                            .disabled(self.roomName.isEmpty || self.store.isEmpty || receiver.location.isEmpty || self.selectedDate == nil)
+                            .disabled(self.roomName.isEmpty || receiver.location.isEmpty || self.selectedDate == nil)
                             
                         }
                     }

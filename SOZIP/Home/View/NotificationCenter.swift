@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct NotificationCenter: View {
-    @State private var receiveMarketing : Bool = false
+    @State private var receiveMarketing : Bool = UserDefaults.standard.bool(forKey: "receiveMarketing")
+    @EnvironmentObject var helper : UserManagement
     
     var body: some View {
         ZStack(alignment : .top) {
@@ -22,7 +23,12 @@ struct NotificationCenter: View {
                     
                     Toggle(isOn: $receiveMarketing, label: {
                         Text("마케팅 알림 받기")
-                    }).toggleStyle(SwitchToggleStyle(tint : Color.accent))
+                    })
+                    .toggleStyle(SwitchToggleStyle(tint : Color.accent))
+                    .onChange(of: receiveMarketing, perform: { value in
+                        helper.updateMarketingStatus(status: receiveMarketing)
+                    })
+                    
                 }
             }.padding([.horizontal],20)
             .navigationBarTitle(Text("알림"), displayMode: .inline)

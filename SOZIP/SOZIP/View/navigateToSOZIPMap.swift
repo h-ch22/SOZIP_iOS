@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct navigateToSOZIPMap : View{
-    let data : [SOZIPDataModel]
+    var data : [SOZIPDataModel] = []
     
     var body : some View{
-        ZStack{
+        VStack{
             SOZIPMapController(data : data)
         }
     }

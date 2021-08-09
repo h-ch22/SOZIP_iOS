@@ -17,6 +17,7 @@ class UserManagement : ObservableObject{
     @Published var nickName = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "nickName") ?? "")
     @Published var school = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "school") ?? "")
     @Published var bounds = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "bounds") ?? "")
+    @Published var marketingAccept = UserDefaults.standard.bool(forKey: "receiveMarketing")
     
     func signUp(mail : String, password : String, name : String, nickName : String, school : String, studentNo : String, phone : String, idCard : Image, marketingAccept : Bool,
                 completion: @escaping(_ result : String?) -> Void){
@@ -61,7 +62,7 @@ class UserManagement : ObservableObject{
                             UserDefaults.standard.set(AES256Util.encrypt(string: name), forKey: "name")
                             UserDefaults.standard.set(AES256Util.encrypt(string: school), forKey: "school")
                             UserDefaults.standard.set(AES256Util.encrypt(string: nickName), forKey: "nickName")
-                            UserDefaults.standard.set(marketingAccept, forKey : "recceiveMarketing")
+                            UserDefaults.standard.set(marketingAccept, forKey : "receiveMarketing")
                             
                             completion("success")
                         }
@@ -100,7 +101,7 @@ class UserManagement : ObservableObject{
                                 UserDefaults.standard.set(school, forKey: "school")
                                 UserDefaults.standard.set(nickName, forKey: "nickName")
                                 UserDefaults.standard.set(bounds, forKey: "bounds")
-                                UserDefaults.standard.set(receiveMarketing, forKey : "recceiveMarketing")
+                                UserDefaults.standard.set(receiveMarketing, forKey : "receiveMarketing")
                                 
                                 self.updateToken()
                                 
@@ -137,6 +138,22 @@ class UserManagement : ObservableObject{
         catch {
             print("already logged out")
             completion(false)
+        }
+    }
+    
+    func updateMarketingStatus(status : Bool){
+        if Auth.auth().currentUser?.uid != nil{
+            db.collection("Users").document(Auth.auth().currentUser?.uid as! String).updateData([
+                "marketingAccept" : status
+            ]){error in
+                if let error = error{
+                    print(error)
+                }
+                
+                else{
+                    UserDefaults.standard.setValue(status, forKey: "receiveMarketing")
+                }
+            }
         }
     }
     

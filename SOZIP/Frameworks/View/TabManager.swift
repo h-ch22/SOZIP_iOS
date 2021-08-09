@@ -10,17 +10,19 @@ import SwiftUI
 struct TabManager: View {
     @State var selectedIndex = 0
     @State private var showModal = false
-    let icon = ["house.fill", "safari.fill", "plus", "message.fill", "ellipsis.circle.fill"]
+    @ObservedObject var helper : SOZIPHelper
+
+    let icon = ["house.fill", "map.fill", "plus", "message.fill", "ellipsis.circle.fill"]
     
     var body: some View {        
         VStack{
             ZStack{
                 switch selectedIndex{
                 case 0:
-                    HomeView().environmentObject(UserManagement())
+                    SOZIPListView(helper: SOZIPHelper(), data : helper.SOZIPList).environmentObject(UserManagement())
                     
                 case 1:
-                    SOZIPListView(helper: SOZIPHelper())
+                    navigateToSOZIPMap(data : helper.SOZIPList)
                     
                 case 3:
                     ChatView(helper : ChatHelper())
@@ -29,8 +31,8 @@ struct TabManager: View {
                     MoreView().environmentObject(UserManagement())
                     
                 default:
-                    HomeView().environmentObject(UserManagement())
-                    
+                    SOZIPListView(helper: SOZIPHelper(), data : helper.SOZIPList).environmentObject(UserManagement())
+
                 }
             }
             
@@ -85,17 +87,17 @@ struct TabManager: View {
             addSozipView(receiver : SOZIPLocationReceiver())
         })
         
+        .onAppear(perform: {
+            helper.getSOZIP(){result in
+                guard let result = result else{return}
+            }
+        })
+        
         .background(Color.backgroundColor.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/))
         
         .accentColor(.accent)
         
         .navigationBarHidden(true)
         
-    }
-}
-
-struct TabManager_Previews: PreviewProvider {
-    static var previews: some View {
-        TabManager()
     }
 }

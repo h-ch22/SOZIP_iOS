@@ -207,37 +207,14 @@ class ChatHelper : ObservableObject{
                             let participants = diff.document["participants"] as? [String : String] ?? [:]
                             let status = diff.document["status"] as? String ?? ""
 
-                            if participants.keys.contains(self.uid) && status != "closed"{
+                            if participants.keys.contains(self.uid){
                                 let docId = diff.document.documentID
                                 let status = diff.document["status"] as? String ?? ""
                                 let currentPeople = diff.document["currentPeople"] as? Int ?? 1
                                 let name = AES256Util.decrypt(encoded: diff.document["name"] as? String ?? "")
-                                let colorName = diff.document["Color"] as? String ?? "bg_1"
                                 let last_msg = AES256Util.decrypt(encoded: diff.document["last_msg"] as? String ?? "")
                                 let last_msg_type = diff.document["last_msg_type"] as! String
                                 let last_msg_time = diff.document["last_msg_time"] as! Timestamp
-
-                                var color : Color = .sozip_bg_1
-
-                                switch(colorName){
-                                case "bg_1":
-                                    color = .sozip_bg_1
-
-                                case "bg_2":
-                                    color = .sozip_bg_2
-
-                                case "bg_3":
-                                    color = .sozip_bg_3
-
-                                case "bg_4":
-                                    color = .sozip_bg_4
-
-                                case "bg_5":
-                                    color = .sozip_bg_5
-
-                                default:
-                                    color = .sozip_bg_1
-                                }
 
                                 let date = last_msg_time.dateValue()
                                 let formatter = DateFormatter()
@@ -246,7 +223,7 @@ class ChatHelper : ObservableObject{
                                 if diff.type == .added{
                                     if !self.chatPreviewList.contains(where : {($0.docId == docId)}){
                                         self.chatPreviewList.append(
-                                            ChatPreviewDataModel(docId: docId, currentPeople: currentPeople, status: status, name: name, color: color, last_msg: last_msg, last_msg_type: last_msg_type, last_msg_time: formatter.string(from: date))
+                                            ChatPreviewDataModel(docId: docId, currentPeople: currentPeople, status: status, name: name, last_msg: last_msg, last_msg_type: last_msg_type, last_msg_time: formatter.string(from: date))
                                         )
                                     }
                                 }
@@ -259,21 +236,10 @@ class ChatHelper : ObservableObject{
                                         self.chatPreviewList[index!].currentPeople = currentPeople
                                         self.chatPreviewList[index!].status = status
                                         self.chatPreviewList[index!].name = name
-                                        self.chatPreviewList[index!].color = color
                                         self.chatPreviewList[index!].last_msg = last_msg
                                         self.chatPreviewList[index!].last_msg_type = last_msg_type
                                         self.chatPreviewList[index!].last_msg_time = formatter.string(from: date)
                                     }
-                                }
-                            }
-
-
-                            if status == "closed"{
-                                var docId = diff.document.documentID
-                                let index = self.chatPreviewList.firstIndex(where: {$0.docId == docId})
-
-                                if index != nil{
-                                    self.chatPreviewList.remove(at: index!)
                                 }
                             }
                         }
@@ -282,7 +248,7 @@ class ChatHelper : ObservableObject{
                             let participants = diff.document["participants"] as? [String : String] ?? [:]
                             let status = diff.document["status"] as? String ?? ""
 
-                            if participants.keys.contains(self.uid) && status != "closed"{
+                            if participants.keys.contains(self.uid){
                                 var docId = diff.document.documentID
                                 let index = self.chatPreviewList.firstIndex(where: {$0.docId == docId})
 
