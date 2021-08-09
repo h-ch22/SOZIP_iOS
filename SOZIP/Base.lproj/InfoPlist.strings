@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  SOZIP
+
+  Created by 하창진 on 2021/07/11.
+  
+*/
+
+"CFBundleDisplayName" = "SOZIP";
+"NSCameraUsageDescription" = "SOZIP approach the camera to take a picture of your student ID Card.";
+"NSPhotoLibraryAddUsageDescription" = "SOZIP access the photo app for loading student ID Card Image.";
+"NSLocationUsageDescription" = "SOZIP requests location permissions to display the current location on the map.";
+"NSLocationWhenInUseUsageDescription" = "SOZIP requests location permissions to display the current location on the map.";
