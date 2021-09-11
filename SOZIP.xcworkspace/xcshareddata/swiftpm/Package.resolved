@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftUITooltip",
+        "repositoryURL": "https://github.com/quassummanus/SwiftUI-Tooltip.git",
+        "state": {
+          "branch": null,
+          "revision": "930d94193cfc73db0c4907a27ebf78b925a1a066",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "SwiftUIPager",
+        "repositoryURL": "https://github.com/fermoya/SwiftUIPager.git",
+        "state": {
+          "branch": null,
+          "revision": "d6745593cfa38ffa1fca75244a01e422d220d407",
+          "version": "2.3.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -17,7 +17,7 @@ struct showMapView : UIViewControllerRepresentable{
     func makeUIViewController(context: Context) -> SOZIPMapViewController {
         let loc_split = data.location.components(separatedBy: ", ")
         
-        return SOZIPMapViewController(location: NMGLatLng(lat : Double(loc_split[0])!, lng : Double(loc_split[1])!), descript: data.location_description)
+        return SOZIPMapViewController(location: NMGLatLng(lat : Double(loc_split[0])!, lng : Double(loc_split[1])!), descript: data.location_description, color : data.color)
     }
     
     func updateUIViewController(_ uiViewController: SOZIPMapViewController, context: Context) {

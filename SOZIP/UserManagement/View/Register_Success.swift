@@ -65,7 +65,7 @@ struct Register_Success: View {
             })
             
             .fullScreenCover(isPresented: $navigateToHome, content: {
-                TabManager(helper : SOZIPHelper())
+                TabManager(chatHelper: ChatHelper(), helper : SOZIPHelper())
             })
         }
     }

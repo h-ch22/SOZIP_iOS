@@ -13,14 +13,14 @@ struct FeedbackHubItemModel : Hashable{
     var category : String
     var date : String
     var answer : String?
-    var read : Bool?
+    var docId : String
     
-    init(title : String, contents : String, category : String, date : String, answer : String?, read : Bool?){
+    init(title : String, contents : String, category : String, date : String, answer : String?, docId : String){
         self.title = title
         self.contents = contents
         self.category = category
         self.date = date
         self.answer = answer
-        self.read = read
+        self.docId = docId
     }
 }

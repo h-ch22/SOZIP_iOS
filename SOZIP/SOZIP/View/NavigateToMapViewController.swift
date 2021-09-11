@@ -14,11 +14,12 @@ struct NavigateToMapViewController : View{
     @State private var isDescriptionEditing = false
     
     @ObservedObject var receiver : SOZIPLocationReceiver
+    @StateObject var dragListener = SOZIPMapDragListener()
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View{
         ZStack {
-            loadMapView(receiver: receiver)
+            loadMapView(receiver: receiver, dragListener : dragListener)
             
             VStack {
                 Spacer()
@@ -68,23 +69,26 @@ struct NavigateToMapViewController : View{
                     }
                 }.padding()
                 .background(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).foregroundColor(.backgroundColor).opacity(0.8).shadow(radius: 5))
-
+                .isHidden(dragListener.isDraging)
             }
+
         }
         .onAppear(perform: {
             receiver.address.removeAll()
             receiver.description.removeAll()
             receiver.location.removeAll()
         })
+        
     }
 }
 
 struct loadMapView : UIViewControllerRepresentable{
     typealias UIViewControllerType = MapView
     var receiver : SOZIPLocationReceiver
+    var dragListener : SOZIPMapDragListener
     
     func makeUIViewController(context: Context) -> MapView {
-        return MapView(receiver : receiver)
+        return MapView(receiver : receiver, dragListener : dragListener)
     }
     
     func updateUIViewController(_ uiViewController: MapView, context: Context) {

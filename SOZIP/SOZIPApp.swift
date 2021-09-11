@@ -21,7 +21,7 @@ struct SOZIPApp: App {
         UIView.appearance().tintColor = UIColor(Color.accent)
         
         UITableView.appearance().backgroundColor = UIColor(Color.backgroundColor)
-        UITableViewCell.appearance().backgroundColor = UIColor(Color.btn_color)
+        UITableViewCell.appearance().backgroundColor = UIColor(Color.backgroundColor)
         UITableView.appearance().tableFooterView = UIView()
     }
     
@@ -102,5 +102,23 @@ extension UIView {
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
         }
+    }
+}
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
+
+extension String {
+    init<S: Sequence>(unicodeScalars ucs: S)
+        where S.Iterator.Element == UnicodeScalar
+    {
+        var s = ""
+        s.unicodeScalars.append(contentsOf: ucs)
+        self = s
     }
 }

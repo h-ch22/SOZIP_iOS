@@ -15,59 +15,41 @@ struct LogView: View {
     
     var body: some View {
         VStack{
-            SearchBar(text: $searchText, placeholder: "원하는 소집을 검색해보세요!")
-                .padding(20)
+            SearchBar(text: $searchText, placeholder: "이용 기록 검색")
             
             if helper.SOZIPList.isEmpty{
                 
                 Spacer()
-                    .padding(20)
                 
                 Text("이용 기록이 없어요.")
                     .foregroundColor(.gray)
-                    .padding(20)
                 
                 Spacer()
-                    .padding(20)
             }
             
             else{
-                List{
-                    Section(header : Text("참여한 소집")){
+                ScrollView{
+                    LazyVStack{
                         ForEach(helper.SOZIPList.filter{
                             self.searchText.isEmpty ? true : $0.SOZIPName.lowercased().contains(searchText.lowercased())
                         }, id : \.self){  index in
-                            if index.participants.keys.contains(Auth.auth().currentUser?.uid as! String) && index.Manager != Auth.auth().currentUser?.uid as! String{
+                            if index.participants.keys.contains(Auth.auth().currentUser?.uid as! String){
                                 NavigationLink(destination : SOZIPDetailView(sozip: index, helper: SOZIPHelper())){
                                     SOZIPLogModel(data: index)
                                 }
                                 
-                                Divider().background(Color.txt_color)
-
-                            }
-                        }
-                    }
-                    
-                    Section(header : Text("만든 소집")){
-                        ForEach(helper.SOZIPList.filter{
-                            self.searchText.isEmpty ? true : $0.SOZIPName.lowercased().contains(searchText.lowercased())
-                        }, id : \.self){  index in
-                            if index.Manager == Auth.auth().currentUser?.uid as! String{
-                                NavigationLink(destination : SOZIPDetailView(sozip: index, helper: SOZIPHelper())){
-                                    SOZIPLogModel(data: index)
-                                }
+                                Spacer().frame(height : 15)
                                 
-                                Divider().background(Color.txt_color)
-
                             }
                         }
                     }
                     
-                }.listStyle(SidebarListStyle())
+                    
+                }
                 
             }
             
-        }
+        }.padding(20)
             .navigationBarTitle(Text("이용 기록"), displayMode: .inline)
             .onAppear(perform: {
                 helper.getSOZIP(){result in

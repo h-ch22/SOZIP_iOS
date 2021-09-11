@@ -8,7 +8,7 @@
 import Foundation
 
 enum FeedbackHubErrorModel : Identifiable{
-    case success, error, noUser
+    case success, error, noUser, noContents, noCategory
     
     var id : Int{
         hashValue

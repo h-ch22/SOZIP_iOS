@@ -18,13 +18,15 @@ class MapView : UIViewController, CLLocationManagerDelegate {
     var naverMapView : NMFNaverMapView!
     let marker = NMFMarker()
     let receiver : SOZIPLocationReceiver
+    let dragListener : SOZIPMapDragListener
     let camPositionFormat = "(%.5f, %.5f) / %.2f / %.2f / %.2f"
     private let API_KEY = "3s8wnosvv3"
     private let API_SECRET = "TfarYn8WZITk4N5HgKeTicToV56Z1jPVrWlKpcIr"
     private let RGC_URL = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?"
     
-    init(receiver : SOZIPLocationReceiver){
+    init(receiver : SOZIPLocationReceiver, dragListener : SOZIPMapDragListener){
         self.receiver = receiver
+        self.dragListener = dragListener
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,15 +45,15 @@ class MapView : UIViewController, CLLocationManagerDelegate {
         naverMapView.mapView.addCameraDelegate(delegate: self)
         
         naverMapView.showZoomControls = true
-        naverMapView.showLocationButton = true
         naverMapView.showCompass = true
         naverMapView.showScaleBar = false
         naverMapView.showIndoorLevelPicker = true
-        naverMapView.showLocationButton = true
-        naverMapView.mapView.isIndoorMapEnabled = true
+        naverMapView.showLocationButton = false
+        naverMapView.mapView.isIndoorMapEnabled = false
         naverMapView.mapView.positionMode = .compass
         naverMapView.mapView.logoAlign = .rightTop
-        
+        naverMapView.mapView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0)
+
         marker.iconImage = NMF_MARKER_IMAGE_BLACK
         marker.iconTintColor = UIColor.orange
         marker.captionText = "소집 장소"
@@ -69,11 +71,8 @@ class MapView : UIViewController, CLLocationManagerDelegate {
             
             naverMapView.mapView.moveCamera(cameraUpdate)
             
-            
             marker.position = NMGLatLng(lat: locationManager.location?.coordinate.latitude as? Double ?? 35.84690631294601,
                                         lng: locationManager.location?.coordinate.longitude as? Double ?? 127.12938865558989)
-            
-            
             
             marker.mapView = naverMapView.mapView
         }
@@ -110,11 +109,15 @@ class MapView : UIViewController, CLLocationManagerDelegate {
                     let address_detail = data[0]["region"]["area3"]["name"].string ?? ""
                     let roadName = data[2]["land"]["name"].string ?? ""
                     let road = data[2]["land"]["number1"].string ?? ""
+                    var roadCode = data[2]["land"]["number2"].string ?? ""
                     let building = data[2]["land"]["addition0"]["value"].string ?? ""
                     
-                    print(data)
-                    self.marker.subCaptionText = state + " " + address + " " + address_detail + "\n" + roadName + " " + road + " " + building
-                    self.receiver.address = state + " " + address + " " + address_detail + "\n" + roadName + " " + road + " " + building
+                    if roadCode != ""{
+                        roadCode = "-" + roadCode
+                    }
+                    
+                    self.marker.subCaptionText = state + " " + address + " " + address_detail + "\n" + roadName + " " + road + roadCode + " " + building
+                    self.receiver.address = state + " " + address + " " + address_detail + "\n" + roadName + " " + road  +  roadCode + " " + building
                     
                 case .failure(let error) :
                     print(error)
@@ -133,6 +136,10 @@ extension MapView: NMFMapViewCameraDelegate {
     func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
         let camPosition = mapView.cameraPosition
         
+        if !dragListener.isDraging{
+            dragListener.isDraging = true
+        }
+        
         marker.position = NMGLatLng(lat : camPosition.target.lat, lng : camPosition.target.lng)
         marker.subCaptionText = String(camPosition.target.lat) + ", " + String(camPosition.target.lng)
         receiver.location = String(camPosition.target.lat) + ", " + String(camPosition.target.lng)
@@ -141,6 +148,9 @@ extension MapView: NMFMapViewCameraDelegate {
     func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
         let camPosition = mapView.cameraPosition
         
+        if !dragListener.isDraging{
+            dragListener.isDraging = true
+        }
         marker.position = NMGLatLng(lat : camPosition.target.lat, lng : camPosition.target.lng)
         marker.subCaptionText = String(camPosition.target.lat) + ", " + String(camPosition.target.lng)
         receiver.location = String(camPosition.target.lat) + ", " + String(camPosition.target.lng)
@@ -148,6 +158,10 @@ extension MapView: NMFMapViewCameraDelegate {
     
     func mapViewCameraIdle(_ mapView: NMFMapView) {
         let camPosition = mapView.cameraPosition
+        
+        if dragListener.isDraging{
+            dragListener.isDraging = false
+        }
         
         marker.position = NMGLatLng(lat : camPosition.target.lat, lng : camPosition.target.lng)
         marker.subCaptionText = String(camPosition.target.lat) + ", " + String(camPosition.target.lng)

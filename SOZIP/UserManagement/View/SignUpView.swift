@@ -244,7 +244,7 @@ struct SignUpView: View {
                         }.padding(10)
                         
                         Button(action: {
-                            self.showActionSheet = true
+                            self.showTutorial = true
                         }){
                             HStack {
                                 Image(systemName: "creditcard.fill")
@@ -267,15 +267,6 @@ struct SignUpView: View {
                                 }
                                 
                                 Spacer()
-                                
-                                Button(action: {
-                                    self.showTutorial = true
-                                }){
-                                    Image(systemName : "questionmark.circle.fill")
-                                        .foregroundColor(self.pickedImage == nil ? .btn_dark : .white)
-                                }.sheet(isPresented: $showTutorial, content: {
-                                    Tutorial_Main()
-                                })
                             }
                         }
                         .padding(20)
@@ -432,8 +423,9 @@ struct SignUpView: View {
         
 //        .disabled(self.name.isEmpty || self.studentNo.isEmpty || self.phone.isEmpty || self.nickName.isEmpty || self.pickedImage == nil || !self.acceptLicense || !self.acceptPrivacy)
         
-        .actionSheet(isPresented : $showActionSheet, content:
-                        actionSheet)
+        .sheet(isPresented: $showTutorial, content: {
+            Tutorial_Main()
+        })
         
         .fullScreenCover(isPresented: $showProcess, content: {
             Process_Validate(image: $pickedImage, studentNo: $studentNo, name: $name, phone: $phone, nickName: $nickName, marketingAccept : $acceptMarketing, helper: validateIDCard())

@@ -10,7 +10,8 @@ import SwiftUI
 
 struct SOZIPDataModel : Hashable{
     var docId : String
-    var tags : [String]
+    var category : String
+    var firstCome : Int
     var SOZIPName : String
     var currentPeople : Int
     var location_description : String
@@ -20,13 +21,14 @@ struct SOZIPDataModel : Hashable{
     var location : String
     var address : String
     var status : String
-    var payMethod : [String : String]
-    var transactionMethod : [String : String]
+    var color : Color
+    var account : String
+    var profile : [String : String]
+    var url : String?
     
-    init(docId : String, tags : [String], SOZIPName : String, currentPeople : Int, location_description : String, time : Date, Manager : String, participants : [String : String], location : String,
-         address : String, status : String, payMethod : [String : String], transactionMethod : [String : String]){
+    init(docId : String, SOZIPName : String, currentPeople : Int, location_description : String, time : Date, Manager : String, participants : [String : String], location : String,
+         address : String, status : String, color : Color, account : String, profile : [String : String], url : String?, category : String, firstCome : Int){
         self.docId = docId
-        self.tags = tags
         self.SOZIPName = SOZIPName
         self.currentPeople = currentPeople
         self.location_description = location_description
@@ -36,7 +38,11 @@ struct SOZIPDataModel : Hashable{
         self.location = location
         self.address = address
         self.status = status
-        self.payMethod = payMethod
-        self.transactionMethod = transactionMethod
+        self.color = color
+        self.account = account
+        self.profile = profile
+        self.url = url
+        self.firstCome = firstCome
+        self.category = category
     }
 }

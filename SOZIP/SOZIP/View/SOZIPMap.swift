@@ -15,7 +15,7 @@ class SOZIPMap : UIViewController, CLLocationManagerDelegate{
     var locationManager = CLLocationManager()
     var naverMapView : NMFNaverMapView!
     let models : [SOZIPDataModel]
-
+    
     init(models : [SOZIPDataModel]){
         self.models = models
         super.init(nibName: nil, bundle: nil)
@@ -67,19 +67,27 @@ class SOZIPMap : UIViewController, CLLocationManagerDelegate{
         for index in 0..<models.count{
             let position = models[index].location
             
-            if models[index].status != "closed"{
+            if models[index].status != "closed" && models[index].status != "end"{
                 let position_split = position.components(separatedBy: ", ")
                 
                 let marker = NMFMarker(position: NMGLatLng(lat: Double(position_split[0])!, lng: Double(position_split[1])!))
                             
                 marker.captionText = models[index].SOZIPName
-                marker.captionColor = UIColor(red: 250, green: 185, blue: 51)
+                marker.captionColor = UIColor(models[index].color)
                 
                 marker.subCaptionText = models[index].location_description
                 marker.subCaptionColor = .black
                 
                 marker.iconImage = NMF_MARKER_IMAGE_BLACK
-                marker.iconTintColor = UIColor(red: 250, green: 185, blue: 51)
+                marker.iconTintColor = UIColor(models[index].color)
+                
+                marker.touchHandler = {(overlay : NMFOverlay) -> Bool in
+                    let hostingView = UIHostingController(rootView : SOZIPDetailView(sozip: self.models[index], helper: SOZIPHelper()))
+                    self.present(hostingView, animated: true, completion: nil)
+                    
+                    return true
+                }
+                
                 markers.append(marker)
             }
         }

@@ -12,96 +12,151 @@ struct SOZIPManagerView: View {
     @State private var key : [String] = []
     
     let model : SOZIPDataModel
-    let uid = Auth.auth().currentUser?.uid as? String ?? ""
+    let uid = Auth.auth().currentUser?.uid ?? ""
+    
+    func getProfile(uid : String) -> String{
+        var profile = "🐥"
+        
+        let userProfile = model.profile[uid] ?? ""
+        
+        if userProfile != ""{
+            let profile_split = userProfile.components(separatedBy: ",")
+            
+            switch profile_split[0]{
+            case "pig" :
+                profile = "🐷"
+                
+            case "rabbit":
+                profile = "🐰"
+                
+            case "tiger" :
+                profile = "🐯"
+                
+            case "monkey" :
+                profile = "🐵"
+                
+            case "chick" :
+                profile = "🐥"
+                
+            default :
+                profile = "🐥"
+            }
+        }
+        
+        return profile
+    }
+    
+    func getProfileBG(uid : String) -> Color{
+        var profile_bg : Color = .sozip_bg_1
+        
+        let userProfile = model.profile[uid] ?? ""
+        
+        if userProfile != ""{
+            let profile_split = userProfile.components(separatedBy: ",")
+            
+            switch profile_split[1]{
+            case "bg_1":
+                profile_bg = .sozip_bg_1
+                
+            case "bg_2":
+                profile_bg = .sozip_bg_2
+                
+            case "bg_3":
+                profile_bg = .sozip_bg_3
+                
+            case "bg_4":
+                profile_bg = .sozip_bg_4
+                
+            case "bg_5":
+                profile_bg = .sozip_bg_5
+                
+            default:
+                profile_bg = .sozip_bg_1
+                
+            }
+        }
+        
+        return profile_bg
+    }
     
     var body: some View {
         VStack{
-            if model.Manager != uid{
-                EmptyView()
+            
+            HStack{
+                Text("참여자 정보")
+                    .fontWeight(.semibold)
+                
+                Spacer()
+            }
+            
+            Spacer().frame(height : 20)
+            
+            if model.currentPeople <= 1{
+                Text("아직 이 소집에 참여자가 없어요!")
+                    .foregroundColor(.gray)
             }
             
             else{
-                HStack{
-                    Text("소집 정보")
-                        .fontWeight(.semibold)
-
-                    Spacer()
-                }
-                
-                Spacer().frame(height : 20)
-
-                if model.currentPeople <= 1{
-                    Text("아직 이 소집에 참여자가 없어요!")
-                        .foregroundColor(.gray)
+                if key.indices.count <= 3{
+                    HStack{
+                        ForEach(key.indices, id : \.self){row in
+                            if key[row] != uid{
+                                VStack{
+                                    Text(getProfile(uid : key[row]))
+                                        .modifier(FittingFontSizeModifier())
+                                        .padding(5)
+                                        .frame(width : 50, height : 50)
+                                        .background(Circle().foregroundColor(getProfileBG(uid : key[row])))
+                                    
+                                    Text(model.participants[key[row]] ?? "알 수 없음")
+                                        .font(.caption)
+                                        .fontWeight(.semibold)
+                                }.padding(20)
+                                
+                                Spacer().frame(width : 15)
+                                
+                            }
+                            
+                        }
+                    }
                 }
                 
                 else{
-                    ForEach(key.indices, id : \.self){index in
-                        if key[index] != uid{
-                            VStack{
-                                HStack{
-                                    Image("profile_burger")
-                                        .resizable()
-                                        .frame(width : 20, height : 20)
+                    ForEach(0..<key.indices.count / 3, id : \.self){row in
+                        VStack {
+                            HStack{
+                                ForEach(0..<3){column in
+                                    if key[column] != uid{
+                                        VStack{
+                                            Text(getProfile(uid : key[column]))
+                                                .modifier(FittingFontSizeModifier())
+                                                .padding(5)
+                                                .frame(width : 50, height : 50)
+                                                .background(Circle().foregroundColor(getProfileBG(uid : key[column])))
+                                            
+                                            Text(model.participants[key[column]] ?? "알 수 없음")
+                                                .font(.caption)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(20)
                                         
-                                    Text(model.participants[key[index]] as? String ?? "알 수 없음")
-                                        .fontWeight(.semibold)
-                                    
-                                    Spacer()
-                                }
-                                
-                                Spacer().frame(height : 10)
-
-                                HStack{
-                                    if model.transactionMethod[key[index]] as? String ?? "" == "Meet"{
-                                        Text("거래 방식 : 소집 장소에서 만나요!")
-                                            .font(.caption)
-                                        
-                                        Spacer()
                                     }
                                     
-                                    else{
-                                        Text("거래 방식 : \(model.transactionMethod[key[index]] as? String ?? "")에 놓고 가주세요!")
-                                            .font(.caption)
-                                        
-                                        Spacer()
-                                    }
-                                }
-                                
-                                Spacer().frame(height : 10)
-
-                                HStack{
-                                    if model.payMethod[key[index]] as? String ?? "" == "bank"{
-                                        Text("결제 방식 : 방장 계좌로 계좌 이체할게요!")
-                                            .font(.caption)
-                                        
-                                        Spacer()
-                                    }
+                                    Spacer().frame(width : 15)
                                     
-                                    else if model.payMethod[key[index]] as? String ?? "" == "cache"{
-                                        Text("결제 방식 : 만나서 현금을 드릴게요!")
-                                            .font(.caption)
-                                        
-                                        Spacer()
-                                    }
-                                    
-                                    else if model.payMethod[key[index]] as? String ?? "" == "private"{
-                                        Text("결제 방식 : 안전 결제할게요!")
-                                            .font(.caption)
-                                        
-                                        Spacer()
-                                    }
                                 }
                             }
-                            .padding(20).background(RoundedRectangle(cornerRadius: 15.0).shadow(radius: 5).foregroundColor(.btn_color))
                         }
-                        
                     }
                 }
-                    
+                
+                
             }
+            
         }.onAppear(perform: {
             key = Array(model.participants.keys)
+            
+            print(key)
         })
     }
 }

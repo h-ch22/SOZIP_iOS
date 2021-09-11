@@ -8,7 +8,7 @@
 import Foundation
 
 enum More_AlertModel : Identifiable{
-    case signOut, secession, greet, noUser, secessionFail, signOutFail
+    case signOut, secession, greet, noUser, secessionFail, signOutFail, updateSuccess, updateFail
     
     var id: Int{
         hashValue

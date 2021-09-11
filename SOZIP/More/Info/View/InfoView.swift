@@ -151,25 +151,6 @@ struct InfoView: View {
 
                         NavigationLink(destination: EmptyView()){
                             HStack{
-                                Image("ic_law")
-                                    .resizable()
-                                    .frame(width: 30, height: 30, alignment: .leading)
-                                    .foregroundColor(.btn_dark)
-                                
-                                Text("법적 고지")
-                                    .foregroundColor(.txt_color)
-                                    .fontWeight(.semibold)
-                                
-                                Spacer()
-                            }.padding(20)
-                            .padding([.vertical], 10)
-                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
-                        }
-                        
-                        Spacer().frame(height : 20)
-
-                        NavigationLink(destination: EmptyView()){
-                            HStack{
                                 Image("ic_community")
                                     .resizable()
                                     .frame(width: 30, height: 30, alignment: .leading)

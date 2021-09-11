@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct sentFeedback: View {
-    @ObservedObject var helper : FeedbackHubHelper
+    @StateObject private var helper = FeedbackHubHelper()
     @State private var showAlert = false
     @State private var navigateToSignInView = false
     
@@ -17,32 +17,39 @@ struct sentFeedback: View {
             Color.backgroundColor.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             VStack{
-                if helper.list.isEmpty{
-                    Text("아직 보낸 피드백이 없어요.")
-                        .foregroundColor(.gray)
-                }
-                
-                else{
-                    List{
-                        ForEach(helper.list, id : \.self){contents in
-                            NavigationLink(destination : EmptyView()){
-                                FeedbackHubListModel(data : contents)
-                            }
+                    if helper.list.isEmpty{
+                        Text("아직 보낸 피드백이 없어요.")
+                            .foregroundColor(.gray)
+                    }
+                    
+                    else{
+                        List{
+                            ForEach(helper.list, id : \.self){contents in
+                                NavigationLink(destination : FeedbackDetailView(data : contents)){
+                                    FeedbackHubListModel(data : contents)
+                                }
+                            }.listRowBackground(Color.backgroundColor)
                         }
                     }
-                }
+                
             }
         }.navigationBarTitle("보낸 피드백", displayMode: .inline)
         .onAppear(perform: {
             helper.getFeedback(){(result) in
-                guard let result = result else{return}
-                
+                guard let result = result else{
+                    
+                    print("error")
+                    return
+                }
+                                
                 switch(result){
                 case .noUser:
                     self.showAlert = true
                     
-                case .error: break
-                case .success: break
+                case .error: print("error")
+                case .success: print("success")
+                case .noContents: break
+                case .noCategory: break
                 }
             }
         })
@@ -55,12 +62,35 @@ struct sentFeedback: View {
             SignInView(helper: UserManagement())
         })
         
+        .navigationBarItems(trailing:
+                                Button(action : {
+                                    helper.getFeedback(){(result) in
+                                        guard let result = result else{
+                                            return
+                                        }
+                                                                                
+                                        switch(result){
+                                        case .noUser:
+                                            self.showAlert = true
+                                            
+                                        case .error: break
+                                        case .success: break
+                                        case .noContents: break
+                                        case .noCategory: break
+                                        }
+                                    }
+                                }){
+                                    Image(systemName: "arrow.clockwise")
+                                }
+        )
+        
         .accentColor(.accent)
+        
     }
 }
 
 struct sentFeedback_Previews: PreviewProvider {
     static var previews: some View {
-        sentFeedback(helper: FeedbackHubHelper())
+        sentFeedback()
     }
 }

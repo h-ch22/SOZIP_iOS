@@ -29,7 +29,6 @@ struct Tutorial_Main: View {
                     Spacer().frame(height : 60)
 
                     Button(action : {
-                        Tutorial_Validate.setContents(model: .real)
                         self.showTutorial = true
                     }){
                         HStack {
@@ -38,12 +37,12 @@ struct Tutorial_Main: View {
                                     .font(.caption)
                                     .foregroundColor(.txt_color)
                                 
-                                Text("실물 학생증 인증 방법 보기")
+                                Text("실물 학생증 인증")
                                     .foregroundColor(.txt_color)
                             }
                             
-                            Spacer().frame(width : 90)
-                            
+                            Spacer()
+
                             Image(systemName: "arrow.forward.circle.fill")
                                 .resizable()
                                 .frame(width : 30, height : 30)
@@ -52,13 +51,12 @@ struct Tutorial_Main: View {
                         .frame(width : UIScreen.main.bounds.width / 1.2)
                         .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 5))
                     }.sheet(isPresented: $showTutorial, content: {
-                        Tutorial_Validate(model : .real)
+                        EmptyView()
                     })
                     
                     Spacer().frame(height : 20)
                     
                     Button(action : {
-                        Tutorial_Validate.setContents(model: .mobile)
                         self.showMobileTutorial = true
                     }){
                         HStack {
@@ -67,11 +65,11 @@ struct Tutorial_Main: View {
                                     .font(.caption)
                                     .foregroundColor(.txt_color)
 
-                                Text("모바일 학생증 인증 방법 보기")
+                                Text("모바일 학생증 인증")
                                     .foregroundColor(.txt_color)
                             }
                             
-                            Spacer().frame(width : 90)
+                            Spacer()
                             
                             Image(systemName: "arrow.forward.circle.fill")
                                 .resizable()
@@ -82,10 +80,10 @@ struct Tutorial_Main: View {
                         .frame(width : UIScreen.main.bounds.width / 1.2)
                         .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 5))
                     }.sheet(isPresented: $showMobileTutorial, content: {
-                        Tutorial_Validate(model : .mobile)
+                        Tutorial_Validate(method: .mobile)
                     })
                     
-                    .navigationBarTitle(Text("튜토리얼"), displayMode: .inline)
+                    .navigationBarTitle(Text("학생증 인증하기"), displayMode: .inline)
                     .navigationBarItems(trailing: Button("닫기"){self.presentationMode.wrappedValue.dismiss()})
                 }
             }

@@ -18,6 +18,9 @@ struct SignInView: View {
     @State private var alertModel : signInResultModel? = nil
     @ObservedObject var helper : UserManagement
     
+    private let user_mail : String? = UserDefaults.standard.string(forKey: "signIn_mail")
+    private let user_password : String? = UserDefaults.standard.string(forKey: "signIn_password")
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -208,13 +211,36 @@ struct SignInView: View {
                 }
             
             .fullScreenCover(isPresented: $showHome, content: {
-                TabManager(helper : SOZIPHelper())
+                TabManager(chatHelper: ChatHelper(), helper : SOZIPHelper())
             })
             
             .overlay(
                 ProcessView()
                     .isHidden(!showProcess)
             )
+            
+            .onAppear(perform: {
+                if user_mail != nil && user_password != nil{
+                    showProcess = true
+                    
+                    helper.signIn(mail : email, password: password){(result) in
+                        guard let result = result else{return}
+                        
+                        if result == "success"{
+                            showProcess = false
+                            showHome = true
+                            print("signIn success")
+                        }
+                        
+                        else{
+                            alertModel = .error
+                            
+                            showProcess = false
+                            showAlert = true
+                        }
+                    }
+                }
+            })
             
             
             

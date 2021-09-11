@@ -9,181 +9,133 @@ import SwiftUI
 
 struct MoreView: View {
     @EnvironmentObject var helper : UserManagement
-    @State private var showAlert = false
-    @State private var alertModel : More_AlertModel?
     @State private var showSignInScreen = false
     
     var body: some View {
-        NavigationView{
-            ZStack {
-                Color.backgroundColor.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+        VStack{
+            HStack{
+                Text("소집 : SOZIP")
+                    .fontWeight(.bold)
                 
-                VStack{
-                    HStack{
-                        Text("소집 : SOZIP")
+                Spacer()
+            }.padding(20)
+            
+            Spacer().frame(height : 20)
+
+            HStack{
+                NavigationLink(destination : ProfileView().environmentObject(UserManagement())){
+                    HStack {
+                        Text(helper.getProfile())
+                            .font(.title)
+                            .fontWeight(.semibold)
+                            .background(Circle().foregroundColor(helper.getColor()).frame(width : 40, height : 40))
+                        
+                        Spacer().frame(width : 15)
+
+                        Text(helper.nickName)
+                            .foregroundColor(.txt_color)
                             .fontWeight(.bold)
                         
                         Spacer()
-                    }
-                    
-                    Spacer().frame(height : 20)
+                        
+                    }.padding(20)
+                    .padding([.vertical], 10)
+                    .background(RoundedRectangle(cornerRadius: 15)
+                                    .foregroundColor(.btn_color)
+                                    .shadow(radius: 2, x:0, y:2))
+                }
+            }.padding([.horizontal], 20)
+            
+            Spacer().frame(height : 20)
 
-                    HStack{
-                        NavigationLink(destination : editProfileView()){
-                            HStack {
-                                Image("appstore")
+            Divider()
+            
+            ScrollView{
+                VStack{
+                    Group{
+                        Spacer().frame(height : 20)
+
+                        NavigationLink(destination : NoticeListView(helper : NoticeHelper())){
+                            HStack{
+                                Image("ic_notice")
                                     .resizable()
-                                    .clipShape(Circle())
-                                    .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 30, height: 30, alignment: .leading)
                                 
-                                Text(helper.nickName)
+                                Text("공지사항")
                                     .foregroundColor(.txt_color)
-                                    .fontWeight(.bold)
+                                    .fontWeight(.semibold)
                                 
                                 Spacer()
-                                
                             }.padding(20)
-                            .padding([.vertical], 10)
-                            .background(RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(.btn_color)
-                                            .shadow(radius: 2, x:0, y:2))
-                        }
+                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
+                        }.padding([.horizontal], 20)
+                        
+                        Spacer().frame(height : 20)
+                        
+                        NavigationLink(destination : FeedbackHubMain(helper: FeedbackHubHelper())){
+                            HStack{
+                                Image("ic_feedbackHub")
+                                    .resizable()
+                                    .frame(width: 30, height: 30, alignment: .leading)
+                                
+                                Text("피드백 허브")
+                                    .foregroundColor(.txt_color)
+                                    .fontWeight(.semibold)
+                                
+                                Spacer()
+                            }.padding(20)
+                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
+                        }.padding([.horizontal], 20)
+                        
+                        Spacer().frame(height : 20)
+
+                        NavigationLink(destination : CounselorView_main()){
+                            HStack{
+                                Image("ic_counselor")
+                                    .resizable()
+                                    .frame(width: 30, height: 30, alignment: .leading)
+                                
+                                Text("소집 문의")
+                                    .foregroundColor(.txt_color)
+                                    .fontWeight(.semibold)
+                                
+                                Spacer()
+                            }.padding(20)
+                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
+                        }.padding([.horizontal], 20)
                     }
                     
-                    Spacer().frame(height : 20)
+                    Group{
+                        Spacer().frame(height : 20)
 
-                    Divider()
-                    
-                    ScrollView{
-                        VStack{
-                            Group{
-                                Spacer().frame(height : 20)
-
-                                NavigationLink(destination : NoticeView()){
-                                    HStack{
-                                        Image("ic_notice")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                        
-                                        Text("공지사항")
-                                            .foregroundColor(.txt_color)
-                                            .fontWeight(.semibold)
-                                        
-                                        Spacer()
-                                    }.padding(20)
-                                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
-                                }
+                        NavigationLink(destination: InfoView(helper : VersionManager())){
+                            HStack{
+                                Image("ic_info")
+                                    .resizable()
+                                    .frame(width: 30, height: 30, alignment: .leading)
+                                    .foregroundColor(.btn_dark)
                                 
-                                Spacer().frame(height : 20)
+                                Text("정보")
+                                    .foregroundColor(.txt_color)
+                                    .fontWeight(.semibold)
                                 
-                                NavigationLink(destination : FeedbackHubMain(helper: FeedbackHubHelper())){
-                                    HStack{
-                                        Image("ic_feedbackHub")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                        
-                                        Text("피드백 허브")
-                                            .foregroundColor(.txt_color)
-                                            .fontWeight(.semibold)
-                                        
-                                        Spacer()
-                                    }.padding(20)
-                                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
-                                }
-                            }
-                            
-                            Group{
-                                Spacer().frame(height : 20)
+                                Spacer()
+                            }.padding(20)
+                            .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
+                        }.padding([.horizontal], 20)
+                        
+                        Spacer().frame(height : 20)
 
-                                NavigationLink(destination: InfoView(helper : VersionManager())){
-                                    HStack{
-                                        Image("ic_info")
-                                            .resizable()
-                                            .frame(width: 30, height: 30, alignment: .leading)
-                                            .foregroundColor(.btn_dark)
-                                        
-                                        Text("정보")
-                                            .foregroundColor(.txt_color)
-                                            .fontWeight(.semibold)
-                                        
-                                        Spacer()
-                                    }.padding(20)
-                                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(.btn_color).shadow(radius: 2, x:0, y:2))
-                                }
-                            }
-                        }
-                    }
-                    
-                }.padding([.horizontal], 20)
-                .navigationBarHidden(true)
-                .fullScreenCover(isPresented: $showSignInScreen, content: {
-                    SignInView(helper : UserManagement())
-                })
-                
-                .alert(item: $alertModel){item in
-                    switch(item){
-                    case .signOut:
-                        return Alert(title: Text("로그아웃"),
-                                     message: Text("로그아웃 시 자동 로그인이 해제되며, 다시 로그인하셔야 합니다.\n계속 하시겠습니까?"),
-                                     primaryButton: .default(Text("예")){
-                                        helper.signOut(){result in
-                                            guard let result = result else{return}
-                                            
-                                            if result{
-                                                self.showSignInScreen = true
-                                            }
-                                            
-                                            else{
-                                                alertModel = .signOutFail
-                                            }
-                                        }
-                                     }, secondaryButton: .default(Text("아니오")))
-                        
-                    case .secession:
-                        return Alert(title: Text("회원 탈퇴 안내"),
-                                     message: Text("회원 탈퇴 시 모든 정보가 제거되며, 복구할 수 없습니다.\n계속 하시겠습니까?"),
-                                     primaryButton: .default(Text("예")){
-                                        helper.secession(){result in
-                                            guard let result = result else{return}
-                                            
-                                            if result == "success"{
-                                                alertModel = .greet
-                                            }
-                                            
-                                            else if result == "noUser"{
-                                                alertModel = .noUser
-                                            }
-                                            
-                                            else{
-                                                alertModel = .secessionFail
-                                            }
-                                        }
-                                     },
-                                     secondaryButton: .default(Text("아니오")){
-                                        
-                                     })
-                    case .greet:
-                        return Alert(title: Text("감사 인사"),
-                                     message: Text("회원 탈퇴가 완료되었습니다.\n더 나은 서비스로 다시 만날 수 있도록 노력하겠습니다.\n그 동안 서비스를 이용해주셔서 감사합니다."),
-                                     dismissButton: .default(Text("확인")){
-                                        self.showSignInScreen = true
-                                     })
-                        
-                    case .secessionFail:
-                        return Alert(title: Text("오류"), message: Text("회원 탈퇴 처리 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오."), dismissButton: .default(Text("확인")))
-                        
-                    case .noUser:
-                        return Alert(title: Text("사용자 정보 없음"),
-                                     message: Text("사용자 정보가 없습니다.\n로그인 화면으로 이동합니다."),
-                                     dismissButton: .default(Text("확인")){self.showSignInScreen = true})
-                        
-                    case .signOutFail:
-                        return Alert(title: Text("오류"), message: Text("로그아웃 처리 중 오류가 발생했습니다.\n네트워크 상태를 확인하거나 나중에 다시 시도하십시오."), dismissButton: .default(Text("확인")){self.showSignInScreen = true})
+                        Ad_BannerViewController().frame(height: 50, alignment: .leading)
+
                     }
                 }
             }
-        }.accentColor(.accent)
-        
+            
+        }
+        .navigationBarHidden(true)
+        .animation(.easeOut)
+
     }
 }
 
