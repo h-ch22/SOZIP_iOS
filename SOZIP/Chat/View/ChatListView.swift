@@ -57,6 +57,7 @@ struct ChatListView: View {
             }
         }
         .animation(.easeOut)
+        .navigationBarHidden(true)
     }
 }
 

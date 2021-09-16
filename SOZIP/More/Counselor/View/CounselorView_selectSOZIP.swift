@@ -60,7 +60,7 @@ struct CounselorView_selectSOZIP: View {
                     }
                 }
                 
-                NavigationLink(destination : CounselorView_chat(docId : selectedSOZIP)){
+                NavigationLink(destination : CounselorView_chat(docId : selectedSOZIP, type: "user")){
                     HStack{
                         Text("다음 단계로")
                             .foregroundColor(.white)

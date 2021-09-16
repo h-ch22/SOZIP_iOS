@@ -49,7 +49,7 @@ struct CounselorView_log: View {
                         ForEach(helper.logList.indices.filter{
                             self.searchText.isEmpty ? true : helper.logList[$0].SOZIPName?.lowercased().contains(searchText.lowercased()) as! Bool
                         }, id : \.self){index in
-                            NavigationLink(destination : CounselorView_chat(docId: helper.logList[index].SOZIPId!)){
+                            NavigationLink(destination : CounselorView_chat(docId: helper.logList[index].SOZIPId!, type : "user")){
                                 CounselorLogModel(data: helper.logList[index])
                             }
                         }.listRowBackground(Color.backgroundColor)

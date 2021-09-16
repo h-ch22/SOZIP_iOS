@@ -10,7 +10,7 @@ import SwiftUI
 struct InfoView: View {
     @State private var latest = ""
     @ObservedObject var helper : VersionManager
-    
+
     var body: some View {
         let version: String? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
         
@@ -92,7 +92,7 @@ struct InfoView: View {
                     Spacer().frame(height : 20)
 
                     Group {
-                        NavigationLink(destination: EmptyView()){
+                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "EULA", withExtension: "pdf")!).navigationBarTitle(Text("서비스 이용 약관"))){
                             HStack{
                                 Image("ic_eula")
                                     .resizable()
@@ -111,7 +111,7 @@ struct InfoView: View {
                         
                         Spacer().frame(height : 20)
 
-                        NavigationLink(destination: EmptyView()){
+                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "PrivacyLicense", withExtension: "pdf")!).navigationBarTitle(Text("개인정보 처리 방침"))){
                             HStack{
                                 Image("ic_privacy")
                                     .resizable()
@@ -149,7 +149,7 @@ struct InfoView: View {
                         
                         Spacer().frame(height : 20)
 
-                        NavigationLink(destination: EmptyView()){
+                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "CommunityGuideLine", withExtension: "pdf")!).navigationBarTitle(Text("커뮤니티 가이드라인"))){
                             HStack{
                                 Image("ic_community")
                                     .resizable()
@@ -189,7 +189,7 @@ struct InfoView: View {
                         
                         Spacer().frame(height : 20)
                         
-                        NavigationLink(destination: EmptyView()){
+                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "GPSServiceLicense", withExtension: "pdf")!).navigationBarTitle(Text("위치기반서비스 이용약관"))){
                             HStack{
                                 Image("ic_gpsLicense")
                                     .resizable()

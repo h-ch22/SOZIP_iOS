@@ -10,6 +10,7 @@ import Firebase
 
 struct CounselorChatRow: View {
     let data : CounselorChatDataModel
+    let type : String
     @State private var isMyMSG = false
     @State private var url = ""
     @State private var msg_split : [Any] = []
@@ -33,16 +34,32 @@ struct CounselorChatRow: View {
         VStack{
             HStack{
                 if !isMyMSG{
-                    Image("ic_counselor")
-                        .resizable()
-                        .frame(width : 25, height : 25)
-                        .padding(5)
+                    if type == "Manager"{
+                        Image("ic_counselor")
+                            .resizable()
+                            .frame(width : 25, height : 25)
+                            .padding(5)
+                        
+                        Text("고객님")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                        Spacer()
+                    }
                     
-                    Text("상담원")
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                    else{
+                        Image("ic_counselor")
+                            .resizable()
+                            .frame(width : 25, height : 25)
+                            .padding(5)
+                        
+                        Text("상담원")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                        Spacer()
+                    }
                     
-                    Spacer()
                 }
                 
                 else{

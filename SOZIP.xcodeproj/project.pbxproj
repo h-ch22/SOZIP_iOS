@@ -197,6 +197,12 @@
 		F6EFD28F26B943DB00342970 /* ic_bankTransfer.png in Resources */ = {isa = PBXBuildFile; fileRef = F6EFD28E26B943DA00342970 /* ic_bankTransfer.png */; };
 		F6F957C226C6510800B3D8F1 /* addProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F957C126C6510800B3D8F1 /* addProfile.swift */; };
 		F6F957C626C672A200B3D8F1 /* MultiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F957C526C672A200B3D8F1 /* MultiLineTextField.swift */; };
+		F6FB388D26EF2D9600F3EDD5 /* CounselorAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB388C26EF2D9600F3EDD5 /* CounselorAlertModel.swift */; };
+		F6FB388F26EF3B0200F3EDD5 /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FB388E26EF3B0200F3EDD5 /* PDFViewer.swift */; };
+		F6FB389526EF3BC500F3EDD5 /* PrivacyLicense.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6FB389126EF3BC500F3EDD5 /* PrivacyLicense.pdf */; };
+		F6FB389626EF3BC500F3EDD5 /* CommunityGuideLine.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6FB389226EF3BC500F3EDD5 /* CommunityGuideLine.pdf */; };
+		F6FB389726EF3BC500F3EDD5 /* EULA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6FB389326EF3BC500F3EDD5 /* EULA.pdf */; };
+		F6FB389826EF3BC500F3EDD5 /* GPSServiceLicense.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6FB389426EF3BC500F3EDD5 /* GPSServiceLicense.pdf */; };
 		F7F5DF2A18CDCAB53B46D9B3 /* Pods_SOZIP_SOZIPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792D851DAAFC2FD112BDFD2D /* Pods_SOZIP_SOZIPUITests.framework */; };
 		FEDBB1EDFA5B7D885BBCC913 /* Pods_SOZIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B559949FAA973F189835C9 /* Pods_SOZIP.framework */; };
 /* End PBXBuildFile section */
@@ -424,6 +430,12 @@
 		F6EFD28E26B943DA00342970 /* ic_bankTransfer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_bankTransfer.png; sourceTree = "<group>"; };
 		F6F957C126C6510800B3D8F1 /* addProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addProfile.swift; sourceTree = "<group>"; };
 		F6F957C526C672A200B3D8F1 /* MultiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextField.swift; sourceTree = "<group>"; };
+		F6FB388C26EF2D9600F3EDD5 /* CounselorAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselorAlertModel.swift; sourceTree = "<group>"; };
+		F6FB388E26EF3B0200F3EDD5 /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
+		F6FB389126EF3BC500F3EDD5 /* PrivacyLicense.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PrivacyLicense.pdf; sourceTree = "<group>"; };
+		F6FB389226EF3BC500F3EDD5 /* CommunityGuideLine.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CommunityGuideLine.pdf; sourceTree = "<group>"; };
+		F6FB389326EF3BC500F3EDD5 /* EULA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = EULA.pdf; sourceTree = "<group>"; };
+		F6FB389426EF3BC500F3EDD5 /* GPSServiceLicense.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = GPSServiceLicense.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,6 +667,7 @@
 		F643D354269AD69900C4251A /* SOZIP */ = {
 			isa = PBXGroup;
 			children = (
+				F6FB389026EF3BC500F3EDD5 /* include */,
 				F648996826B931AD00FBAAA0 /* Chat */,
 				F607D97326B2576C005C8A5B /* SOZIP */,
 				F6922D1426B127B700A2BF43 /* Frameworks */,
@@ -829,6 +842,7 @@
 				F68489DB26EB706800A8FA2B /* CounselorChatRow.swift */,
 				F68489DF26EB7A0300A8FA2B /* CounselorLogModel.swift */,
 				F68489E126EB7AEE00A8FA2B /* CounselorLogDataModel.swift */,
+				F6FB388C26EF2D9600F3EDD5 /* CounselorAlertModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -941,6 +955,7 @@
 				F6F957C526C672A200B3D8F1 /* MultiLineTextField.swift */,
 				F6BA7A5326D61CEB000F3EF7 /* BlurView.swift */,
 				F6C5A5BB26D8A36D00269B6A /* FullscreenImageView.swift */,
+				F6FB388E26EF3B0200F3EDD5 /* PDFViewer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1055,6 +1070,17 @@
 				F65D805026E5A80F0043703F /* changePassword.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F6FB389026EF3BC500F3EDD5 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB389126EF3BC500F3EDD5 /* PrivacyLicense.pdf */,
+				F6FB389226EF3BC500F3EDD5 /* CommunityGuideLine.pdf */,
+				F6FB389326EF3BC500F3EDD5 /* EULA.pdf */,
+				F6FB389426EF3BC500F3EDD5 /* GPSServiceLicense.pdf */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1181,11 +1207,13 @@
 				F6922D1326B1243A00A2BF43 /* ic_checkmark.png in Resources */,
 				F6EFD28F26B943DB00342970 /* ic_bankTransfer.png in Resources */,
 				F627A53C26B800A0008140F6 /* ic_noMeet.png in Resources */,
+				F6FB389626EF3BC500F3EDD5 /* CommunityGuideLine.pdf in Resources */,
 				F643D388269AD7BD00C4251A /* InfoPlist.strings in Resources */,
 				F621945726B3AF59004BDE7B /* ic_notice.png in Resources */,
 				F6922D2B26B14DD400A2BF43 /* ic_feedbackHub.png in Resources */,
 				F6922D0026B0FDE100A2BF43 /* tutorialImg_1.png in Resources */,
 				F621945926B3AF59004BDE7B /* ic_law.png in Resources */,
+				F6FB389826EF3BC500F3EDD5 /* GPSServiceLicense.pdf in Resources */,
 				F621945526B3AF59004BDE7B /* ic_community.png in Resources */,
 				F6922D2C26B14DD400A2BF43 /* ic_signOut.png in Resources */,
 				F68673F226B007CF00F5CFEC /* ic_error.png in Resources */,
@@ -1195,6 +1223,7 @@
 				F621947326B3D898004BDE7B /* bg_feedbackHub.png in Resources */,
 				F68489C426EB5D3100A8FA2B /* ic_counselor.png in Resources */,
 				F665FAC726ABAE5A00E847D5 /* tmp.storyboard in Resources */,
+				F6FB389726EF3BC500F3EDD5 /* EULA.pdf in Resources */,
 				F6EFD28C26B93DDB00342970 /* ic_sojungPay.png in Resources */,
 				F627C33C26E4DDE000BA9FAA /* urlTutorialImg_1.png in Resources */,
 				F621945626B3AF59004BDE7B /* ic_privacy.png in Resources */,
@@ -1215,6 +1244,7 @@
 				F6922D0426B1127D00A2BF43 /* ic_process_register.png in Resources */,
 				F6922D2E26B14DD400A2BF43 /* ic_secession.png in Resources */,
 				F6922D0126B0FDE100A2BF43 /* tutorialImg_3.png in Resources */,
+				F6FB389526EF3BC500F3EDD5 /* PrivacyLicense.pdf in Resources */,
 				F6071FD326BA8B700005828A /* ic_log.png in Resources */,
 				F621945826B3AF59004BDE7B /* ic_opensource.png in Resources */,
 				F6922D0226B0FDE100A2BF43 /* tutorialImg_2.png in Resources */,
@@ -1392,6 +1422,7 @@
 				F664085426B234C5004CE651 /* signUp_Fail.swift in Sources */,
 				F6BF822B26D4C88F00D6D493 /* enterAccountNumber.swift in Sources */,
 				F621948026B3EA5C004BDE7B /* FeedbackHubListModel.swift in Sources */,
+				F6FB388F26EF3B0200F3EDD5 /* PDFViewer.swift in Sources */,
 				F68489E626EB87CE00A8FA2B /* CounselorView_adminLog.swift in Sources */,
 				F68489DC26EB706800A8FA2B /* CounselorChatRow.swift in Sources */,
 				F664085626B2361C004CE651 /* signUpResultModel.swift in Sources */,
@@ -1504,6 +1535,7 @@
 				F621946726B3C1A8004BDE7B /* TagCategoryModel.swift in Sources */,
 				F621946D26B3D730004BDE7B /* signInResultModel.swift in Sources */,
 				F6B583DE26E5D47100CC92DE /* PersonalInfoModel.swift in Sources */,
+				F6FB388D26EF2D9600F3EDD5 /* CounselorAlertModel.swift in Sources */,
 				F635DB0726B59C3000938E9D /* SOZIPListView.swift in Sources */,
 				F68489E226EB7AEE00A8FA2B /* CounselorLogDataModel.swift in Sources */,
 				F6BA7A4E26D60A11000F3EF7 /* ChatDataModel.swift in Sources */,
@@ -1704,7 +1736,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SOZIP/SOZIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"SOZIP/Preview Content\"";
 				DEVELOPMENT_TEAM = JLQKH6P6PL;
 				ENABLE_PREVIEWS = YES;
@@ -1730,7 +1762,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SOZIP/SOZIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"SOZIP/Preview Content\"";
 				DEVELOPMENT_TEAM = JLQKH6P6PL;
 				ENABLE_PREVIEWS = YES;

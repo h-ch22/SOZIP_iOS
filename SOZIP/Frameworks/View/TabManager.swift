@@ -12,7 +12,6 @@ struct TabManager: View {
     @State private var showModal = false
     @ObservedObject var chatHelper : ChatHelper
     @ObservedObject var helper : SOZIPHelper
-    @State private var showProfile = false
 
     let icon = ["house.fill", "map.fill", "plus", "message.fill", "ellipsis.circle.fill"]
     
@@ -87,10 +86,6 @@ struct TabManager: View {
                 }
             }
             
-            .fullScreenCover(isPresented: $showProfile, content: {
-                addProfile().environmentObject(UserManagement())
-            })
-            
             .sheet(isPresented: $showModal, content: {
                 addSozipView(isShowing : self.$showModal, receiver : SOZIPLocationReceiver(), userManagement: UserManagement())
             })
@@ -102,10 +97,6 @@ struct TabManager: View {
                 
                 chatHelper.getChatList(){result in
                     guard let result = result else{return}
-                }
-                
-                if UserDefaults.standard.string(forKey: "profile") == nil || UserDefaults.standard.string(forKey: "profile_bg") == nil{
-                    showProfile = true
                 }
             })
             

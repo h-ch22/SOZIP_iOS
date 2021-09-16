@@ -13,7 +13,7 @@ struct navigateToSOZIPMap : View{
     var body : some View{
         VStack{
             SOZIPMapController(data : data)
-        }
+        }.navigationBarHidden(true)
     }
 }
 

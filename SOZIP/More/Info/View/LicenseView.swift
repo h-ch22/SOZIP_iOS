@@ -15,7 +15,19 @@ struct LicenseView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Text(license)
+                switch licenseType{
+                case .EULA :
+                    PDFViewer(url : Bundle.main.url(forResource: "EULA", withExtension: "pdf")!)
+
+                case .location:
+                    PDFViewer(url : Bundle.main.url(forResource: "EULA", withExtension: "pdf")!)
+
+                case .privacy:
+                    PDFViewer(url : Bundle.main.url(forResource: "PrivacyLicense", withExtension: "pdf")!)
+
+                case .marketing:
+                    PDFViewer(url : Bundle.main.url(forResource: "EULA", withExtension: "pdf")!)
+                }
             }.navigationBarTitle(self.license, displayMode: .inline)
             
             .navigationBarItems(trailing: Button("닫기"){
