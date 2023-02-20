@@ -1,7 +1,6 @@
 <img src="appstore.png" width=200>
 
 소집 : SOZIP
-
 =====
 
 > An application for Delivery Cost Dutch Pay
