@@ -47,7 +47,7 @@ struct ProfileView: View {
                         Text("이용 기록 보기")
                     }
                     
-                }.listStyle(InsetGroupedListStyle())
+                }
                 
             }.padding(20)
             .navigationBarTitle(Text("프로필 보기"), displayMode: .inline)

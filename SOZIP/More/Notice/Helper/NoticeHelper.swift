@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 class NoticeHelper : ObservableObject{
     let db = Firestore.firestore()

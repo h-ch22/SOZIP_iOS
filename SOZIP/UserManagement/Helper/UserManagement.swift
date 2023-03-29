@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import SwiftUI
 import UIKit
+import FirebaseStorage
 
 class UserManagement : ObservableObject{
     private let db = Firestore.firestore()
@@ -16,14 +17,14 @@ class UserManagement : ObservableObject{
     
     @Published var name = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "name")  ?? "")
     @Published var nickName = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "nickName") ?? "")
-    @Published var school = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "school") ?? "")
+//    @Published var school = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "school") ?? "")
     @Published var bounds = AES256Util.decrypt(encoded:UserDefaults.standard.string(forKey: "bounds") ?? "")
     @Published var marketingAccept = UserDefaults.standard.bool(forKey: "receiveMarketing")
     @Published var profile = UserDefaults.standard.string(forKey : "profile")
     @Published var profile_bg = UserDefaults.standard.string(forKey : "profile_bg")
     @Published var accounts : [accountDataModel] = []
     
-    func signUp(mail : String, password : String, name : String, nickName : String, school : String, studentNo : String, phone : String, idCard : Image, marketingAccept : Bool,
+    func signUp(mail : String, password : String, name : String, nickName : String, phone : String, marketingAccept : Bool,
                 completion: @escaping(_ result : String?) -> Void){
         Auth.auth().createUser(withEmail: mail, password: password){authResult, error in
             if let error = error{
@@ -33,17 +34,17 @@ class UserManagement : ObservableObject{
             
             else{
                 let userRef = self.db.collection("Users").document(Auth.auth().currentUser?.uid ?? "")
-                let uiImage = idCard.asUIImage()
+//                let uiImage = idCard.asUIImage()
                 
-                guard let data = uiImage.jpegData(compressionQuality: 0.5) else {return}
+//                guard let data = uiImage.jpegData(compressionQuality: 0.5) else {return}
                 
                 userRef.setData([
                     "mail" : AES256Util.encrypt(string: mail),
                     "name" : AES256Util.encrypt(string: name),
                     "nickName" : AES256Util.encrypt(string: nickName),
                     "phone" : AES256Util.encrypt(string: phone),
-                    "school" : AES256Util.encrypt(string: school),
-                    "studentNo" : AES256Util.encrypt(string: studentNo),
+//                    "school" : AES256Util.encrypt(string: school),
+//                    "studentNo" : AES256Util.encrypt(string: studentNo),
                     "token" : Messaging.messaging().fcmToken ?? "",
                     "marketingAccept" : marketingAccept,
                     "profile" : "chick",
@@ -55,25 +56,16 @@ class UserManagement : ObservableObject{
                     }
                     
                     else{
-                        let idCardRef = self.storageRef.child("idCard/\(school)/\(Auth.auth().currentUser?.uid ?? "")/idCard.png")
+                        UserDefaults.standard.set(mail, forKey: "signIn_mail")
+                        UserDefaults.standard.set(password, forKey: "signIn_password")
+                        UserDefaults.standard.set(AES256Util.encrypt(string: name), forKey: "name")
+//                        UserDefaults.standard.set(AES256Util.encrypt(string: school), forKey: "school")
+                        UserDefaults.standard.set(AES256Util.encrypt(string: nickName), forKey: "nickName")
+                        UserDefaults.standard.set(marketingAccept, forKey : "receiveMarketing")
+                        UserDefaults.standard.set("chick", forKey: "profile")
+                        UserDefaults.standard.set("bg_1", forKey: "profile_bg")
                         
-                        idCardRef.putData(data, metadata: nil){(metadata, error) in
-                            guard let metadata = metadata else{
-                                completion("no metadata")
-                                return
-                            }
-                            
-                            UserDefaults.standard.set(mail, forKey: "signIn_mail")
-                            UserDefaults.standard.set(password, forKey: "signIn_password")
-                            UserDefaults.standard.set(AES256Util.encrypt(string: name), forKey: "name")
-                            UserDefaults.standard.set(AES256Util.encrypt(string: school), forKey: "school")
-                            UserDefaults.standard.set(AES256Util.encrypt(string: nickName), forKey: "nickName")
-                            UserDefaults.standard.set(marketingAccept, forKey : "receiveMarketing")
-                            UserDefaults.standard.set("chick", forKey: "profile")
-                            UserDefaults.standard.set("bg_1", forKey: "profile_bg")
-                            
-                            completion("success")
-                        }
+                        completion("success")
                     }
                 }
             }
@@ -100,7 +92,7 @@ class UserManagement : ObservableObject{
                         else{
                             if document != nil{
                                 let name = document!.get("name") as? String ?? ""
-                                let school = document!.get("school") as? String ?? ""
+//                                let school = document!.get("school") as? String ?? ""
                                 let nickName = document!.get("nickName") as? String ?? ""
                                 let bounds = document!.get("bounds") as? Int ?? 0
                                 let receiveMarketing = document!.get("acceptMarketing") as? Bool ?? false
@@ -108,7 +100,7 @@ class UserManagement : ObservableObject{
                                 let profile_bg = document!.get("profile_bg") as? String ?? ""
                                 
                                 UserDefaults.standard.set(name, forKey: "name")
-                                UserDefaults.standard.set(school, forKey: "school")
+//                                UserDefaults.standard.set(school, forKey: "school")
                                 UserDefaults.standard.set(nickName, forKey: "nickName")
                                 UserDefaults.standard.set(bounds, forKey: "bounds")
                                 UserDefaults.standard.set(receiveMarketing, forKey : "receiveMarketing")

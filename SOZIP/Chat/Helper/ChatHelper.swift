@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 import SwiftUI
 
 class ChatHelper : ObservableObject{

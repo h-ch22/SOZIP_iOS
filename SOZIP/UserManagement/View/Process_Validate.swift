@@ -64,7 +64,7 @@ struct Process_Validate: View {
         }.fullScreenCover(item: $validateResult){item in
             switch item{
             case .success:
-                signUp_register(img_IDCard: $image, name : $name, nickName: $nickName, studentNo: $studentNo, phone : $phone, marketingAccept: $marketingAccept)
+                signUp_register(name : $name, nickName: $nickName, phone : $phone, marketingAccept: $marketingAccept)
                 
             case .fail:
                 Process_Fail(msg: "학생증에 기재된 학적 사항과 입력한 학적 사항이 일치하지 않습니다.", errorCode: "")

@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import SwiftyJSON
+import FirebaseFunctions
 
 class FeedbackHubHelper : ObservableObject{
     private let db = Firestore.firestore()

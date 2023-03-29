@@ -20,8 +20,8 @@ class MapView : UIViewController, CLLocationManagerDelegate {
     let receiver : SOZIPLocationReceiver
     let dragListener : SOZIPMapDragListener
     let camPositionFormat = "(%.5f, %.5f) / %.2f / %.2f / %.2f"
-    private let API_KEY = "3s8wnosvv3"
-    private let API_SECRET = "TfarYn8WZITk4N5HgKeTicToV56Z1jPVrWlKpcIr"
+    private let API_KEY = "5hwhaoqcww"
+    private let API_SECRET = "TGN1tlIGOd3yivaLSREYc2pcQQijuwO2TngYiWY8"
     private let RGC_URL = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?"
     
     init(receiver : SOZIPLocationReceiver, dragListener : SOZIPMapDragListener){

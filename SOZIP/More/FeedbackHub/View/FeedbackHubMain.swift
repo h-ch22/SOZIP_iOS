@@ -104,7 +104,7 @@ struct FeedbackHubMain: View {
 
                         Group {
                             HStack {
-                                Image("ic_roomName")
+                                Image(systemName: "heart.circle.fill")
                                     .resizable()
                                     .frame(width : 20, height : 20)
                                 

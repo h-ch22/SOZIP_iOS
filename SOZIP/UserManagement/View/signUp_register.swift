@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct signUp_register: View {
-    @Binding var img_IDCard : Image?
+//    @Binding var img_IDCard : Image?
     @Binding var name : String
     @Binding var nickName : String
-    @Binding var studentNo : String
+//    @Binding var studentNo : String
     @Binding var phone : String
     @Binding var marketingAccept : Bool
     
@@ -35,15 +35,7 @@ struct signUp_register: View {
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     
                     Spacer().frame(height : 40)
-
-                    img_IDCard!
-                        .resizable()
-                        .frame(width : 200, height : 200)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .shadow(radius: 5)
                     
-                    Spacer().frame(height : 20)
-
                     Group{
                         HStack {
                             Image(systemName: "at.circle.fill")
@@ -117,7 +109,7 @@ struct signUp_register: View {
             }
         }.background(Color.backgroundColor.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/))
         .fullScreenCover(isPresented: $showProcess, content: {
-            Progress_register(img_IDCard: $img_IDCard, name: $name, nickName: $nickName, studentNo: $studentNo, phone: $phone, mail: $mail, password: $password, marketingAccept: $marketingAccept, helper: UserManagement())
+            Progress_register(name: $name, nickName: $nickName, phone: $phone, mail: $mail, password: $password, marketingAccept: $marketingAccept, helper: UserManagement())
         })
     }
 }

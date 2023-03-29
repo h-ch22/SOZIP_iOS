@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct Progress_register: View {
-    @Binding var img_IDCard : Image?
+//    @Binding var img_IDCard : Image?
     @Binding var name : String
     @Binding var nickName : String
-    @Binding var studentNo : String
+//    @Binding var studentNo : String
     @Binding var phone : String
     @Binding var mail : String
     @Binding var password : String
@@ -21,7 +21,7 @@ struct Progress_register: View {
     
     @State private var result : signUpResultModel?
     @State private var isAnimating = false
-    @State private var school = "jbnu"
+//    @State private var school = "jbnu"
 
     var foreverAnimation: Animation {
         Animation.linear(duration: 2.0)
@@ -90,7 +90,7 @@ struct Progress_register: View {
         }
         
         .onAppear(perform: {
-            helper.signUp(mail: mail, password: password, name: name, nickName: nickName, school: school, studentNo: studentNo, phone: phone, idCard: img_IDCard!, marketingAccept : marketingAccept){result in
+            helper.signUp(mail: mail, password: password, name: name, nickName: nickName, phone: phone, marketingAccept : marketingAccept){result in
                 
                 guard let result = result else{return}
                 

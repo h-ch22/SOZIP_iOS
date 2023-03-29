@@ -210,7 +210,7 @@ struct InfoView: View {
                     Spacer().frame(height : 20)
                     
                     Group {
-                        Text("© 2021. eje All Rights Reserved.")
+                        Text("© 2021-2023. eje All Rights Reserved.")
                             .foregroundColor(.gray)
                             .font(.caption)
                         

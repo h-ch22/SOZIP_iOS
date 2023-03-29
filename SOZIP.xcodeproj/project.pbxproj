@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BDDBEA6B65EF56B0859D9935 /* Pods_SOZIPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD0072D157EF3AD21E29EBC /* Pods_SOZIPTests.framework */; };
+		7B67AFDF29D0248C00E6EF85 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B67AFDE29D0248C00E6EF85 /* GoogleService-Info.plist */; };
+		7B67AFE229D024F100E6EF85 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFE129D024F100E6EF85 /* FirebaseAnalytics */; };
+		7B67AFE429D024F100E6EF85 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFE329D024F100E6EF85 /* FirebaseAnalyticsSwift */; };
+		7B67AFE629D024F100E6EF85 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFE529D024F100E6EF85 /* FirebaseAuth */; };
+		7B67AFE829D024F100E6EF85 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFE729D024F100E6EF85 /* FirebaseFirestore */; };
+		7B67AFEA29D024F100E6EF85 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFE929D024F100E6EF85 /* FirebaseFirestoreSwift */; };
+		7B67AFEC29D024F100E6EF85 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFEB29D024F100E6EF85 /* FirebaseFunctions */; };
+		7B67AFEE29D024F100E6EF85 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFED29D024F100E6EF85 /* FirebaseMessaging */; };
+		7B67AFF029D024F100E6EF85 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFEF29D024F100E6EF85 /* FirebaseStorage */; };
+		7B67AFF329D0254600E6EF85 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFF229D0254600E6EF85 /* GoogleMobileAds */; };
+		7B67AFF629D0257E00E6EF85 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFF529D0257E00E6EF85 /* CryptoSwift */; };
+		7B67AFF929D0259D00E6EF85 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFF829D0259D00E6EF85 /* SDWebImageSwiftUI */; };
+		7B67AFFC29D025BE00E6EF85 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFFB29D025BE00E6EF85 /* Alamofire */; };
+		7B67AFFF29D025E000E6EF85 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFFE29D025E000E6EF85 /* SwiftyJSON */; };
+		7B67B00229D0279800E6EF85 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67B00129D0279800E6EF85 /* FirebaseMLModelDownloader */; };
+		7B67B00529D0299C00E6EF85 /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67B00429D0299C00E6EF85 /* NMapsMap */; };
 		F6071FD126BA840C0005828A /* ATTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6071FD026BA840C0005828A /* ATTModel.swift */; };
 		F6071FD326BA8B700005828A /* ic_log.png in Resources */ = {isa = PBXBuildFile; fileRef = F6071FD226BA8B700005828A /* ic_log.png */; };
 		F6071FD726BA8BE70005828A /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6071FD626BA8BE70005828A /* LogView.swift */; };
@@ -105,7 +120,6 @@
 		F664085626B2361C004CE651 /* signUpResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F664085526B2361C004CE651 /* signUpResultModel.swift */; };
 		F664085826B23F66004CE651 /* validateResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F664085726B23F66004CE651 /* validateResultModel.swift */; };
 		F664085A26B246BA004CE651 /* PresentationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F664085926B246BA004CE651 /* PresentationKey.swift */; };
-		F665FAC726ABAE5A00E847D5 /* tmp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F665FAC626ABAE5A00E847D5 /* tmp.storyboard */; };
 		F68489C426EB5D3100A8FA2B /* ic_counselor.png in Resources */ = {isa = PBXBuildFile; fileRef = F68489C326EB5D3100A8FA2B /* ic_counselor.png */; };
 		F68489CA26EB5DBC00A8FA2B /* CounselorView_main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68489C926EB5DBC00A8FA2B /* CounselorView_main.swift */; };
 		F68489CD26EB5ECE00A8FA2B /* ic_abuse.png in Resources */ = {isa = PBXBuildFile; fileRef = F68489CB26EB5ECE00A8FA2B /* ic_abuse.png */; };
@@ -190,7 +204,6 @@
 		F6D18FE026C0F3FB0003F69F /* ic_pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D18FDE26C0F3FB0003F69F /* ic_pizza.png */; };
 		F6D18FE126C0F3FB0003F69F /* ic_chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D18FDF26C0F3FB0003F69F /* ic_chicken.png */; };
 		F6D339AC26D64539002388DC /* ic_translate.png in Resources */ = {isa = PBXBuildFile; fileRef = F6D339AB26D64539002388DC /* ic_translate.png */; };
-		F6D5EB3B26A6B8F00086640A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6D5EB3A26A6B8F00086640A /* GoogleService-Info.plist */; };
 		F6D5EB4526A6BA540086640A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5EB4426A6BA540086640A /* SignInView.swift */; };
 		F6EFD28C26B93DDB00342970 /* ic_sojungPay.png in Resources */ = {isa = PBXBuildFile; fileRef = F6EFD28A26B93DDB00342970 /* ic_sojungPay.png */; };
 		F6EFD28D26B93DDB00342970 /* ic_sojungPay_w.png in Resources */ = {isa = PBXBuildFile; fileRef = F6EFD28B26B93DDB00342970 /* ic_sojungPay_w.png */; };
@@ -203,8 +216,6 @@
 		F6FB389626EF3BC500F3EDD5 /* CommunityGuideLine.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6FB389226EF3BC500F3EDD5 /* CommunityGuideLine.pdf */; };
 		F6FB389726EF3BC500F3EDD5 /* EULA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6FB389326EF3BC500F3EDD5 /* EULA.pdf */; };
 		F6FB389826EF3BC500F3EDD5 /* GPSServiceLicense.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F6FB389426EF3BC500F3EDD5 /* GPSServiceLicense.pdf */; };
-		F7F5DF2A18CDCAB53B46D9B3 /* Pods_SOZIP_SOZIPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792D851DAAFC2FD112BDFD2D /* Pods_SOZIP_SOZIPUITests.framework */; };
-		FEDBB1EDFA5B7D885BBCC913 /* Pods_SOZIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B559949FAA973F189835C9 /* Pods_SOZIP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,15 +236,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1DBF78A0E158EEA9693C9CA3 /* Pods-SOZIP-SOZIPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOZIP-SOZIPUITests.debug.xcconfig"; path = "Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		56A60156B484980515F68CFE /* Pods-SOZIP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOZIP.release.xcconfig"; path = "Target Support Files/Pods-SOZIP/Pods-SOZIP.release.xcconfig"; sourceTree = "<group>"; };
-		621E4543BF8ACF1DDF364B47 /* Pods-SOZIP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOZIP.debug.xcconfig"; path = "Target Support Files/Pods-SOZIP/Pods-SOZIP.debug.xcconfig"; sourceTree = "<group>"; };
-		792D851DAAFC2FD112BDFD2D /* Pods_SOZIP_SOZIPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOZIP_SOZIPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8939003DD4CC4B0E6B071EE3 /* Pods-SOZIP-SOZIPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOZIP-SOZIPUITests.release.xcconfig"; path = "Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests.release.xcconfig"; sourceTree = "<group>"; };
-		ACFF949C7B8977FA1AEEBFD2 /* Pods-SOZIPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOZIPTests.debug.xcconfig"; path = "Target Support Files/Pods-SOZIPTests/Pods-SOZIPTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E3B559949FAA973F189835C9 /* Pods_SOZIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOZIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDD0072D157EF3AD21E29EBC /* Pods_SOZIPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOZIPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEBBE8001CE2165530F26EA7 /* Pods-SOZIPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOZIPTests.release.xcconfig"; path = "Target Support Files/Pods-SOZIPTests/Pods-SOZIPTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B67AFDE29D0248C00E6EF85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6071FD026BA840C0005828A /* ATTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTModel.swift; sourceTree = "<group>"; };
 		F6071FD226BA8B700005828A /* ic_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_log.png; sourceTree = "<group>"; };
 		F6071FD626BA8BE70005828A /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -338,7 +341,6 @@
 		F664085526B2361C004CE651 /* signUpResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpResultModel.swift; sourceTree = "<group>"; };
 		F664085726B23F66004CE651 /* validateResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validateResultModel.swift; sourceTree = "<group>"; };
 		F664085926B246BA004CE651 /* PresentationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationKey.swift; sourceTree = "<group>"; };
-		F665FAC626ABAE5A00E847D5 /* tmp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = tmp.storyboard; sourceTree = "<group>"; };
 		F68489C326EB5D3100A8FA2B /* ic_counselor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_counselor.png; sourceTree = "<group>"; };
 		F68489C926EB5DBC00A8FA2B /* CounselorView_main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselorView_main.swift; sourceTree = "<group>"; };
 		F68489CB26EB5ECE00A8FA2B /* ic_abuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_abuse.png; sourceTree = "<group>"; };
@@ -423,7 +425,6 @@
 		F6D18FDE26C0F3FB0003F69F /* ic_pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_pizza.png; sourceTree = "<group>"; };
 		F6D18FDF26C0F3FB0003F69F /* ic_chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_chicken.png; sourceTree = "<group>"; };
 		F6D339AB26D64539002388DC /* ic_translate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_translate.png; sourceTree = "<group>"; };
-		F6D5EB3A26A6B8F00086640A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6D5EB4426A6BA540086640A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F6EFD28A26B93DDB00342970 /* ic_sojungPay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sojungPay.png; sourceTree = "<group>"; };
 		F6EFD28B26B93DDB00342970 /* ic_sojungPay_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sojungPay_w.png; sourceTree = "<group>"; };
@@ -443,9 +444,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B67AFEE29D024F100E6EF85 /* FirebaseMessaging in Frameworks */,
+				7B67AFFC29D025BE00E6EF85 /* Alamofire in Frameworks */,
+				7B67AFE429D024F100E6EF85 /* FirebaseAnalyticsSwift in Frameworks */,
+				7B67B00229D0279800E6EF85 /* FirebaseMLModelDownloader in Frameworks */,
+				7B67AFFF29D025E000E6EF85 /* SwiftyJSON in Frameworks */,
+				7B67AFE629D024F100E6EF85 /* FirebaseAuth in Frameworks */,
+				7B67AFF029D024F100E6EF85 /* FirebaseStorage in Frameworks */,
 				F6222E9826D53CBD000B5399 /* SwiftUIPager in Frameworks */,
+				7B67AFF629D0257E00E6EF85 /* CryptoSwift in Frameworks */,
+				7B67AFF329D0254600E6EF85 /* GoogleMobileAds in Frameworks */,
+				7B67AFEC29D024F100E6EF85 /* FirebaseFunctions in Frameworks */,
+				7B67AFF929D0259D00E6EF85 /* SDWebImageSwiftUI in Frameworks */,
+				7B67AFEA29D024F100E6EF85 /* FirebaseFirestoreSwift in Frameworks */,
 				F6BA7A5926D6269E000F3EF7 /* SwiftUITooltip in Frameworks */,
-				FEDBB1EDFA5B7D885BBCC913 /* Pods_SOZIP.framework in Frameworks */,
+				7B67AFE229D024F100E6EF85 /* FirebaseAnalytics in Frameworks */,
+				7B67B00529D0299C00E6EF85 /* NMapsMap in Frameworks */,
+				7B67AFE829D024F100E6EF85 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +468,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDDBEA6B65EF56B0859D9935 /* Pods_SOZIPTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,36 +475,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F5DF2A18CDCAB53B46D9B3 /* Pods_SOZIP_SOZIPUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5106B2B38905A1064FE040EF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				621E4543BF8ACF1DDF364B47 /* Pods-SOZIP.debug.xcconfig */,
-				56A60156B484980515F68CFE /* Pods-SOZIP.release.xcconfig */,
-				1DBF78A0E158EEA9693C9CA3 /* Pods-SOZIP-SOZIPUITests.debug.xcconfig */,
-				8939003DD4CC4B0E6B071EE3 /* Pods-SOZIP-SOZIPUITests.release.xcconfig */,
-				ACFF949C7B8977FA1AEEBFD2 /* Pods-SOZIPTests.debug.xcconfig */,
-				EEBBE8001CE2165530F26EA7 /* Pods-SOZIPTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		CC7F0EC8DD0D55D4967BBCC8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E3B559949FAA973F189835C9 /* Pods_SOZIP.framework */,
-				792D851DAAFC2FD112BDFD2D /* Pods_SOZIP_SOZIPUITests.framework */,
-				EDD0072D157EF3AD21E29EBC /* Pods_SOZIPTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		F6071FD426BA8BD90005828A /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +594,7 @@
 		F621946F26B3D856004BDE7B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F610B20726BFA390006BAC4A /* IntroduceFeedbackHub.swift */,
 				F621947026B3D861004BDE7B /* FeedbackHubMain.swift */,
 				F621947D26B3E7AA004BDE7B /* sentFeedback.swift */,
 				F6C5A5C126D8C18500269B6A /* FeedbackDetailView.swift */,
@@ -649,8 +640,6 @@
 				F643D366269AD69A00C4251A /* SOZIPTests */,
 				F643D371269AD69A00C4251A /* SOZIPUITests */,
 				F643D353269AD69900C4251A /* Products */,
-				5106B2B38905A1064FE040EF /* Pods */,
-				CC7F0EC8DD0D55D4967BBCC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -667,6 +656,7 @@
 		F643D354269AD69900C4251A /* SOZIP */ = {
 			isa = PBXGroup;
 			children = (
+				7B67AFDE29D0248C00E6EF85 /* GoogleService-Info.plist */,
 				F6FB389026EF3BC500F3EDD5 /* include */,
 				F648996826B931AD00FBAAA0 /* Chat */,
 				F607D97326B2576C005C8A5B /* SOZIP */,
@@ -677,7 +667,6 @@
 				F6D0766826AC3BFE00F98891 /* ic */,
 				F6D5EB4026A6BA190086640A /* UserManagement */,
 				F6D5EB3C26A6B9FB0086640A /* Home */,
-				F6D5EB3A26A6B8F00086640A /* GoogleService-Info.plist */,
 				F621946826B3D501004BDE7B /* ContentView.swift */,
 				F643D386269AD7BD00C4251A /* InfoPlist.strings */,
 				F643D355269AD69900C4251A /* SOZIPApp.swift */,
@@ -685,8 +674,6 @@
 				F643D35E269AD69A00C4251A /* Info.plist */,
 				F643D35B269AD69A00C4251A /* Preview Content */,
 				F643D384269AD74700C4251A /* Localizable.strings */,
-				F665FAC626ABAE5A00E847D5 /* tmp.storyboard */,
-				F610B20726BFA390006BAC4A /* IntroduceFeedbackHub.swift */,
 			);
 			path = SOZIP;
 			sourceTree = "<group>";
@@ -1090,12 +1077,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F643D377269AD69A00C4251A /* Build configuration list for PBXNativeTarget "SOZIP" */;
 			buildPhases = (
-				0239298FD86B7656C031FF83 /* [CP] Check Pods Manifest.lock */,
 				F643D34E269AD69900C4251A /* Sources */,
 				F643D34F269AD69900C4251A /* Frameworks */,
 				F643D350269AD69900C4251A /* Resources */,
-				81A29768CB531D74166AE186 /* [CP] Embed Pods Frameworks */,
-				9E4D782A1600AF0EE9B1EF45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1105,6 +1089,21 @@
 			packageProductDependencies = (
 				F6222E9726D53CBD000B5399 /* SwiftUIPager */,
 				F6BA7A5826D6269E000F3EF7 /* SwiftUITooltip */,
+				7B67AFE129D024F100E6EF85 /* FirebaseAnalytics */,
+				7B67AFE329D024F100E6EF85 /* FirebaseAnalyticsSwift */,
+				7B67AFE529D024F100E6EF85 /* FirebaseAuth */,
+				7B67AFE729D024F100E6EF85 /* FirebaseFirestore */,
+				7B67AFE929D024F100E6EF85 /* FirebaseFirestoreSwift */,
+				7B67AFEB29D024F100E6EF85 /* FirebaseFunctions */,
+				7B67AFED29D024F100E6EF85 /* FirebaseMessaging */,
+				7B67AFEF29D024F100E6EF85 /* FirebaseStorage */,
+				7B67AFF229D0254600E6EF85 /* GoogleMobileAds */,
+				7B67AFF529D0257E00E6EF85 /* CryptoSwift */,
+				7B67AFF829D0259D00E6EF85 /* SDWebImageSwiftUI */,
+				7B67AFFB29D025BE00E6EF85 /* Alamofire */,
+				7B67AFFE29D025E000E6EF85 /* SwiftyJSON */,
+				7B67B00129D0279800E6EF85 /* FirebaseMLModelDownloader */,
+				7B67B00429D0299C00E6EF85 /* NMapsMap */,
 			);
 			productName = SOZIP;
 			productReference = F643D352269AD69900C4251A /* SOZIP.app */;
@@ -1114,7 +1113,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F643D37A269AD69A00C4251A /* Build configuration list for PBXNativeTarget "SOZIPTests" */;
 			buildPhases = (
-				2358CDA46BB12E0B12E7F560 /* [CP] Check Pods Manifest.lock */,
 				F643D35F269AD69A00C4251A /* Sources */,
 				F643D360269AD69A00C4251A /* Frameworks */,
 				F643D361269AD69A00C4251A /* Resources */,
@@ -1133,12 +1131,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F643D37D269AD69A00C4251A /* Build configuration list for PBXNativeTarget "SOZIPUITests" */;
 			buildPhases = (
-				8917C04FD06A99F0FF031C4C /* [CP] Check Pods Manifest.lock */,
 				F643D36A269AD69A00C4251A /* Sources */,
 				F643D36B269AD69A00C4251A /* Frameworks */,
 				F643D36C269AD69A00C4251A /* Resources */,
-				A7DF9A0C61620CB3C8CD6CCA /* [CP] Embed Pods Frameworks */,
-				B20965D4D14613B61533D760 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1183,8 +1178,15 @@
 			);
 			mainGroup = F643D349269AD69900C4251A;
 			packageReferences = (
-				F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
-				F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */,
+				F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager.git" */,
+				F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip.git" */,
+				7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */,
+				7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */,
+				7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */,
+				7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */,
+				7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM.git" */,
 			);
 			productRefGroup = F643D353269AD69900C4251A /* Products */;
 			projectDirPath = "";
@@ -1222,14 +1224,12 @@
 				F627C33E26E4DDE000BA9FAA /* urlTutorialImg_3.png in Resources */,
 				F621947326B3D898004BDE7B /* bg_feedbackHub.png in Resources */,
 				F68489C426EB5D3100A8FA2B /* ic_counselor.png in Resources */,
-				F665FAC726ABAE5A00E847D5 /* tmp.storyboard in Resources */,
 				F6FB389726EF3BC500F3EDD5 /* EULA.pdf in Resources */,
 				F6EFD28C26B93DDB00342970 /* ic_sojungPay.png in Resources */,
 				F627C33C26E4DDE000BA9FAA /* urlTutorialImg_1.png in Resources */,
 				F621945626B3AF59004BDE7B /* ic_privacy.png in Resources */,
 				F68489CE26EB5ECE00A8FA2B /* ic_reply.png in Resources */,
 				F627C33D26E4DDE000BA9FAA /* urlTutorialImg_2.png in Resources */,
-				F6D5EB3B26A6B8F00086640A /* GoogleService-Info.plist in Resources */,
 				F6D18FE126C0F3FB0003F69F /* ic_chicken.png in Resources */,
 				F6922D2D26B14DD400A2BF43 /* ic_info.png in Resources */,
 				F63AD8E026B25FC10083FFDD /* ic_roomName.png in Resources */,
@@ -1244,6 +1244,7 @@
 				F6922D0426B1127D00A2BF43 /* ic_process_register.png in Resources */,
 				F6922D2E26B14DD400A2BF43 /* ic_secession.png in Resources */,
 				F6922D0126B0FDE100A2BF43 /* tutorialImg_3.png in Resources */,
+				7B67AFDF29D0248C00E6EF85 /* GoogleService-Info.plist in Resources */,
 				F6FB389526EF3BC500F3EDD5 /* PrivacyLicense.pdf in Resources */,
 				F6071FD326BA8B700005828A /* ic_log.png in Resources */,
 				F621945826B3AF59004BDE7B /* ic_opensource.png in Resources */,
@@ -1268,143 +1269,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0239298FD86B7656C031FF83 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SOZIP-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2358CDA46BB12E0B12E7F560 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SOZIPTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81A29768CB531D74166AE186 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP/Pods-SOZIP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP/Pods-SOZIP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SOZIP/Pods-SOZIP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8917C04FD06A99F0FF031C4C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SOZIP-SOZIPUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9E4D782A1600AF0EE9B1EF45 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP/Pods-SOZIP-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP/Pods-SOZIP-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SOZIP/Pods-SOZIP-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7DF9A0C61620CB3C8CD6CCA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B20965D4D14613B61533D760 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SOZIP-SOZIPUITests/Pods-SOZIP-SOZIPUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F643D34E269AD69900C4251A /* Sources */ = {
@@ -1662,7 +1526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1718,7 +1582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1730,13 +1594,12 @@
 		};
 		F643D378269AD69A00C4251A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 621E4543BF8ACF1DDF364B47 /* Pods-SOZIP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SOZIP/SOZIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SOZIP/Preview Content\"";
 				DEVELOPMENT_TEAM = JLQKH6P6PL;
 				ENABLE_PREVIEWS = YES;
@@ -1746,7 +1609,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eje.SOZIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1756,13 +1619,12 @@
 		};
 		F643D379269AD69A00C4251A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56A60156B484980515F68CFE /* Pods-SOZIP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SOZIP/SOZIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SOZIP/Preview Content\"";
 				DEVELOPMENT_TEAM = JLQKH6P6PL;
 				ENABLE_PREVIEWS = YES;
@@ -1772,7 +1634,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eje.SOZIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1782,7 +1644,6 @@
 		};
 		F643D37B269AD69A00C4251A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACFF949C7B8977FA1AEEBFD2 /* Pods-SOZIPTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1805,7 +1666,6 @@
 		};
 		F643D37C269AD69A00C4251A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEBBE8001CE2165530F26EA7 /* Pods-SOZIPTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1828,7 +1688,6 @@
 		};
 		F643D37E269AD69A00C4251A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DBF78A0E158EEA9693C9CA3 /* Pods-SOZIP-SOZIPUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1849,7 +1708,6 @@
 		};
 		F643D37F269AD69A00C4251A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8939003DD4CC4B0E6B071EE3 /* Pods-SOZIP-SOZIPUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1910,7 +1768,63 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+		7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jaemyeong/NMapsMap-SPM.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
 			requirement = {
@@ -1918,7 +1832,7 @@
 				minimumVersion = 2.3.1;
 			};
 		};
-		F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */ = {
+		F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/quassummanus/SwiftUI-Tooltip.git";
 			requirement = {
@@ -1929,14 +1843,89 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7B67AFE129D024F100E6EF85 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		7B67AFE329D024F100E6EF85 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		7B67AFE529D024F100E6EF85 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		7B67AFE729D024F100E6EF85 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		7B67AFE929D024F100E6EF85 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		7B67AFEB29D024F100E6EF85 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		7B67AFED29D024F100E6EF85 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		7B67AFEF29D024F100E6EF85 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		7B67AFF229D0254600E6EF85 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */;
+			productName = GoogleMobileAds;
+		};
+		7B67AFF529D0257E00E6EF85 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */;
+			productName = CryptoSwift;
+		};
+		7B67AFF829D0259D00E6EF85 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */;
+			productName = SDWebImageSwiftUI;
+		};
+		7B67AFFB29D025BE00E6EF85 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			productName = Alamofire;
+		};
+		7B67AFFE29D025E000E6EF85 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */;
+			productName = SwiftyJSON;
+		};
+		7B67B00129D0279800E6EF85 /* FirebaseMLModelDownloader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMLModelDownloader;
+		};
+		7B67B00429D0299C00E6EF85 /* NMapsMap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM.git" */;
+			productName = NMapsMap;
+		};
 		F6222E9726D53CBD000B5399 /* SwiftUIPager */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			package = F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager.git" */;
 			productName = SwiftUIPager;
 		};
 		F6BA7A5826D6269E000F3EF7 /* SwiftUITooltip */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */;
+			package = F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip.git" */;
 			productName = SwiftUITooltip;
 		};
 /* End XCSwiftPackageProductDependency section */

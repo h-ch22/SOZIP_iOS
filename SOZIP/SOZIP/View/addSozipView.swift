@@ -122,7 +122,7 @@ struct addSozipView: View {
                             
                             HStack {
                                 HStack {
-                                    Image("ic_roomName")
+                                    Image(systemName: "fork.knife.circle.fill")
                                         .resizable()
                                         .frame(width : 20, height : 20)
                                     
