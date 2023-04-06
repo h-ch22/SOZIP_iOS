@@ -20,9 +20,11 @@ struct Register_Success: View {
                 Spacer()
                 
                 Group {
-                    Image("ic_checkmark")
+                    Image(systemName:"checkmark.circle.fill")
                         .resizable()
                         .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.green)
+                    
                     
                     Spacer().frame(height : 40)
 

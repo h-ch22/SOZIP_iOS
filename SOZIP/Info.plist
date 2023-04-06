@@ -51,6 +51,8 @@
 	<string>현재 위치를 지도에 표시하기 위해 위치 권한이 필요합니다.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>학생증 유효성 검사를 위해 사진앱에 접근합니다.</string>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>고객님이 필요하신 정보를 기반으로 추천 컨텐츠를 제공해드려요!</string>
 	<key>SKAdNetworkItems</key>

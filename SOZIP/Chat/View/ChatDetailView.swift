@@ -13,7 +13,7 @@ struct ChatDetailView: View {
     let SOZIPData : ChatListDataModel
     let SOZIPHelper : SOZIPHelper
     let SOZIPInfo : SOZIPDataModel
-    
+        
     @State var chatData : [ChatDataModel] = []
     @StateObject var helper = ChatHelper()
     
@@ -31,6 +31,8 @@ struct ChatDetailView: View {
     @State private var showOverlay = false
     @State private var showPhotoPicker = false
     @State private var showAccountPicker = false
+    @State private var showDutchPayView = false
+
     
     @GestureState private var gestureOffset : CGFloat = 0
     
@@ -122,7 +124,7 @@ struct ChatDetailView: View {
                                                         .font(.title)
                                                         .foregroundColor(.txt_color)
                                                         .frame(width : 25, height : 25)
-                                                }.padding(20).background(RoundedRectangle(cornerRadius: 15.0).shadow(radius: 5).foregroundColor(.btn_color))
+                                                }.padding(20).background(RoundedRectangle(cornerRadius: 15.0).shadow(radius: 2).foregroundColor(.btn_color))
                                                 
                                                 
                                             }
@@ -219,53 +221,13 @@ struct ChatDetailView: View {
                                         Divider()
                                             .background(Color.white)
                                         
-                                        HStack(spacing : 15){
-                                            Button(action: {
-                                                self.showCamera = true
-                                            }){
-                                                VStack{
-                                                    Image(systemName : "camera.fill")
-                                                        .font(.title)
-                                                        .foregroundColor(.blue)
-                                                        .frame(width : 55, height : 55)
-                                                        .background(BlurView(style: .dark))
-                                                        .clipShape(Circle())
-                                                    
-                                                    Spacer().frame(height : 5)
-                                                    
-                                                    Text("사진 촬영")
-                                                        .font(.caption)
-                                                        .foregroundColor(.white)
-                                                }
-                                            }
-                                            
-                                            Button(action: {
-                                                showPhotoPicker = true
-                                            }){
-                                                VStack{
-                                                    Image(systemName : "photo.on.rectangle.fill")
-                                                        .font(.title)
-                                                        .foregroundColor(.blue)
-                                                        .frame(width : 55, height : 55)
-                                                        .background(BlurView(style: .dark))
-                                                        .clipShape(Circle())
-                                                    
-                                                    Spacer().frame(height : 5)
-                                                    
-                                                    Text("이미지 선택")
-                                                        .font(.caption)
-                                                        .foregroundColor(.white)
-                                                }
-                                            }
-                                            
-                                            if SOZIPInfo.url != nil && SOZIPInfo.url != "" && SOZIPInfo.url != "about:blank"{
-                                                Button(action : {
-                                                    if let url = URL(string : SOZIPInfo.url!){
-                                                        UIApplication.shared.open(url)
-                                                    }
+                                        ScrollView(.horizontal){
+                                            HStack(spacing : 15){
+                                                Button(action: {
+                                                    self.showCamera = true
                                                 }){
                                                     VStack{
-                                                        Image(systemName : "link.circle.fill")
+                                                        Image(systemName : "camera.fill")
                                                             .font(.title)
                                                             .foregroundColor(.blue)
                                                             .frame(width : 55, height : 55)
@@ -274,75 +236,159 @@ struct ChatDetailView: View {
                                                         
                                                         Spacer().frame(height : 5)
                                                         
-                                                        Text("메뉴 보기")
+                                                        Text("사진 촬영")
                                                             .font(.caption)
                                                             .foregroundColor(.white)
                                                     }
                                                 }
                                                 
-                                            }
-                                            
-                                            
-                                            Button(action: {
-                                                var account : String? = nil
-                                                
-                                                if Auth.auth().currentUser?.uid ?? "" != SOZIPData.Manager{
-                                                    self.showAccountPicker = true
-                                                    
-                                                    self.offset = 0
-                                                    self.lastOffset = 0
-                                                }
-                                                
-                                                else{
-                                                    helper.sendAccount(rootDocId: SOZIPData.docId, account : account){(result) in
-                                                        guard let result = result else{return}
+                                                Button(action: {
+                                                    showPhotoPicker = true
+                                                }){
+                                                    VStack{
+                                                        Image(systemName : "photo.on.rectangle.fill")
+                                                            .font(.title)
+                                                            .foregroundColor(.blue)
+                                                            .frame(width : 55, height : 55)
+                                                            .background(BlurView(style: .dark))
+                                                            .clipShape(Circle())
                                                         
-                                                        if result == "success"{
-                                                            self.offset = 0
-                                                            self.lastOffset = 0
-                                                        }
+                                                        Spacer().frame(height : 5)
+                                                        
+                                                        Text("이미지 선택")
+                                                            .font(.caption)
+                                                            .foregroundColor(.white)
                                                     }
                                                 }
                                                 
-                                                
-                                            }){
-                                                VStack{
-                                                    Image(systemName : "wonsign.circle.fill")
-                                                        .font(.title)
-                                                        .foregroundColor(.accentColor)
-                                                        .frame(width : 55, height : 55)
-                                                        .background(BlurView(style: .dark))
-                                                        .clipShape(Circle())
+                                                if SOZIPInfo.url != nil && SOZIPInfo.url != "" && SOZIPInfo.url != "about:blank"{
+                                                    Button(action : {
+                                                        if let url = URL(string : SOZIPInfo.url!){
+                                                            UIApplication.shared.open(url)
+                                                        }
+                                                    }){
+                                                        VStack{
+                                                            Image(systemName : "link.circle.fill")
+                                                                .font(.title)
+                                                                .foregroundColor(.blue)
+                                                                .frame(width : 55, height : 55)
+                                                                .background(BlurView(style: .dark))
+                                                                .clipShape(Circle())
+                                                            
+                                                            Spacer().frame(height : 5)
+                                                            
+                                                            Text("메뉴 보기")
+                                                                .font(.caption)
+                                                                .foregroundColor(.white)
+                                                        }
+                                                    }
                                                     
-                                                    Spacer().frame(height : 5)
-                                                    
-                                                    Text("계좌 정보 전송")
-                                                        .font(.caption)
-                                                        .foregroundColor(.white)
                                                 }
-                                            }
-                                            
-                                            Button(action: {
                                                 
-                                            }){
-                                                VStack{
-                                                    Image(systemName : "exclamationmark.bubble.fill")
-                                                        .font(.title)
-                                                        .foregroundColor(.red)
-                                                        .frame(width : 55, height : 55)
-                                                        .background(BlurView(style: .dark))
-                                                        .clipShape(Circle())
+                                                
+                                                Button(action: {
+//                                                    var account : String? = nil
+//
+//                                                    if Auth.auth().currentUser?.uid ?? "" != SOZIPData.Manager{
+//                                                        self.showAccountPicker = true
+//
+//                                                        self.offset = 0
+//                                                        self.lastOffset = 0
+//                                                    }
+//
+//                                                    else{
+//                                                        helper.sendAccount(rootDocId: SOZIPData.docId, account : account){(result) in
+//                                                            guard let result = result else{return}
+//
+//                                                            if result == "success"{
+//                                                                self.offset = 0
+//                                                                self.lastOffset = 0
+//                                                            }
+//                                                        }
+//                                                    }
                                                     
-                                                    Spacer().frame(height : 5)
+                                                    showDutchPayView = true
                                                     
-                                                    Text("소집 신고")
-                                                        .font(.caption)
-                                                        .foregroundColor(.white)
+                                                    
+                                                }){
+                                                    VStack{
+                                                        Image(systemName : "wonsign.circle.fill")
+                                                            .font(.title)
+                                                            .foregroundColor(.accentColor)
+                                                            .frame(width : 55, height : 55)
+                                                            .background(BlurView(style: .dark))
+                                                            .clipShape(Circle())
+                                                        
+                                                        Spacer().frame(height : 5)
+                                                        
+                                                        Text("계좌 정보 전송")
+                                                            .font(.caption)
+                                                            .foregroundColor(.white)
+                                                    }
                                                 }
-                                            }
-                                            
-                                            Spacer()
-                                        }.padding(20)
+                                                
+                                                Button(action: {
+                                                    
+                                                    
+                                                }){
+                                                    VStack{
+                                                        Image(systemName : "checkmark")
+                                                            .font(.title)
+                                                            .foregroundColor(.green)
+                                                            .frame(width : 55, height : 55)
+                                                            .background(BlurView(style: .dark))
+                                                            .clipShape(Circle())
+                                                        
+                                                        Spacer().frame(height : 5)
+                                                        
+                                                        Text("소집 완료")
+                                                            .font(.caption)
+                                                            .foregroundColor(.white)
+                                                    }
+                                                }.isHidden(SOZIPInfo.Manager != Auth.auth().currentUser?.uid ?? "")
+                                                
+                                                Button(action: {
+                                                    
+                                                    
+                                                }){
+                                                    VStack{
+                                                        Image(systemName : "xmark")
+                                                            .font(.title)
+                                                            .foregroundColor(.red)
+                                                            .frame(width : 55, height : 55)
+                                                            .background(BlurView(style: .dark))
+                                                            .clipShape(Circle())
+                                                        
+                                                        Spacer().frame(height : 5)
+                                                        
+                                                        Text("소집 취소")
+                                                            .font(.caption)
+                                                            .foregroundColor(.white)
+                                                    }
+                                                }.isHidden(SOZIPInfo.Manager != Auth.auth().currentUser?.uid ?? "")
+                                                
+                                                Button(action: {
+                                                    
+                                                }){
+                                                    VStack{
+                                                        Image(systemName : "exclamationmark.bubble.fill")
+                                                            .font(.title)
+                                                            .foregroundColor(.red)
+                                                            .frame(width : 55, height : 55)
+                                                            .background(BlurView(style: .dark))
+                                                            .clipShape(Circle())
+                                                        
+                                                        Spacer().frame(height : 5)
+                                                        
+                                                        Text("소집 신고")
+                                                            .font(.caption)
+                                                            .foregroundColor(.white)
+                                                    }
+                                                }
+                                                
+                                                Spacer()
+                                            }.padding(20)
+                                        }
                                         
                                         HStack(spacing : 15) {
                                             Text("소집 정보")
@@ -445,6 +491,9 @@ struct ChatDetailView: View {
             }
             
         })
+        .sheet(isPresented : $showDutchPayView, content : {
+            DutchPayView(data: SOZIPInfo)
+        })
         
         .sheet(isPresented: $showCamera, content: {
             ChatCaptureView(sourceType: .camera){(image) in
@@ -466,6 +515,7 @@ struct ChatDetailView: View {
                 
             }
         })
+        
         
         .sheet(isPresented : $showPhotoPicker, content : {
             ChatPhotoPicker(isPresented : $showPhotoPicker, mediaItems: mediaItems){didSelectItems in

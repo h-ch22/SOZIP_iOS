@@ -23,6 +23,33 @@
 		7B67AFFF29D025E000E6EF85 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFFE29D025E000E6EF85 /* SwiftyJSON */; };
 		7B67B00229D0279800E6EF85 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67B00129D0279800E6EF85 /* FirebaseMLModelDownloader */; };
 		7B67B00529D0299C00E6EF85 /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67B00429D0299C00E6EF85 /* NMapsMap */; };
+		7BDDBC1C29DD3B5B00B77E3A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEB6A2929DB01D800FD36A6 /* WidgetKit.framework */; };
+		7BDDBC1D29DD3B5B00B77E3A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEB6A2B29DB01D800FD36A6 /* SwiftUI.framework */; };
+		7BDDBC2029DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC1F29DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift */; };
+		7BDDBC2229DD3B5B00B77E3A /* DynamicIsland_SOZIPStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC2129DD3B5B00B77E3A /* DynamicIsland_SOZIPStatus.swift */; };
+		7BDDBC2429DD3B5B00B77E3A /* Widgets_SOZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC2329DD3B5B00B77E3A /* Widgets_SOZIP.swift */; };
+		7BDDBC2729DD3B5B00B77E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BDDBC2629DD3B5B00B77E3A /* Assets.xcassets */; };
+		7BDDBC2929DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC2529DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition */; };
+		7BDDBC2A29DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC2529DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition */; };
+		7BDDBC2D29DD3B5B00B77E3A /* Widgets_SOZIPExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7BDDBC1B29DD3B5B00B77E3A /* Widgets_SOZIPExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7BDDBC3929DD4D0000B77E3A /* SOZIPStatusLockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC3729DD4C7700B77E3A /* SOZIPStatusLockScreenView.swift */; };
+		7BDDBC4C29DD4E2200B77E3A /* SOZIPStatusDynamicIsland_Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC4A29DD4DF600B77E3A /* SOZIPStatusDynamicIsland_Center.swift */; };
+		7BDDBC4F29DD4E5100B77E3A /* SOZIPStatusDynamicIsland_Leading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC4D29DD4E3500B77E3A /* SOZIPStatusDynamicIsland_Leading.swift */; };
+		7BDDBC5229DD4E7900B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC5029DD4E6700B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift */; };
+		7BDDBC5829DD610100B77E3A /* SOZIPStatusDynamicIsland_Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC4A29DD4DF600B77E3A /* SOZIPStatusDynamicIsland_Center.swift */; };
+		7BDDBC5929DD610300B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC5029DD4E6700B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift */; };
+		7BDDBC5A29DD610500B77E3A /* SOZIPStatusDynamicIsland_Leading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC4D29DD4E3500B77E3A /* SOZIPStatusDynamicIsland_Leading.swift */; };
+		7BDDBC5B29DD610800B77E3A /* SOZIPStatusLockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC3729DD4C7700B77E3A /* SOZIPStatusLockScreenView.swift */; };
+		7BDDBC5D29DD611100B77E3A /* Widgets_SOZIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC2329DD3B5B00B77E3A /* Widgets_SOZIP.swift */; };
+		7BDDBC6029DD766800B77E3A /* LiveActivityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC5F29DD766800B77E3A /* LiveActivityHelper.swift */; };
+		7BDDBC6229DD767400B77E3A /* ActivityTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC6129DD767400B77E3A /* ActivityTypeModel.swift */; };
+		7BDDBC6429DD792200B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC4729DD4DA300B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift */; };
+		7BDDBC6529DD792B00B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC4729DD4DA300B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift */; };
+		7BDDBC6829DD7A9300B77E3A /* DynamicIsland_SOZIPAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC6729DD7A9300B77E3A /* DynamicIsland_SOZIPAttributes.swift */; };
+		7BDDBC6929DD7A9D00B77E3A /* DynamicIsland_SOZIPAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC6729DD7A9300B77E3A /* DynamicIsland_SOZIPAttributes.swift */; };
+		7BDDBC6B29DD818200B77E3A /* SOZIPPackagingTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC6A29DD818200B77E3A /* SOZIPPackagingTypeModel.swift */; };
+		7BDDBC6D29DD889200B77E3A /* DutchPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC6C29DD889200B77E3A /* DutchPayView.swift */; };
+		7BDDBC6F29DD894600B77E3A /* PayTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC6E29DD894600B77E3A /* PayTypeModel.swift */; };
 		F6071FD126BA840C0005828A /* ATTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6071FD026BA840C0005828A /* ATTModel.swift */; };
 		F6071FD326BA8B700005828A /* ic_log.png in Resources */ = {isa = PBXBuildFile; fileRef = F6071FD226BA8B700005828A /* ic_log.png */; };
 		F6071FD726BA8BE70005828A /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6071FD626BA8BE70005828A /* LogView.swift */; };
@@ -219,6 +246,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7BDDBC2B29DD3B5B00B77E3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F643D34A269AD69900C4251A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BDDBC1A29DD3B5A00B77E3A;
+			remoteInfo = Widgets_SOZIPExtension;
+		};
 		F643D364269AD69A00C4251A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F643D34A269AD69900C4251A /* Project object */;
@@ -235,8 +269,42 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7BEB6A4029DB01D900FD36A6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7BDDBC2D29DD3B5B00B77E3A /* Widgets_SOZIPExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7B67AFDE29D0248C00E6EF85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7BDDBC1B29DD3B5B00B77E3A /* Widgets_SOZIPExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets_SOZIPExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BDDBC1F29DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets_SOZIPBundle.swift; sourceTree = "<group>"; };
+		7BDDBC2129DD3B5B00B77E3A /* DynamicIsland_SOZIPStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIsland_SOZIPStatus.swift; sourceTree = "<group>"; };
+		7BDDBC2329DD3B5B00B77E3A /* Widgets_SOZIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets_SOZIP.swift; sourceTree = "<group>"; };
+		7BDDBC2529DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widgets_SOZIP.intentdefinition; sourceTree = "<group>"; };
+		7BDDBC2629DD3B5B00B77E3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BDDBC2829DD3B5B00B77E3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BDDBC3729DD4C7700B77E3A /* SOZIPStatusLockScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOZIPStatusLockScreenView.swift; sourceTree = "<group>"; };
+		7BDDBC4729DD4DA300B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOZIPStatusDynamicIsland_Bottom.swift; sourceTree = "<group>"; };
+		7BDDBC4A29DD4DF600B77E3A /* SOZIPStatusDynamicIsland_Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOZIPStatusDynamicIsland_Center.swift; sourceTree = "<group>"; };
+		7BDDBC4D29DD4E3500B77E3A /* SOZIPStatusDynamicIsland_Leading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOZIPStatusDynamicIsland_Leading.swift; sourceTree = "<group>"; };
+		7BDDBC5029DD4E6700B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOZIPStatusDynamicIsland_Trailing.swift; sourceTree = "<group>"; };
+		7BDDBC5F29DD766800B77E3A /* LiveActivityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityHelper.swift; sourceTree = "<group>"; };
+		7BDDBC6129DD767400B77E3A /* ActivityTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTypeModel.swift; sourceTree = "<group>"; };
+		7BDDBC6729DD7A9300B77E3A /* DynamicIsland_SOZIPAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIsland_SOZIPAttributes.swift; sourceTree = "<group>"; };
+		7BDDBC6A29DD818200B77E3A /* SOZIPPackagingTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOZIPPackagingTypeModel.swift; sourceTree = "<group>"; };
+		7BDDBC6C29DD889200B77E3A /* DutchPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchPayView.swift; sourceTree = "<group>"; };
+		7BDDBC6E29DD894600B77E3A /* PayTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTypeModel.swift; sourceTree = "<group>"; };
+		7BEB6A2929DB01D800FD36A6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7BEB6A2B29DB01D800FD36A6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F6071FD026BA840C0005828A /* ATTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTModel.swift; sourceTree = "<group>"; };
 		F6071FD226BA8B700005828A /* ic_log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_log.png; sourceTree = "<group>"; };
 		F6071FD626BA8BE70005828A /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -440,6 +508,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7BDDBC1829DD3B5A00B77E3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BDDBC1D29DD3B5B00B77E3A /* SwiftUI.framework in Frameworks */,
+				7BDDBC1C29DD3B5B00B77E3A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F643D34F269AD69900C4251A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,6 +558,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BDDBC1E29DD3B5B00B77E3A /* Widgets_SOZIP */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC3529DD4C5900B77E3A /* LiveActivity */,
+				7BDDBC1F29DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift */,
+				7BDDBC2129DD3B5B00B77E3A /* DynamicIsland_SOZIPStatus.swift */,
+				7BDDBC2329DD3B5B00B77E3A /* Widgets_SOZIP.swift */,
+				7BDDBC2529DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition */,
+				7BDDBC2629DD3B5B00B77E3A /* Assets.xcassets */,
+				7BDDBC2829DD3B5B00B77E3A /* Info.plist */,
+			);
+			path = Widgets_SOZIP;
+			sourceTree = "<group>";
+		};
+		7BDDBC3529DD4C5900B77E3A /* LiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC3629DD4C6400B77E3A /* View */,
+			);
+			path = LiveActivity;
+			sourceTree = "<group>";
+		};
+		7BDDBC3629DD4C6400B77E3A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC3F29DD4D6400B77E3A /* DynamicIsland */,
+				7BDDBC3B29DD4D3600B77E3A /* LockScreen */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7BDDBC3B29DD4D3600B77E3A /* LockScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC3729DD4C7700B77E3A /* SOZIPStatusLockScreenView.swift */,
+			);
+			path = LockScreen;
+			sourceTree = "<group>";
+		};
+		7BDDBC3F29DD4D6400B77E3A /* DynamicIsland */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC4629DD4D9600B77E3A /* Expand_Bottom */,
+				7BDDBC4529DD4D9000B77E3A /* Expand_Center */,
+				7BDDBC4429DD4D8200B77E3A /* Expand_Trailing */,
+				7BDDBC4329DD4D7C00B77E3A /* Expand_Leading */,
+			);
+			path = DynamicIsland;
+			sourceTree = "<group>";
+		};
+		7BDDBC4329DD4D7C00B77E3A /* Expand_Leading */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC4D29DD4E3500B77E3A /* SOZIPStatusDynamicIsland_Leading.swift */,
+			);
+			path = Expand_Leading;
+			sourceTree = "<group>";
+		};
+		7BDDBC4429DD4D8200B77E3A /* Expand_Trailing */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC5029DD4E6700B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift */,
+			);
+			path = Expand_Trailing;
+			sourceTree = "<group>";
+		};
+		7BDDBC4529DD4D9000B77E3A /* Expand_Center */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC4A29DD4DF600B77E3A /* SOZIPStatusDynamicIsland_Center.swift */,
+			);
+			path = Expand_Center;
+			sourceTree = "<group>";
+		};
+		7BDDBC4629DD4D9600B77E3A /* Expand_Bottom */ = {
+			isa = PBXGroup;
+			children = (
+				7BDDBC4729DD4DA300B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift */,
+			);
+			path = Expand_Bottom;
+			sourceTree = "<group>";
+		};
+		7BEB6A2829DB01D800FD36A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BEB6A2929DB01D800FD36A6 /* WidgetKit.framework */,
+				7BEB6A2B29DB01D800FD36A6 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F6071FD426BA8BD90005828A /* Log */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +745,7 @@
 				F6222E9B26D556CF000B5399 /* SOZIPMapDragListener.swift */,
 				F627C33526E4D99800BA9FAA /* URLTutorialContentsData.swift */,
 				F627C33726E4DA7300BA9FAA /* URLTutorialContentsView.swift */,
+				7BDDBC6A29DD818200B77E3A /* SOZIPPackagingTypeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -639,6 +808,8 @@
 				F643D354269AD69900C4251A /* SOZIP */,
 				F643D366269AD69A00C4251A /* SOZIPTests */,
 				F643D371269AD69A00C4251A /* SOZIPUITests */,
+				7BDDBC1E29DD3B5B00B77E3A /* Widgets_SOZIP */,
+				7BEB6A2829DB01D800FD36A6 /* Frameworks */,
 				F643D353269AD69900C4251A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -649,6 +820,7 @@
 				F643D352269AD69900C4251A /* SOZIP.app */,
 				F643D363269AD69A00C4251A /* SOZIPTests.xctest */,
 				F643D36E269AD69A00C4251A /* SOZIPUITests.xctest */,
+				7BDDBC1B29DD3B5B00B77E3A /* Widgets_SOZIPExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -728,6 +900,7 @@
 				F6C672FD26D36321002064C7 /* ChatListView.swift */,
 				F6BA7A4926D6058B000F3EF7 /* ChatDetailView.swift */,
 				F624306326E9CC63006FC39C /* AccountPicker.swift */,
+				7BDDBC6C29DD889200B77E3A /* DutchPayView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -754,6 +927,7 @@
 				F627C34126E504DD00BA9FAA /* ChatPhotoPickerModel.swift */,
 				F627C34326E5053100BA9FAA /* ChatPickedMediaItems.swift */,
 				F624306526E9D059006FC39C /* sendAccountModel.swift */,
+				7BDDBC6E29DD894600B77E3A /* PayTypeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -786,6 +960,8 @@
 				F6BA7A5526D61DD0000F3EF7 /* CustomCorner.swift */,
 				F627C32F26E4CEA200BA9FAA /* LinkRow.swift */,
 				F627C33126E4CFB500BA9FAA /* StringLink.swift */,
+				7BDDBC6129DD767400B77E3A /* ActivityTypeModel.swift */,
+				7BDDBC6729DD7A9300B77E3A /* DynamicIsland_SOZIPAttributes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -955,6 +1131,7 @@
 				F621946126B3BBCF004BDE7B /* TagManager.swift */,
 				F62DB81B26BF9B3F00516BEC /* PinchZoomView.swift */,
 				F6BA7A4726D60115000F3EF7 /* FittingFontSizeModifier.swift */,
+				7BDDBC5F29DD766800B77E3A /* LiveActivityHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1073,6 +1250,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7BDDBC1A29DD3B5A00B77E3A /* Widgets_SOZIPExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BDDBC2E29DD3B5B00B77E3A /* Build configuration list for PBXNativeTarget "Widgets_SOZIPExtension" */;
+			buildPhases = (
+				7BDDBC1729DD3B5A00B77E3A /* Sources */,
+				7BDDBC1829DD3B5A00B77E3A /* Frameworks */,
+				7BDDBC1929DD3B5A00B77E3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Widgets_SOZIPExtension;
+			productName = Widgets_SOZIPExtension;
+			productReference = 7BDDBC1B29DD3B5B00B77E3A /* Widgets_SOZIPExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F643D351269AD69900C4251A /* SOZIP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F643D377269AD69A00C4251A /* Build configuration list for PBXNativeTarget "SOZIP" */;
@@ -1080,10 +1274,12 @@
 				F643D34E269AD69900C4251A /* Sources */,
 				F643D34F269AD69900C4251A /* Frameworks */,
 				F643D350269AD69900C4251A /* Resources */,
+				7BEB6A4029DB01D900FD36A6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7BDDBC2C29DD3B5B00B77E3A /* PBXTargetDependency */,
 			);
 			name = SOZIP;
 			packageProductDependencies = (
@@ -1151,9 +1347,12 @@
 		F643D34A269AD69900C4251A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					7BDDBC1A29DD3B5A00B77E3A = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					F643D351269AD69900C4251A = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -1178,15 +1377,15 @@
 			);
 			mainGroup = F643D349269AD69900C4251A;
 			packageReferences = (
-				F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager.git" */,
-				F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip.git" */,
+				F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */,
 				7B67AFE029D024F100E6EF85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */,
-				7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */,
-				7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */,
-				7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
-				7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */,
-				7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM.git" */,
+				7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */,
 			);
 			productRefGroup = F643D353269AD69900C4251A /* Products */;
 			projectDirPath = "";
@@ -1195,11 +1394,20 @@
 				F643D351269AD69900C4251A /* SOZIP */,
 				F643D362269AD69A00C4251A /* SOZIPTests */,
 				F643D36D269AD69A00C4251A /* SOZIPUITests */,
+				7BDDBC1A29DD3B5A00B77E3A /* Widgets_SOZIPExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7BDDBC1929DD3B5A00B77E3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BDDBC2729DD3B5B00B77E3A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F643D350269AD69900C4251A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1271,6 +1479,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7BDDBC1729DD3B5A00B77E3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BDDBC2229DD3B5B00B77E3A /* DynamicIsland_SOZIPStatus.swift in Sources */,
+				7BDDBC2429DD3B5B00B77E3A /* Widgets_SOZIP.swift in Sources */,
+				7BDDBC6429DD792200B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift in Sources */,
+				7BDDBC5229DD4E7900B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift in Sources */,
+				7BDDBC4C29DD4E2200B77E3A /* SOZIPStatusDynamicIsland_Center.swift in Sources */,
+				7BDDBC6929DD7A9D00B77E3A /* DynamicIsland_SOZIPAttributes.swift in Sources */,
+				7BDDBC3929DD4D0000B77E3A /* SOZIPStatusLockScreenView.swift in Sources */,
+				7BDDBC2929DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition in Sources */,
+				7BDDBC4F29DD4E5100B77E3A /* SOZIPStatusDynamicIsland_Leading.swift in Sources */,
+				7BDDBC2029DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F643D34E269AD69900C4251A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1286,6 +1511,7 @@
 				F664085426B234C5004CE651 /* signUp_Fail.swift in Sources */,
 				F6BF822B26D4C88F00D6D493 /* enterAccountNumber.swift in Sources */,
 				F621948026B3EA5C004BDE7B /* FeedbackHubListModel.swift in Sources */,
+				7BDDBC6529DD792B00B77E3A /* SOZIPStatusDynamicIsland_Bottom.swift in Sources */,
 				F6FB388F26EF3B0200F3EDD5 /* PDFViewer.swift in Sources */,
 				F68489E626EB87CE00A8FA2B /* CounselorView_adminLog.swift in Sources */,
 				F68489DC26EB706800A8FA2B /* CounselorChatRow.swift in Sources */,
@@ -1302,13 +1528,16 @@
 				F6BA657826B79B41001BC7B1 /* SOZIPLocationReceiver.swift in Sources */,
 				F6BF823126D4D24900D6D493 /* KeyboardResponder.swift in Sources */,
 				F6922D2226B14D1500A2BF43 /* MoreView.swift in Sources */,
+				7BDDBC5B29DD610800B77E3A /* SOZIPStatusLockScreenView.swift in Sources */,
 				F6BA7A5426D61CEB000F3EF7 /* BlurView.swift in Sources */,
 				F624306426E9CC63006FC39C /* AccountPicker.swift in Sources */,
 				F6C5A5BE26D8ABA700269B6A /* ChatCaptureView.swift in Sources */,
 				F627C34026E4EF7D00BA9FAA /* TappableTextView.swift in Sources */,
 				F68489CA26EB5DBC00A8FA2B /* CounselorView_main.swift in Sources */,
+				7BDDBC5D29DD611100B77E3A /* Widgets_SOZIP.swift in Sources */,
 				F621946026B3BAA8004BDE7B /* selectTag.swift in Sources */,
 				F6BAAB0626B7B96200EB439B /* addSOZIPResultModel.swift in Sources */,
+				7BDDBC2A29DD3B5B00B77E3A /* Widgets_SOZIP.intentdefinition in Sources */,
 				F627C33426E4D98A00BA9FAA /* URLTutorialContents.swift in Sources */,
 				F6BA7A4826D60115000F3EF7 /* FittingFontSizeModifier.swift in Sources */,
 				F6922D1126B123DC00A2BF43 /* Register_Success.swift in Sources */,
@@ -1332,9 +1561,11 @@
 				F68489DA26EB6F8C00A8FA2B /* CounselorChatDataModel.swift in Sources */,
 				F624306626E9D059006FC39C /* sendAccountModel.swift in Sources */,
 				F65C265B26D7F96400C8993E /* NoticeDetailView.swift in Sources */,
+				7BDDBC6829DD7A9300B77E3A /* DynamicIsland_SOZIPAttributes.swift in Sources */,
 				F68489D626EB6A6300A8FA2B /* CounselorView_chat.swift in Sources */,
 				F6C6730226D36367002064C7 /* ChatListDataModel.swift in Sources */,
 				F621947626B3D969004BDE7B /* FeedbackHubCategoryModel.swift in Sources */,
+				7BDDBC6B29DD818200B77E3A /* SOZIPPackagingTypeModel.swift in Sources */,
 				F627A54426B803AE008140F6 /* SOZIPMapViewController.swift in Sources */,
 				F621947A26B3E39A004BDE7B /* FeedbackHubHelper.swift in Sources */,
 				F6BA7A5226D61775000F3EF7 /* AutoSizingTextField.swift in Sources */,
@@ -1343,6 +1574,7 @@
 				F6922D0926B11A1C00A2BF43 /* AES256Util.swift in Sources */,
 				F6BA7A4C26D6095A000F3EF7 /* BubbleShape.swift in Sources */,
 				F634BFA526BC39250006A5F0 /* ProfileView.swift in Sources */,
+				7BDDBC6029DD766800B77E3A /* LiveActivityHelper.swift in Sources */,
 				F65C265726D7F46C00C8993E /* NoticeListModel.swift in Sources */,
 				F627C34226E504DD00BA9FAA /* ChatPhotoPickerModel.swift in Sources */,
 				F643D356269AD69900C4251A /* SOZIPApp.swift in Sources */,
@@ -1351,18 +1583,22 @@
 				F6AADB9B26EB05DC00E20F3C /* FeedbackHubManagerDataModel.swift in Sources */,
 				F69E86B526D67D84000048F3 /* ChatPrivateContentsRow.swift in Sources */,
 				F629FDD426E38AB500D7B5F1 /* TutorialContentsData.swift in Sources */,
+				7BDDBC5829DD610100B77E3A /* SOZIPStatusDynamicIsland_Center.swift in Sources */,
 				F627A54226B8038B008140F6 /* showMapView.swift in Sources */,
 				F621948226B3EA66004BDE7B /* FeedbackHubItemModel.swift in Sources */,
 				F629FDD626E38C0800D7B5F1 /* OnBoardingView.swift in Sources */,
 				F627C33826E4DA7300BA9FAA /* URLTutorialContentsView.swift in Sources */,
 				F65C265926D7F48E00C8993E /* NoticeDataModel.swift in Sources */,
 				F635DB0926B59C3A00938E9D /* SOZIPDataModel.swift in Sources */,
+				7BDDBC6F29DD894600B77E3A /* PayTypeModel.swift in Sources */,
 				F648996726B9272B00FBAAA0 /* requestATTPermission.swift in Sources */,
 				F6C672FE26D36321002064C7 /* ChatListView.swift in Sources */,
+				7BDDBC6229DD767400B77E3A /* ActivityTypeModel.swift in Sources */,
 				F610B20826BFA390006BAC4A /* IntroduceFeedbackHub.swift in Sources */,
 				F6F957C626C672A200B3D8F1 /* MultiLineTextField.swift in Sources */,
 				F68673EA26AFDF4500F5CFEC /* ImagePicker.swift in Sources */,
 				F6D18FDB26C0F1250003F69F /* ProfileListModel.swift in Sources */,
+				7BDDBC5929DD610300B77E3A /* SOZIPStatusDynamicIsland_Trailing.swift in Sources */,
 				F6597E2726B7CF4600F25775 /* TutorialScreenViewModel.swift in Sources */,
 				F621947C26B3E4CF004BDE7B /* FeedbackHubErrorModel.swift in Sources */,
 				F6BDB80226C36C750056F4B4 /* addBankAccount.swift in Sources */,
@@ -1384,6 +1620,7 @@
 				F6F957C226C6510800B3D8F1 /* addProfile.swift in Sources */,
 				F61AADF826B94EEF002FFA74 /* SOZIPMap.swift in Sources */,
 				F6440D3C26B921E400EE719B /* Ad_BannerViewController.swift in Sources */,
+				7BDDBC5A29DD610500B77E3A /* SOZIPStatusDynamicIsland_Leading.swift in Sources */,
 				F635DB0B26B59CFC00938E9D /* SOZIPListModel.swift in Sources */,
 				F627C33226E4CFB500BA9FAA /* StringLink.swift in Sources */,
 				F6BDB80426C37CC60056F4B4 /* editProfileView.swift in Sources */,
@@ -1396,6 +1633,7 @@
 				F6BA7A5626D61DD0000F3EF7 /* CustomCorner.swift in Sources */,
 				F6BA7A4626D5F803000F3EF7 /* ChatListModel.swift in Sources */,
 				F68673F026B007B600F5CFEC /* Process_Fail.swift in Sources */,
+				7BDDBC6D29DD889200B77E3A /* DutchPayView.swift in Sources */,
 				F621946726B3C1A8004BDE7B /* TagCategoryModel.swift in Sources */,
 				F621946D26B3D730004BDE7B /* signInResultModel.swift in Sources */,
 				F6B583DE26E5D47100CC92DE /* PersonalInfoModel.swift in Sources */,
@@ -1440,6 +1678,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7BDDBC2C29DD3B5B00B77E3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BDDBC1A29DD3B5A00B77E3A /* Widgets_SOZIPExtension */;
+			targetProxy = 7BDDBC2B29DD3B5B00B77E3A /* PBXContainerItemProxy */;
+		};
 		F643D365269AD69A00C4251A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F643D351269AD69900C4251A /* SOZIP */;
@@ -1474,6 +1717,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7BDDBC2F29DD3B5B00B77E3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JLQKH6P6PL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widgets_SOZIP/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widgets_SOZIP;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eje.SOZIP.Widgets-SOZIP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7BDDBC3029DD3B5B00B77E3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JLQKH6P6PL;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widgets_SOZIP/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widgets_SOZIP;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eje.SOZIP.Widgets-SOZIP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F643D375269AD69A00C4251A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1526,7 +1827,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1582,7 +1883,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1595,6 +1896,7 @@
 		F643D378269AD69A00C4251A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SOZIP/SOZIP.entitlements;
@@ -1620,6 +1922,7 @@
 		F643D379269AD69A00C4251A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SOZIP/SOZIP.entitlements;
@@ -1729,6 +2032,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7BDDBC2E29DD3B5B00B77E3A /* Build configuration list for PBXNativeTarget "Widgets_SOZIPExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BDDBC2F29DD3B5B00B77E3A /* Debug */,
+				7BDDBC3029DD3B5B00B77E3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F643D34D269AD69900C4251A /* Build configuration list for PBXProject "SOZIP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1776,7 +2088,7 @@
 				kind = branch;
 			};
 		};
-		7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */ = {
+		7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {
@@ -1784,7 +2096,7 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */ = {
+		7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -1792,7 +2104,7 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */ = {
+		7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -1800,7 +2112,7 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1808,7 +2120,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */ = {
+		7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -1816,7 +2128,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM.git" */ = {
+		7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jaemyeong/NMapsMap-SPM.git";
 			requirement = {
@@ -1824,7 +2136,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager.git" */ = {
+		F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
 			requirement = {
@@ -1832,7 +2144,7 @@
 				minimumVersion = 2.3.1;
 			};
 		};
-		F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip.git" */ = {
+		F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/quassummanus/SwiftUI-Tooltip.git";
 			requirement = {
@@ -1885,27 +2197,27 @@
 		};
 		7B67AFF229D0254600E6EF85 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads.git" */;
+			package = 7B67AFF129D0254600E6EF85 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
 		};
 		7B67AFF529D0257E00E6EF85 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift.git" */;
+			package = 7B67AFF429D0257E00E6EF85 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
 			productName = CryptoSwift;
 		};
 		7B67AFF829D0259D00E6EF85 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI.git" */;
+			package = 7B67AFF729D0259D00E6EF85 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
 		7B67AFFB29D025BE00E6EF85 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = 7B67AFFA29D025BE00E6EF85 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		7B67AFFE29D025E000E6EF85 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON.git" */;
+			package = 7B67AFFD29D025E000E6EF85 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
 		7B67B00129D0279800E6EF85 /* FirebaseMLModelDownloader */ = {
@@ -1915,17 +2227,17 @@
 		};
 		7B67B00429D0299C00E6EF85 /* NMapsMap */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM.git" */;
+			package = 7B67B00329D0299C00E6EF85 /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */;
 			productName = NMapsMap;
 		};
 		F6222E9726D53CBD000B5399 /* SwiftUIPager */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager.git" */;
+			package = F6222E9626D53CBD000B5399 /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
 		};
 		F6BA7A5826D6269E000F3EF7 /* SwiftUITooltip */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip.git" */;
+			package = F6BA7A5726D6269E000F3EF7 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */;
 			productName = SwiftUITooltip;
 		};
 /* End XCSwiftPackageProductDependency section */

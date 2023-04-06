@@ -56,6 +56,10 @@ struct SOZIPListModel: View {
                     .foregroundColor(isImminent ? .white : data.color)
                     .frame(width : 5, height : 30)
                 
+                Image(systemName : data.type == .DELIVERY ? "bicycle.circle.fill" : "takeoutbag.and.cup.and.straw.fill")
+                    .foregroundColor(isImminent ? .white : .txt_color)
+                    .multilineTextAlignment(.leading)
+                
                 Text(data.SOZIPName)
                     .fontWeight(.semibold)
                     .foregroundColor(isImminent ? .white : .txt_color)

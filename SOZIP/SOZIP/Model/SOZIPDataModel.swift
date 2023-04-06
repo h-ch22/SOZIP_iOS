@@ -25,9 +25,10 @@ struct SOZIPDataModel : Hashable{
     var account : String
     var profile : [String : String]
     var url : String?
+    var type : SOZIPPackagingTypeModel = .DELIVERY
     
     init(docId : String, SOZIPName : String, currentPeople : Int, location_description : String, time : Date, Manager : String, participants : [String : String], location : String,
-         address : String, status : String, color : Color, account : String, profile : [String : String], url : String?, category : String, firstCome : Int){
+         address : String, status : String, color : Color, account : String, profile : [String : String], url : String?, category : String, firstCome : Int, type : SOZIPPackagingTypeModel){
         self.docId = docId
         self.SOZIPName = SOZIPName
         self.currentPeople = currentPeople
@@ -44,5 +45,6 @@ struct SOZIPDataModel : Hashable{
         self.url = url
         self.firstCome = firstCome
         self.category = category
+        self.type = type
     }
 }

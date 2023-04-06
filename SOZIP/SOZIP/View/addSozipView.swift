@@ -34,6 +34,7 @@ struct addSozipView: View {
     @State private var alertModel : addSOZIPResultModel?
     @State private var isProcessing = false
     @State var redrawPreview = false
+    @State private var packagingModel : SOZIPPackagingTypeModel = .DELIVERY
     
     @State private var page : Page = Page.first()
     @State private var categoryPage : Page = Page.first()
@@ -46,6 +47,7 @@ struct addSozipView: View {
     @StateObject var userManagement = UserManagement()
     
     let helper = SOZIPHelper()
+    let activityHelper = LiveActivityHelper()
     
     let dateFormattr : DateFormatter = {
         let df = DateFormatter()
@@ -101,6 +103,73 @@ struct addSozipView: View {
         .background(RoundedRectangle(cornerRadius: 15)
                         .foregroundColor(self.categoryPage.index == page ? .accent : .gray)
                         .shadow(radius: 5))
+    }
+    
+    func typeView() -> some View{
+        VStack{
+            Spacer().frame(height : 20)
+            
+            HStack{
+                Text("소집 방식 선택")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.txt_color)
+                
+                Spacer()
+            }
+            
+            Spacer().frame(height : 5)
+
+            HStack{
+                Button(action : {
+                    self.packagingModel = .DELIVERY
+                }){
+                    VStack{
+                        HStack{
+                            Spacer()
+                            
+                            CheckBox_w(checked : .constant(self.packagingModel == .DELIVERY ? true : false))
+                        }
+                        
+                        Spacer().frame(height : 10)
+                        
+                        HStack{
+                            Image(systemName : "bicycle.circle.fill")
+                                .font(.title3)
+                            Text("배달")
+                                .font(.title3)
+                        }.foregroundColor(self.packagingModel == .DELIVERY ? .white : .txt_color)
+                    }
+
+                }.padding(20)
+                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(self.packagingModel == .DELIVERY ? .accent : .btn_color).shadow(radius:5))
+                
+                Button(action : {
+                    self.packagingModel = .TAKE_OUT
+                }){
+                    VStack {
+                        HStack{
+                            Spacer()
+                            
+                            CheckBox_w(checked : .constant(self.packagingModel == .TAKE_OUT ? true : false))
+                        }
+                        
+                        Spacer().frame(height : 10)
+                        
+                        HStack{
+                            Image(systemName : "takeoutbag.and.cup.and.straw.fill")
+                                .font(.title3)
+
+                            Text("포장")
+                                .font(.title3)
+
+                        }.foregroundColor(self.packagingModel == .TAKE_OUT ? .white : .accent)
+                    }
+                }.padding(20)
+                    .background(RoundedRectangle(cornerRadius: 15).foregroundColor(self.packagingModel == .TAKE_OUT ? .accent : .btn_color).shadow(radius:5))
+            }
+            
+            Spacer().frame(height : 20)
+        }
     }
     
     var body: some View {
@@ -413,9 +482,9 @@ struct addSozipView: View {
                             
                         }
                         
-                        Spacer().frame(height : 20)
-                        
                         Group{
+                            typeView()
+                            
                             HStack{
                                 Text("소집 색상")
                                     .fontWeight(.semibold)
@@ -536,7 +605,8 @@ struct addSozipView: View {
                                                 account: "\(bank) \(account) \(name)",
                                                 url : self.url,
                                                 category : self.tags[selectedTag],
-                                                firstCome : firstCome){result in
+                                                firstCome : firstCome,
+                                                type : packagingModel){result in
 
                                     guard let result = result else{return}
 
@@ -544,6 +614,9 @@ struct addSozipView: View {
                                         isProcessing = false
                                         alertModel = .success
                                         showAlert = true
+                                        activityHelper.startActivity(totalCount : firstCome,
+                                                                     SOZIPName : roomName,
+                                                                     end : selectedDate)
                                     }
 
                                     else{
@@ -621,6 +694,7 @@ struct addSozipView: View {
             
         }
     }
+
 }
 
 struct addSozipView_Previews: PreviewProvider {

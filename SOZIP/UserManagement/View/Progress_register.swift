@@ -36,16 +36,11 @@ struct Progress_register: View {
                 Spacer()
                 
                 ZStack{
-                    Image("ic_register_process_bg")
+                    Image("appstore")
                         .resizable()
-                        .frame(width: 200, height: 200, alignment: .center)
-                    
-                    Image("ic_process_register")
-                        .resizable()
-                        .frame(width: 70, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .rotationEffect(Angle(degrees: self.isAnimating ? 360 : 0.0))
-                                            .animation(self.isAnimating ? foreverAnimation : .default)
-                                            .onAppear { self.isAnimating = true }
+                        .frame(width: 150, height: 150, alignment: .center)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .shadow(radius: 5)
                 }
 
                 Text("가입 처리 중...")
@@ -59,6 +54,9 @@ struct Progress_register: View {
                 
                 Spacer()
                 
+                ProgressView()
+                
+                Spacer().frame(height : 10)
                 
                 Text("네트워크 상태에 따라 최대 1분 정도 소요될 수 있어요.")
                     .foregroundColor(.gray)
@@ -91,37 +89,43 @@ struct Progress_register: View {
         
         .onAppear(perform: {
             helper.signUp(mail: mail, password: password, name: name, nickName: nickName, phone: phone, marketingAccept : marketingAccept){result in
-                
+
                 guard let result = result else{return}
-                
+
                 if result == "success"{
                     self.result = .success
                 }
-                
+
                 else if result.contains("already in use by another account"){
                     self.result = .AlreadyInUse
                 }
-                
+
                 else if result.contains("invalid"){
                     self.result = .invalidEmail
                 }
-                
+
                 else if result.contains("allowed"){
                     self.result = .NotAllowed
                 }
-                
+
                 else if result.contains("weak"){
                     self.result = .WeakPassword
                 }
-                
+
                 else if result.contains("metadata"){
                     self.result = .noMetaData
                 }
-                
+
                 else{
                     self.result = .fail
                 }
             }
         })
+    }
+}
+
+struct Progress_register_previews : PreviewProvider{
+    static var previews: some View{
+        Progress_register(name: .constant(""), nickName: .constant(""), phone: .constant(""), mail: .constant(""), password: .constant(""), marketingAccept: .constant(true), helper: UserManagement())
     }
 }

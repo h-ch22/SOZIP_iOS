@@ -17,7 +17,7 @@ class SOZIPHelper : ObservableObject{
     @Published var SingleSOZIPModel : SOZIPDataModel? = nil
     @Published var categoryList : [String] = []
     
-    func addSOZIP(name : String, receiver : SOZIPLocationReceiver, dateTime : Date, color : Color, account : String, url : String, category : String, firstCome : Int, completion : @escaping(_ result : Bool?) -> Void){
+    func addSOZIP(name : String, receiver : SOZIPLocationReceiver, dateTime : Date, color : Color, account : String, url : String, category : String, firstCome : Int, type : SOZIPPackagingTypeModel, completion : @escaping(_ result : Bool?) -> Void){
         let docRef = db.collection("SOZIP").document()
         
         let currentTime = Date()
@@ -65,7 +65,8 @@ class SOZIPHelper : ObservableObject{
             "color" : color_string,
             "last_msg_time" : dateFormatter.string(from: currentTime),
             "account" : account,
-            "url" : url
+            "url" : url,
+            "type" : type == .DELIVERY ? "DELIVERY" : "TAKE_OUT"
         ]
         
         docRef.setData(data){error in
@@ -198,6 +199,7 @@ class SOZIPHelper : ObservableObject{
                         let profile = diff.document.get("profiles") as? [String : String] ?? [:]
                         var colorCode : Color = .sozip_bg_1
                         let url = diff.document.get("url") as! String?
+                        let type = diff.document.get("type") as? String ?? "DELIVERY"
                         
                         switch color{
                         case "bg_1":
@@ -244,7 +246,8 @@ class SOZIPHelper : ObservableObject{
                                                         profile : profile,
                                                         url : url,
                                                         category : category,
-                                                        firstCome : firstCome)
+                                                        firstCome : firstCome,
+                                                        type : type == "DELIVERY" ? .DELIVERY : .TAKE_OUT)
                             )
                         }
                     }
@@ -267,6 +270,8 @@ class SOZIPHelper : ObservableObject{
                         let url = diff.document.get("url") as! String?
                         let category = diff.document.get("category") as? String ?? ""
                         let firstCome = diff.document.get("firstCome") as? Int ?? 4
+                        let type = diff.document.get("type") as? String ?? "DELIVERY"
+                        
                         let formatter = DateFormatter()
                         formatter.dateFormat = "yyyy. MM. dd kk:mm:ss.SSSS"
                         
@@ -312,7 +317,8 @@ class SOZIPHelper : ObservableObject{
                             profile : profile,
                             url : url,
                             category : category,
-                            firstCome : firstCome)
+                            firstCome : firstCome,
+                            type : type == "DELIVERY" ? .DELIVERY : .TAKE_OUT)
                         
                         let index = self.SOZIPList.firstIndex(where : {$0.docId == docId})
                         

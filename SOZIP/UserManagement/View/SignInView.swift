@@ -42,7 +42,7 @@ struct SignInView: View {
                                 .fontWeight(.bold)
                             
                             Text(": SOZIP")
-                                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                .font(.title)
                             
                         }
                     }

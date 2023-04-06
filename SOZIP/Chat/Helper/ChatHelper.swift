@@ -331,7 +331,7 @@ class ChatHelper : ObservableObject{
             }
         }
     }
-    
+        
     func sendMultipleImages(image : [ChatPhotoPickerModel], rootDocId : String, completion : @escaping(_ result : String?) -> Void){
         var chatRef : DocumentReference? = nil
         var imgURL : [String] = []

@@ -6,10 +6,16 @@
 > An application for Delivery Cost Dutch Pay
 > This Project is archived : This project has been discontinued and will no longer be updated.
 
+
+
 * Build Environment
   + macOS 12.0, Xcode 13, iOS 15
   + Minimum iOS Version : iOS 14.0 or up.
   + Built with Swift, SwiftUI
+
+> ChangeLog<br>
+>> 2023.04.06.<br>
+>>> Support Dynamic Island(iPhone 14 Pro, Pro Max or up), Live Activities (iOS 16 or up), DutchPay, Take-out selection<br>
 
 #### Create your own room, or participate any room what you want
 
