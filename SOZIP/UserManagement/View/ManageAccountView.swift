@@ -277,14 +277,16 @@ struct ManageAccountView: View {
         })
         
         .onAppear{
-            userManagement.getAccountInfo()
+            userManagement.getAccountInfo(){result in
+                guard let result = result else{return}
+            }
         }
         
         .fullScreenCover(isPresented: $showSignIn, content: {
             SignInView(helper : UserManagement())
         })
         
-        .alert(isPresented: $showModal){
+        .alert(isPresented: $showAlert){
             switch alertType{
             case .update:
                 return Alert(title: Text("계좌 정보 업데이트"),

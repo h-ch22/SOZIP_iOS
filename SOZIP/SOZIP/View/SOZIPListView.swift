@@ -191,7 +191,8 @@ struct SOZIPListView: View {
         })
         
         .sheet(isPresented : $showModal){
-            addSozipView(isShowing: $showModal, receiver : SOZIPLocationReceiver(), userManagement: UserManagement())
+            addSozipView(isShowing: $showModal, receiver : SOZIPLocationReceiver()).environmentObject(UserManagement())
         }
+        .navigationViewStyle(.automatic)
     }
 }

@@ -187,7 +187,10 @@ struct ChatListModel: View {
                 
                 Spacer()
             }
-        }.padding([.vertical], 20)
+        }.padding(20)
+            .background(RoundedRectangle(cornerRadius: 15.0)
+                            .shadow(radius: 2, x: 0, y: 2)
+                            .foregroundColor(.btn_color))
         .onAppear(perform: {
             self.setProfiles()
             self.setProfileBG()

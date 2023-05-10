@@ -100,9 +100,10 @@ struct enterAccountNumber: View {
                             }
                             .foregroundColor(isAccountNumberEditing ? Color.accent : Color.txt_color)
                             .padding(20)
-                            .padding([.horizontal], 20)
-                            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(.btn_color).shadow(radius: 5)
-                                            .padding([.horizontal],15))
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                            .foregroundColor(.btn_color)
+                                            .shadow(radius: 5))
+                            .frame(width : 300)
                             
                             Spacer().frame(height : 20)
                             
@@ -123,11 +124,10 @@ struct enterAccountNumber: View {
                             }
                             .foregroundColor(isNameEditing ? Color.accent : Color.txt_color)
                             .padding(20)
-                            .padding([.horizontal], 20)
                             .background(RoundedRectangle(cornerRadius: 10)
                                             .foregroundColor(.btn_color)
-                                            .shadow(radius: 5)
-                                            .padding([.horizontal],15))
+                                            .shadow(radius: 5))
+                            .frame(width : 300)
                             
                             if consonant != ""{
                                 Spacer().frame(height : 10)

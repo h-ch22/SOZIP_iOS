@@ -159,7 +159,9 @@ struct AccountPicker: View {
             })
             
             .onAppear{
-                userManagement.getAccountInfo()
+                userManagement.getAccountInfo(){result in
+                    guard let result = result else{return}
+                }
             }
             
             .overlay(ProgressView().isHidden(!showOverlay))

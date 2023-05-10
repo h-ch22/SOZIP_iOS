@@ -59,7 +59,9 @@ struct addBankAccount: View {
                 .navigationBarTitle("계좌 정보 등록", displayMode: .inline)
                 .navigationBarItems(leading: Button("닫기"){
                     self.presentationMode.wrappedValue.dismiss()
-                })
+                }).navigationViewStyle(.stack)
+                    
+                
             }
             
         }

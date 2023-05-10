@@ -6,11 +6,17 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct DutchPayView: View {
     @State private var payType : PayTypeModel = .DUTCH_PAY
     @State private var fees = ""
     @State private var isFieldUsing = false
+    @StateObject var helper : ChatHelper
+    
+    @Environment(\.presentationMode) private var presentationMode
+    @EnvironmentObject var laHelper : LAHelper
+    
     let data : SOZIPDataModel
     
     private func profileToEmoji(profile : String) -> String{
@@ -149,12 +155,54 @@ struct DutchPayView: View {
                             Text("소집 참가자들에게 \(Int(fees) ?? 1 / data.currentPeople)원을 정산 요청합니다.")
                                 .font(.caption)
                                 .foregroundColor(.gray)
+                        } else if fees ~= "" && fees ~= "0" && payType == .SEPERATE{
+                            Spacer().frame(height : 20)
+                            
+                            HStack{
+                                Text("정산 금액 입력")
+                                    .foregroundColor(.txt_color)
+                                
+                                Spacer()
+                            }
+                            
+//                            ForEach(data.participants.values, id : \.self){ participant in
+//                                HStack{
+//                                    Text(participant)
+//                                        .font(.caption)
+//                                        .foregroundColor(.gray)
+//                                    
+//                                    Spacer()
+//                                }
+//                                
+//                                
+//                            }
                         }
 
                         
                         Spacer().frame(height : 20)
                         
-                        Button(action : {}){
+                        Button(action : {
+                            if !laHelper.isAuthenticated{
+                                laHelper.auth(){result in
+                                    guard let result = result else{return}
+                                    
+                                    if result{
+                                        helper.sendAccount(rootDocId: data.docId, account: data.account){ result in
+                                            guard let result = result else{return}
+                                            
+                                            self.presentationMode.wrappedValue.dismiss()
+                                        }
+                                    }
+                                }
+                                
+                            } else{
+                                helper.sendAccount(rootDocId: data.docId, account: data.account){ result in
+                                    guard let result = result else{return}
+                                    
+                                    self.presentationMode.wrappedValue.dismiss()
+                                }
+                            }
+                        }){
                             HStack{
                                 Text("계좌 정보 전송")
                                     .foregroundColor(.white)
@@ -173,7 +221,7 @@ struct DutchPayView: View {
                 .navigationBarTitle("정산 방식 선택")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(trailing: Button("닫기"){
-                    
+                    self.presentationMode.wrappedValue.dismiss()
                 })
             }
  
@@ -183,8 +231,8 @@ struct DutchPayView: View {
     }
 }
 
-struct DutchPayView_Previews: PreviewProvider {
-    static var previews: some View {
-        DutchPayView(data : SOZIPDataModel(docId: "", SOZIPName: "", currentPeople: 2, location_description: "", time: Date(), Manager: "", participants: ["T75V2SOfYfTfPshuanFIw4XzP9y2" : "Changjin", "1" : "Changjin2"], location: "", address: "", status: "", color: .sozip_bg_1, account: "KB 국민은행 79620101653747", profile: ["T75V2SOfYfTfPshuanFIw4XzP9y2":"chick,bg_1", "1" : "pig,bg_3"], url: "", category: "", firstCome: 2, type: .DELIVERY))
-    }
-}
+//struct DutchPayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DutchPayView(data : SOZIPDataModel(docId: "", SOZIPName: "", currentPeople: 2, location_description: "", time: Date(), Manager: "", participants: ["T75V2SOfYfTfPshuanFIw4XzP9y2" : "Changjin", "1" : "Changjin2"], location: "", address: "", status: "", color: .sozip_bg_1, account: "KB 국민은행 79620101653747", profile: ["T75V2SOfYfTfPshuanFIw4XzP9y2":"chick,bg_1", "1" : "pig,bg_3"], url: "", category: "", firstCome: 2, type: .DELIVERY))
+//    }
+//}

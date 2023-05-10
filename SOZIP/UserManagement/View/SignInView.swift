@@ -93,10 +93,19 @@ struct SignInView: View {
                                     guard let result = result else{return}
                                     
                                     if result == "success"{
+                                        UserDefaults.standard.set(AES256Util.encrypt(string: email), forKey: "signIn_mail")
+                                        UserDefaults.standard.set(AES256Util.encrypt(string: password), forKey: "signIn_password")
+
                                         showProcess = false
                                         showHome = true
                                         print("signIn success")
                                     }
+                                    
+//                                    if result == "NotVerified"{
+//                                        alertModel = .notVerified
+//                                        showProcess = false
+//                                        showAlert = true
+//                                    }
                                     
                                     else{
                                         alertModel = .error
@@ -134,7 +143,7 @@ struct SignInView: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     
-                                    Text("학생증 인증 바로가기")
+                                    Text("학교 인증 바로가기")
                                         .foregroundColor(.white)
                                         .font(.caption)
                                 }
@@ -203,6 +212,12 @@ struct SignInView: View {
                         return Alert(title: Text("로그인 실패"),
                                      message: Text("로그인 중 오류가 발생했습니다.\n입력한 정보를 확인한 후 다시 시도해주십시오."),
                                      dismissButton: .default(Text("확인")))
+                        
+                    case .notVerified:
+                        return Alert(title: Text("E-Mail 인증 필요"),
+                                     message: Text("로그인하려면 E-Mail 인증을 진행해주세요."),
+                                     dismissButton: .default(Text("확인")))
+                        
                     case .none:
                         break
                     }
@@ -223,7 +238,7 @@ struct SignInView: View {
                 if user_mail != nil && user_password != nil{
                     showProcess = true
                     
-                    helper.signIn(mail : email, password: password){(result) in
+                    helper.signIn(mail : AES256Util.decrypt(encoded: email), password: AES256Util.decrypt(encoded: password)){(result) in
                         guard let result = result else{return}
                         
                         if result == "success"{

@@ -11,7 +11,7 @@ struct Progress_register: View {
 //    @Binding var img_IDCard : Image?
     @Binding var name : String
     @Binding var nickName : String
-//    @Binding var studentNo : String
+    @Binding var studentNo : String
     @Binding var phone : String
     @Binding var mail : String
     @Binding var password : String
@@ -88,7 +88,7 @@ struct Progress_register: View {
         }
         
         .onAppear(perform: {
-            helper.signUp(mail: mail, password: password, name: name, nickName: nickName, phone: phone, marketingAccept : marketingAccept){result in
+            helper.signUp(mail: mail, password: password, name: name, nickName: nickName, phone: phone, marketingAccept : marketingAccept, studentNo : studentNo){result in
 
                 guard let result = result else{return}
 
@@ -126,6 +126,6 @@ struct Progress_register: View {
 
 struct Progress_register_previews : PreviewProvider{
     static var previews: some View{
-        Progress_register(name: .constant(""), nickName: .constant(""), phone: .constant(""), mail: .constant(""), password: .constant(""), marketingAccept: .constant(true), helper: UserManagement())
+        Progress_register(name: .constant(""), nickName: .constant(""), studentNo: .constant(""), phone: .constant(""), mail: .constant(""), password: .constant(""), marketingAccept: .constant(true), helper: UserManagement())
     }
 }

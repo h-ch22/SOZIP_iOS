@@ -8,7 +8,7 @@
 import Foundation
 
 enum signInResultModel : Identifiable{
-    case success, noNetwork, disabled, fail, error, noField
+    case success, noNetwork, disabled, fail, error, noField, notVerified
     
     var id : Int{
         hashValue

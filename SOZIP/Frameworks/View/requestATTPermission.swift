@@ -28,9 +28,10 @@ struct requestATTPermission: View {
                     .foregroundColor(.txt_color)
                     .multilineTextAlignment(.center)
                 
-                Spacer().frame(height : 40)
+                Spacer().frame(height : 20)
                 
                 Text("고객님의 광고 활동 정보를 광고 서비스 제공업체와 공유할지 결정하세요.\n정보는 모두 익명으로 제공되며, 거부 시 랜덤으로 광고가 표시됩니다.")
+                    .font(.caption)
                     .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.center)
@@ -62,7 +63,9 @@ struct requestATTPermission: View {
                             .foregroundColor(.white)
                     }.padding(20)
                         .padding([.horizontal], 80)
-                    .background(RoundedRectangle(cornerRadius: 15).shadow(radius: 5))
+                        .background(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                        .shadow(radius: 5)
+                                        .foregroundColor(.accent))
                 }
             }.padding(20)
         }

@@ -10,6 +10,7 @@ import Firebase
 import SwiftUI
 import UIKit
 import FirebaseStorage
+import FirebaseAuth
 
 class UserManagement : ObservableObject{
     private let db = Firestore.firestore()
@@ -24,7 +25,89 @@ class UserManagement : ObservableObject{
     @Published var profile_bg = UserDefaults.standard.string(forKey : "profile_bg")
     @Published var accounts : [accountDataModel] = []
     
-    func signUp(mail : String, password : String, name : String, nickName : String, phone : String, marketingAccept : Bool,
+    func detectSchool(domain : String) -> String?{
+        
+        switch domain{
+        case "kangwon.ac.kr":
+            return "KANGWONNU"
+            
+        case "knu.ac.kr":
+            return "KNU"
+            
+        case "gnu.ac.kr":
+            return "GNU"
+            
+        case "pusan.ac.kr":
+            return "PNU"
+            
+        case "snu.ac.kr":
+            return "SNU"
+            
+        case "jnu.ac.kr":
+            return "JNU"
+            
+        case "jbnu.ac.kr":
+            return "JBNU"
+            
+        case "jejunu.ac.kr":
+            return "JEJUNU"
+            
+        case "cnu.ac.kr":
+            return "CNU"
+            
+        case "chungbuk.ac.kr":
+            return "CBNU"
+            
+        default:
+            return nil
+        }
+    }
+    
+    func getSchoolName(email : String) -> String?{
+        let domain = email.components(separatedBy: "@")[1]
+        let school_init = detectSchool(domain: domain)
+        
+        if school_init == nil{
+            return nil
+        } else{
+            switch school_init{
+            case "KANGWONNU":
+                return "강원대학교"
+                
+            case "KNU":
+                return "경북대학교"
+                
+            case "GNU":
+                return "경상국립대학교"
+                
+            case "PNU":
+                return "부산대학교"
+                
+            case "SNU":
+                return "서울대학교"
+                
+            case "JNU":
+                return "전남대학교"
+                
+            case "JBNU":
+                return "전북대학교"
+                
+            case "JEJUNU":
+                return "제주대학교"
+                
+            case "CNU":
+                return "충남대학교"
+                
+            case "CBNU":
+                return "충북대학교"
+                
+            default :
+                return nil
+            }
+        }
+    }
+    
+    func signUp(mail : String, password : String, name : String, nickName : String, phone : String, marketingAccept : Bool, studentNo : String,
                 completion: @escaping(_ result : String?) -> Void){
         Auth.auth().createUser(withEmail: mail, password: password){authResult, error in
             if let error = error{
@@ -44,7 +127,7 @@ class UserManagement : ObservableObject{
                     "nickName" : AES256Util.encrypt(string: nickName),
                     "phone" : AES256Util.encrypt(string: phone),
 //                    "school" : AES256Util.encrypt(string: school),
-//                    "studentNo" : AES256Util.encrypt(string: studentNo),
+                    "studentNo" : AES256Util.encrypt(string: studentNo),
                     "token" : Messaging.messaging().fcmToken ?? "",
                     "marketingAccept" : marketingAccept,
                     "profile" : "chick",
@@ -56,15 +139,16 @@ class UserManagement : ObservableObject{
                     }
                     
                     else{
-                        UserDefaults.standard.set(mail, forKey: "signIn_mail")
-                        UserDefaults.standard.set(password, forKey: "signIn_password")
-                        UserDefaults.standard.set(AES256Util.encrypt(string: name), forKey: "name")
-//                        UserDefaults.standard.set(AES256Util.encrypt(string: school), forKey: "school")
-                        UserDefaults.standard.set(AES256Util.encrypt(string: nickName), forKey: "nickName")
-                        UserDefaults.standard.set(marketingAccept, forKey : "receiveMarketing")
-                        UserDefaults.standard.set("chick", forKey: "profile")
-                        UserDefaults.standard.set("bg_1", forKey: "profile_bg")
-                        
+//                        Auth.auth().currentUser?.sendEmailVerification(){error in
+//                            if error != nil{
+//                                print(error)
+//                                completion(error?.localizedDescription)
+//                            } else{
+//                                try? Auth.auth().signOut()
+//
+//                                completion("success")
+//                            }
+//                        }
                         completion("success")
                     }
                 }
@@ -91,25 +175,32 @@ class UserManagement : ObservableObject{
                         
                         else{
                             if document != nil{
-                                let name = document!.get("name") as? String ?? ""
-//                                let school = document!.get("school") as? String ?? ""
-                                let nickName = document!.get("nickName") as? String ?? ""
-                                let bounds = document!.get("bounds") as? Int ?? 0
-                                let receiveMarketing = document!.get("acceptMarketing") as? Bool ?? false
-                                let profile = document!.get("profile") as? String ?? ""
-                                let profile_bg = document!.get("profile_bg") as? String ?? ""
-                                
-                                UserDefaults.standard.set(name, forKey: "name")
-//                                UserDefaults.standard.set(school, forKey: "school")
-                                UserDefaults.standard.set(nickName, forKey: "nickName")
-                                UserDefaults.standard.set(bounds, forKey: "bounds")
-                                UserDefaults.standard.set(receiveMarketing, forKey : "receiveMarketing")
-                                UserDefaults.standard.set(profile, forKey: "profile")
-                                UserDefaults.standard.set(profile_bg, forKey: "profile_bg")
+//                                if Auth.auth().currentUser!.isEmailVerified{
+                                    let name = document!.get("name") as? String ?? ""
+    //                                let school = document!.get("school") as? String ?? ""
+                                    let nickName = document!.get("nickName") as? String ?? ""
+                                    let bounds = document!.get("bounds") as? Int ?? 0
+                                    let receiveMarketing = document!.get("acceptMarketing") as? Bool ?? false
+                                    let profile = document!.get("profile") as? String ?? ""
+                                    let profile_bg = document!.get("profile_bg") as? String ?? ""
+                                    
+                                    UserDefaults.standard.set(name, forKey: "name")
+    //                                UserDefaults.standard.set(school, forKey: "school")
+                                    UserDefaults.standard.set(nickName, forKey: "nickName")
+                                    UserDefaults.standard.set(bounds, forKey: "bounds")
+                                    UserDefaults.standard.set(receiveMarketing, forKey : "receiveMarketing")
+                                    UserDefaults.standard.set(profile, forKey: "profile")
+                                    UserDefaults.standard.set(profile_bg, forKey: "profile_bg")
 
-                                self.updateToken()
-                                
-                                completion("success")
+                                    self.updateToken()
+                                    
+                                    completion("success")
+//                                }
+//                                else{
+//                                    try? Auth.auth().signOut()
+//                                    completion("NotVerified")
+//                                }
+
                             }
                             
                             else{
@@ -335,9 +426,16 @@ class UserManagement : ObservableObject{
             }
             
             else{
-                self.getAccountInfo()
+                self.getAccountInfo(){result in
+                    guard let result = result else{return}
+                    
+                    if result{
+                        completion("success")
+                    } else{
+                        completion("error")
+                    }
+                }
                 
-                completion("success")
             }
         }
     }
@@ -358,8 +456,11 @@ class UserManagement : ObservableObject{
         
     }
     
-    func getAccountInfo(){
+    func getAccountInfo(completion : @escaping(_ result : Bool?) -> Void){
+        self.accounts.removeAll()
+        
         if Auth.auth().currentUser == nil{
+            completion(false)
             return
         }
         
@@ -370,6 +471,7 @@ class UserManagement : ObservableObject{
             
             if let error = error{
                 print(error)
+                completion(false)
                 return
             }
             
@@ -385,10 +487,10 @@ class UserManagement : ObservableObject{
                     
                     self.accounts.append(accountDataModel(bank: bank, accountNumber: accountNumber, name: name))
                 }
+                
+                completion(true)
             }
         }
-        
-        
     }
     
     func getPersonalInfo(completion : @escaping(_ result : String?) -> Void) -> PersonalInfoModel{
@@ -427,6 +529,20 @@ class UserManagement : ObservableObject{
             
             return info ?? PersonalInfoModel(name: "", phone: "", email: "", studentNo: "", school: "", nickName: "")
         }
+    }
+    
+    func updatePhone(phone : String, completion : @escaping(_ result : Bool?) -> Void){
+        db.collection("Users").document(Auth.auth().currentUser?.uid ?? "").updateData([
+            "phone" : AES256Util.encrypt(string: phone)]){error in
+                if error != nil{
+                    print(error)
+                    completion(false)
+                    return
+                } else{
+                    completion(true)
+                    return
+                }
+            }
     }
     
     func updateProfile(nickName : String, bg : Color, profile : String, completion : @escaping(_ result : Bool?) -> Void){

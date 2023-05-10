@@ -44,7 +44,7 @@ struct addSozipView: View {
     @Binding var isShowing : Bool
     
     @ObservedObject var receiver : SOZIPLocationReceiver
-    @StateObject var userManagement = UserManagement()
+    @EnvironmentObject var userManagement : UserManagement
     
     let helper = SOZIPHelper()
     let activityHelper = LiveActivityHelper()
@@ -415,6 +415,7 @@ struct addSozipView: View {
                                 
                                 Spacer()
                                 
+                                
                                 Button(action : {
                                     self.showAddAccount = true
                                 }){
@@ -422,6 +423,18 @@ struct addSozipView: View {
                                         .foregroundColor(.accent)
                                     
                                 }.isHidden(userManagement.accounts.isEmpty)
+                                
+                                Spacer().frame(width : 10)
+                                    .isHidden(userManagement.accounts.isEmpty)
+                                
+                                Button(action : {
+                                    userManagement.getAccountInfo(){result in
+                                        guard let result = result else{return}
+                                    }
+                                }){
+                                    Image(systemName : "arrow.clockwise.circle.fill")
+                                        .foregroundColor(.accent)
+                                }
                             }
                             
                             Spacer().frame(height : 5)
@@ -689,16 +702,19 @@ struct addSozipView: View {
             }
             
             .onAppear(perform : {
-                userManagement.getAccountInfo()
+                userManagement.getAccountInfo(){result in
+                    guard let result = result else{return}
+                }
             })
             
         }
+
     }
 
 }
-
-struct addSozipView_Previews: PreviewProvider {
-    static var previews: some View {
-        addSozipView(isShowing: .constant(true), receiver: SOZIPLocationReceiver(), userManagement: UserManagement())
-    }
-}
+//
+//struct addSozipView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        addSozipView(isShowing: .constant(true), receiver: SOZIPLocationReceiver(), userManagement: UserManagement())
+//    }
+//}

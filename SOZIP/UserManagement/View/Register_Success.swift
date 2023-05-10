@@ -26,16 +26,17 @@ struct Register_Success: View {
                         .foregroundColor(.green)
                     
                     
-                    Spacer().frame(height : 40)
+                    Spacer().frame(height : 20)
 
-                    Text("회원가입이 완료되었습니다.")
+                    Text("계속하려면 E-Mail 인증을 진행해주세요!")
                         .font(.title)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .foregroundColor(.txt_color)
+                        .multilineTextAlignment(.center)
                     
                     Spacer().frame(height : 20)
 
-                    Text("\(count)초 후 메인 페이지로 이동해요!")
+                    Text("\(count)초 후 로그인 페이지로 이동해요!")
                         .font(.caption)
                         .foregroundColor(.gray)
                     
@@ -67,7 +68,7 @@ struct Register_Success: View {
             })
             
             .fullScreenCover(isPresented: $navigateToHome, content: {
-                TabManager(chatHelper: ChatHelper(), helper : SOZIPHelper())
+                SignInView(helper : UserManagement())
             })
         }
     }

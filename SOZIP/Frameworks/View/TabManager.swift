@@ -87,7 +87,7 @@ struct TabManager: View {
             }
             
             .sheet(isPresented: $showModal, content: {
-                addSozipView(isShowing : self.$showModal, receiver : SOZIPLocationReceiver(), userManagement: UserManagement())
+                addSozipView(isShowing : self.$showModal, receiver : SOZIPLocationReceiver()).environmentObject(UserManagement())
             })
             
             .onAppear(perform: {
@@ -105,6 +105,7 @@ struct TabManager: View {
             .accentColor(.accent)
         }
         .navigationBarHidden(true)
+        .navigationViewStyle(.stack)
 
         
     }

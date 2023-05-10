@@ -287,29 +287,7 @@ struct ChatDetailView: View {
                                                 
                                                 
                                                 Button(action: {
-//                                                    var account : String? = nil
-//
-//                                                    if Auth.auth().currentUser?.uid ?? "" != SOZIPData.Manager{
-//                                                        self.showAccountPicker = true
-//
-//                                                        self.offset = 0
-//                                                        self.lastOffset = 0
-//                                                    }
-//
-//                                                    else{
-//                                                        helper.sendAccount(rootDocId: SOZIPData.docId, account : account){(result) in
-//                                                            guard let result = result else{return}
-//
-//                                                            if result == "success"{
-//                                                                self.offset = 0
-//                                                                self.lastOffset = 0
-//                                                            }
-//                                                        }
-//                                                    }
-                                                    
                                                     showDutchPayView = true
-                                                    
-                                                    
                                                 }){
                                                     VStack{
                                                         Image(systemName : "wonsign.circle.fill")
@@ -492,7 +470,7 @@ struct ChatDetailView: View {
             
         })
         .sheet(isPresented : $showDutchPayView, content : {
-            DutchPayView(data: SOZIPInfo)
+            DutchPayView(helper : helper, data: SOZIPInfo).environmentObject(LAHelper())
         })
         
         .sheet(isPresented: $showCamera, content: {

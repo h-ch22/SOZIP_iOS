@@ -23,6 +23,8 @@
 		7B67AFFF29D025E000E6EF85 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67AFFE29D025E000E6EF85 /* SwiftyJSON */; };
 		7B67B00229D0279800E6EF85 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67B00129D0279800E6EF85 /* FirebaseMLModelDownloader */; };
 		7B67B00529D0299C00E6EF85 /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 7B67B00429D0299C00E6EF85 /* NMapsMap */; };
+		7B76B6ED29E2B3CD00FE40C3 /* SupportSchoolListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76B6EC29E2B3CD00FE40C3 /* SupportSchoolListView.swift */; };
+		7B76B6F129E2C73300FE40C3 /* LAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B76B6F029E2C73300FE40C3 /* LAHelper.swift */; };
 		7BDDBC1C29DD3B5B00B77E3A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEB6A2929DB01D800FD36A6 /* WidgetKit.framework */; };
 		7BDDBC1D29DD3B5B00B77E3A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEB6A2B29DB01D800FD36A6 /* SwiftUI.framework */; };
 		7BDDBC2029DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDDBC1F29DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift */; };
@@ -285,6 +287,8 @@
 
 /* Begin PBXFileReference section */
 		7B67AFDE29D0248C00E6EF85 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B76B6EC29E2B3CD00FE40C3 /* SupportSchoolListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSchoolListView.swift; sourceTree = "<group>"; };
+		7B76B6F029E2C73300FE40C3 /* LAHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAHelper.swift; sourceTree = "<group>"; };
 		7BDDBC1B29DD3B5B00B77E3A /* Widgets_SOZIPExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets_SOZIPExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDDBC1F29DD3B5B00B77E3A /* Widgets_SOZIPBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets_SOZIPBundle.swift; sourceTree = "<group>"; };
 		7BDDBC2129DD3B5B00B77E3A /* DynamicIsland_SOZIPStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIsland_SOZIPStatus.swift; sourceTree = "<group>"; };
@@ -909,6 +913,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C672FB26D36310002064C7 /* ChatHelper.swift */,
+				7B76B6F029E2C73300FE40C3 /* LAHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1232,6 +1237,7 @@
 				F65D804A26E59ED70043703F /* ManageAccountView.swift */,
 				F65D804E26E5A8080043703F /* changeUserInfo.swift */,
 				F65D805026E5A80F0043703F /* changePassword.swift */,
+				7B76B6EC29E2B3CD00FE40C3 /* SupportSchoolListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1560,6 +1566,7 @@
 				F68489DE26EB784000A8FA2B /* CounselorView_log.swift in Sources */,
 				F68489DA26EB6F8C00A8FA2B /* CounselorChatDataModel.swift in Sources */,
 				F624306626E9D059006FC39C /* sendAccountModel.swift in Sources */,
+				7B76B6F129E2C73300FE40C3 /* LAHelper.swift in Sources */,
 				F65C265B26D7F96400C8993E /* NoticeDetailView.swift in Sources */,
 				7BDDBC6829DD7A9300B77E3A /* DynamicIsland_SOZIPAttributes.swift in Sources */,
 				F68489D626EB6A6300A8FA2B /* CounselorView_chat.swift in Sources */,
@@ -1603,6 +1610,7 @@
 				F621947C26B3E4CF004BDE7B /* FeedbackHubErrorModel.swift in Sources */,
 				F6BDB80226C36C750056F4B4 /* addBankAccount.swift in Sources */,
 				F68673E126AFD7C700F5CFEC /* validateIDCard.swift in Sources */,
+				7B76B6ED29E2B3CD00FE40C3 /* SupportSchoolListView.swift in Sources */,
 				F65D805126E5A80F0043703F /* changePassword.swift in Sources */,
 				F6071FD926BA92770005828A /* SOZIPLogModel.swift in Sources */,
 				F65D805326E5A94A0043703F /* changePasswordAlertModel.swift in Sources */,

@@ -45,15 +45,26 @@ struct ChatListView: View {
             }
             
             else{
-                List{
-                    ForEach(data.indices.filter{
-                        self.searchText.isEmpty ? true : data[$0].SOZIPName.lowercased().contains(searchText.lowercased()) || data[$0].last_msg.lowercased().contains(searchText.lowercased()) || data[$0].participants.values.contains(searchText.lowercased())
-                    }, id : \.self){index in
-                        NavigationLink(destination : ChatDetailView(SOZIPData: data[index], SOZIPHelper : SOZIPHelper, SOZIPInfo : SOZIPData.first(where: {$0.docId == data[index].docId})!)){
-                            ChatListModel(data: data[index])
+                ScrollView{
+                    LazyVStack{
+                        ForEach(data.indices.filter{
+                            self.searchText.isEmpty ? true : data[$0].SOZIPName.lowercased().contains(searchText.lowercased()) || data[$0].last_msg.lowercased().contains(searchText.lowercased()) || data[$0].participants.values.contains(searchText.lowercased())
+                        }, id : \.self){index in
+                            NavigationLink(destination : ChatDetailView(SOZIPData: data[index], SOZIPHelper : SOZIPHelper, SOZIPInfo : SOZIPData.first(where: {$0.docId == data[index].docId})!)){
+                                ChatListModel(data: data[index])
+                            }
                         }
-                    }.listRowBackground(Color.backgroundColor)
+                    }.padding([.horizontal],20)
                 }
+//                List{
+//                    ForEach(data.indices.filter{
+//                        self.searchText.isEmpty ? true : data[$0].SOZIPName.lowercased().contains(searchText.lowercased()) || data[$0].last_msg.lowercased().contains(searchText.lowercased()) || data[$0].participants.values.contains(searchText.lowercased())
+//                    }, id : \.self){index in
+//                        NavigationLink(destination : ChatDetailView(SOZIPData: data[index], SOZIPHelper : SOZIPHelper, SOZIPInfo : SOZIPData.first(where: {$0.docId == data[index].docId})!)){
+//                            ChatListModel(data: data[index])
+//                        }
+//                    }.listRowBackground(Color.backgroundColor)
+//                }
             }
         }
         .animation(.easeOut)

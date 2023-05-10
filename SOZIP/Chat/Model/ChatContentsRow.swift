@@ -196,8 +196,20 @@ struct ChatContentsRow: View {
                             }.padding()
                             .background(isMyMSG ? SOZIPData.color : .gray)
                             .clipShape(BubbleShape(myMessage: isMyMSG))
-                            
-                            
+                        } else{
+                            var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+
+                            LazyVGrid(columns : columns){
+                                ForEach(0..<data.imageIndex!, id : \.self){ item in
+                                    WebImage(url: URL(string : data.url[item]))
+                                        .resizable()
+                                        .frame(width: 150, height: 150)
+                                        .scaledToFit()
+                                }
+
+                            }.padding()
+                                .background(isMyMSG ? SOZIPData.color : .gray)
+                                .clipShape(BubbleShape(myMessage: isMyMSG))
                         }
                         
                         if !isMyMSG{
