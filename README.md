@@ -3,8 +3,8 @@
 소집 : SOZIP
 =====
 
-> An application for Delivery Cost Dutch Pay
-> This Project is archived : This project has been discontinued and will no longer be updated.
+> An application for Delivery Cost Dutch Pay<br>
+> This Project is archived : This project has been discontinued and will no longer be updated.<br><br>
 
 
 
