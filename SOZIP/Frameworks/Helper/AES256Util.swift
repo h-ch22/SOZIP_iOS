@@ -9,8 +9,8 @@ import Foundation
 import CryptoSwift
 
 class AES256Util{
-    private static let SECRET_KEY = "EJEDLWPDLthwjdckdwls991006991019"
-    private static let IV = "2DLWPDLghkdlxld2"
+    private static let SECRET_KEY = ""
+    private static let IV = ""
     private static let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
     private static func getAESObject() -> AES{
