@@ -14,6 +14,7 @@
 > ChangeLog<br>
 >> 2023.04.06.<br>
 >>> Support Dynamic Island(iPhone 14 Pro, Pro Max or up), Live Activities (iOS 16 or up), DutchPay, Take-out selection<br>
+
 >> 2023.09.01.<br>
 >>> Remove Garbage (c.f. eje, Uncontributed person)<br>
 
