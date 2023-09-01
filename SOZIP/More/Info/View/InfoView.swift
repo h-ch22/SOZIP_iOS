@@ -92,7 +92,7 @@ struct InfoView: View {
                     Spacer().frame(height : 20)
 
                     Group {
-                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "EULA", withExtension: "pdf")!).navigationBarTitle(Text("서비스 이용 약관"))){
+                        NavigationLink(destination: EmptyView()).navigationBarTitle(Text("서비스 이용 약관"))){
                             HStack{
                                 Image("ic_eula")
                                     .resizable()
@@ -111,7 +111,7 @@ struct InfoView: View {
                         
                         Spacer().frame(height : 20)
 
-                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "PrivacyLicense", withExtension: "pdf")!).navigationBarTitle(Text("개인정보 처리 방침"))){
+                        NavigationLink(destination: EmptyView()).navigationBarTitle(Text("개인정보 처리 방침"))){
                             HStack{
                                 Image("ic_privacy")
                                     .resizable()
@@ -149,7 +149,7 @@ struct InfoView: View {
                         
                         Spacer().frame(height : 20)
 
-                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "CommunityGuideLine", withExtension: "pdf")!).navigationBarTitle(Text("커뮤니티 가이드라인"))){
+                        NavigationLink(destination: EmptyView()).navigationBarTitle(Text("커뮤니티 가이드라인"))){
                             HStack{
                                 Image("ic_community")
                                     .resizable()
@@ -189,7 +189,7 @@ struct InfoView: View {
                         
                         Spacer().frame(height : 20)
                         
-                        NavigationLink(destination: PDFViewer(url : Bundle.main.url(forResource: "GPSServiceLicense", withExtension: "pdf")!).navigationBarTitle(Text("위치기반서비스 이용약관"))){
+                        NavigationLink(destination: EmptyView()).navigationBarTitle(Text("위치기반서비스 이용약관"))){
                             HStack{
                                 Image("ic_gpsLicense")
                                     .resizable()
@@ -210,17 +210,9 @@ struct InfoView: View {
                     Spacer().frame(height : 20)
                     
                     Group {
-                        Text("© 2021-2023. eje All Rights Reserved.")
+                        Text("© 2021-2023. Changjin Ha,\nAll Rights Reserved.")
                             .foregroundColor(.gray)
                             .font(.caption)
-                        
-                        Spacer().frame(height : 5)
-                        
-                        Text("이제이 | 대표 : 문소정 | 사업자등록번호 : 763-33-00865")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     }
                     
                     Spacer()

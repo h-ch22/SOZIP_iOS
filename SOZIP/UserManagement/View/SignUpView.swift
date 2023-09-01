@@ -306,7 +306,7 @@ struct SignUpView: View {
                             }){
                                 Text("읽기")
                             }.sheet(isPresented: $showLicense, content: {
-                                LicenseView(licenseType: $licenseType)
+                                EmptyView()
                             })
                             
                         }.padding(10)
@@ -333,7 +333,7 @@ struct SignUpView: View {
                             }){
                                 Text("읽기")
                             }.sheet(isPresented: $showLicense, content: {
-                                LicenseView(licenseType: $licenseType)
+                                EmptyView()
                             })
                             
                         }.padding(10)
@@ -362,7 +362,7 @@ struct SignUpView: View {
                             }){
                                 Text("읽기")
                             }.sheet(isPresented: $showLicense, content: {
-                                LicenseView(licenseType: $licenseType)
+                                EmptyView()
                             })
                             
                         }.padding(10)

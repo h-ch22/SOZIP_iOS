@@ -24,7 +24,7 @@ struct IntroduceFeedbackHub: View {
                 
                 Spacer().frame(height : 20)
                 
-                Text("소집 : SOZIP 베타를 사용하시게 된 것을 환영합니다.\n소집 : SOZIP의 여러 기능들을 마음껏 즐겨보세요!\n개선할 점이 발견되면, [더 보기]의 피드백 허브를 이용해주세요.\n\n이제이 소프트웨어 개선 프로그램에 참여해주셔서 감사합니다.")
+                Text("소집 : SOZIP 베타를 사용하시게 된 것을 환영합니다.\n소집 : SOZIP의 여러 기능들을 마음껏 즐겨보세요!\n개선할 점이 발견되면, [더 보기]의 피드백 허브를 이용해주세요.\n\n 소집:SOZIP 소프트웨어 개선 프로그램에 참여해주셔서 감사합니다.")
                     .font(.caption)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.gray)

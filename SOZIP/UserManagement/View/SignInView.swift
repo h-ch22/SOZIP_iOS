@@ -165,17 +165,9 @@ struct SignInView: View {
                     Spacer().frame(height : 20)
                     
                     Group {
-                        Text("© 2021-2023. eje All Rights Reserved.")
+                        Text("© 2021-2023. Changjin Ha,\nAll Rights Reserved.")
                             .foregroundColor(.gray)
                             .font(.caption)
-                        
-                        Spacer().frame(height : 5)
-                        
-                        Text("이제이 | 대표 : 문소정 | 사업자등록번호 : 763-33-00865")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: true, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                     }
                     
                     Spacer()
