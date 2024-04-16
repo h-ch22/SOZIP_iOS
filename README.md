@@ -1,34 +1,60 @@
-<img src="appstore.png" width=200>
+![ ](README/mockup.png)<br>
+<img src="./README/appstore.png" width=200>
 
 소집 : SOZIP
 =====
 > An application for Delivery Cost Dutch Pay<br>
 
+###### '소집(SOZIP) means to gather (people, etc.) in Korean.'
+
 ⓒ 2021 Changjin Ha, Sojung Moon. All rights reserved.
 
-#### Create your own room, or participate any room what you want
+## Features<br>
+#### Home<br>
+> Check any SOZIPs near by you, or notifications <br>
 
-<img src="0.jpeg">
-<img src="1.jpeg">
-<img src="2.jpeg">
-<img src="10.jpeg">
+![ ](README/0.jpeg)<br>
 
-#### Wherever you want, feel free to meet.
+#### SOZIP Map<br>
+> Check and contact to all SOZIPs <br>
 
-<img src="3.jpeg">
-<img src="06.jpeg">
+![ ](README/06.jpeg)<br>
 
-#### Don't know what menu there is? Please add the URL of the delivery app for participants!
+#### SOZIP<br>
+> Check location, participants, or manage your SOZIP in SOZIP Details<br>
 
-<img src="7.jpeg">
+![ ](README/2.jpeg)<br>
+![ ](README/10.jpeg)<br>
 
-#### From Real-time anonymous chatting, to paying : it's neat.
+> Don't you have a favorite SOZIP? Feel free to make it!<br>
 
-<img src="13.jpeg">
-<img src="5.jpeg">
-<img src="8.jpeg">
-<img src="9.jpeg">
+![ ](README/1.jpeg)
+![ ](README/3.jpeg)<br>
 
-#### Show others your unique personality in your profile
+#### Chat<br>
+> Feel free to talk to the participants <br>
 
-<img src="12.jpeg">
+![ ](README/13.jpeg)<br>
+
+> Or you can send any images, back accounts, or manage your SOZIP. it's so easy. <br>
+
+![ ](README/8.jpeg)
+![ ](README/5.jpeg)<br>
+
+
+#### Profile<br>
+> Show others your unique personality in your profile <br>
+
+![ ](README/12.jpeg)<br>
+
+#### Consulting<br>
+> Are you experiencing any problems using SOZIP? Feel free to contact us! <br>
+
+![ ](README/Consulting_1.png)
+![ ](README/Consulting_2.png)
+![ ](README/Consulting_3.png)<br>
+
+#### Feedback Hub<br>
+> Improve 소집 : SOZIP with your opinion. <br>
+
+![ ](README/FeedbackHub.png)<br>
