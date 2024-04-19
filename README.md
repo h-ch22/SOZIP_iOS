@@ -36,7 +36,7 @@
 
 ![ ](README/13.jpeg)<br>
 
-> Or you can send any images, back accounts, or manage your SOZIP. it's so easy. <br>
+> Or you can send any images, bank accounts, or manage your SOZIP. it's so easy. <br>
 
 ![ ](README/8.jpeg)
 ![ ](README/5.jpeg)<br>
