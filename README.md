@@ -30,6 +30,7 @@
 
 ## 🏗️ Architecture
 
+```mermaid
 graph TD
     %% Client
     subgraph Client [📱 iOS App]
@@ -42,7 +43,7 @@ graph TD
         Auth[Firebase Auth]
         DB[Firebase Firestore]
         Storage[Firebase Storage]
-        Funcions[Firebase Cloud Functions]
+        Functions[Firebase Cloud Functions]
         FCM[Firebase Cloud Messaging]
     end
 
@@ -62,6 +63,7 @@ graph TD
     DB -->|Event Trigger| Functions
     Functions -->|Send Push Request| FCM
     FCM -.->|Push Notification| UI
+```
 
 ## 🧱 If I were to rebuild it in 2026
 
